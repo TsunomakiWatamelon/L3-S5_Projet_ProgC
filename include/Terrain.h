@@ -3,7 +3,7 @@
  * @author Herve Nguyen (herve.nguyen@edu.univ-eiffel.fr)
  * @brief Header file for the Terrain module
  * @version 0.1
- * @date 2022-11-06
+ * @date 2022-11-07
  * 
  * 
  */
@@ -11,8 +11,13 @@
 #ifndef terrain
 #define terrain
 
-#define MAX_HEIGHT 60
-#define MAX_WIDTH 35
+#include <assert.h>
+#include <stdlib.h>
+
+
+#define MAX_HEIGHT 45
+#define MAX_WIDTH 60
+#define MIN_SIDE 9
 
 typedef struct square {
     int isWall;
@@ -31,6 +36,54 @@ typedef struct grid {
  * @param grid Pointer to the Grid to initialize
  */
 void initEmptyGrid(Grid *grid);
+
+/**
+ * @brief Sets the given square as a wall
+ * 
+ * The square will have no mana.
+ * 
+ * @param square Pointer to the square to set as a wall
+ */
+void squarePutWall(Square *square);
+
+/**
+ * @brief Main function for generating walls in the Grid.
+ * 
+ * Recursive function that follows a certain algorithm (see project subject in french)
+ * 
+ * @param square Two-dimensional array of square, represents the Grid
+ * @param originX x coordinate of the upper left square of the current subroom
+ * @param originY y coordinate of the upper left square of the current subroom
+ * @param sizeX horizontal size of the current subroom
+ * @param sizeY vertical size of the current subroom
+ */
+void generateWallSubroom(Square **square, int originX, int originY, int sizeX, int sizeY);
+
+/**
+ * @brief Subfunction that creates a vertical wall in the given subroom
+ * 
+ * Recursive function that follows a certain algorithm (see project subject in french)
+ * 
+ * @param square Two-dimensional array of square, represents the Grid
+ * @param originX x coordinate of the upper left square of the current subroom
+ * @param originY y coordinate of the upper left square of the current subroom
+ * @param sizeX horizontal size of the current subroom
+ * @param sizeY vertical size of the current subroom
+ */
+void installWallVertical(Square **square, int originX, int originY, int sizeX, int sizeY);
+
+/**
+ * @brief Subfunction that creates a horizontal wall in the given subroom
+ * 
+ * Recursive function that follows a certain algorithm (see project subject in french)
+ * 
+ * @param square Two-dimensional array of square, represents the Grid
+ * @param originX x coordinate of the upper left square of the current subroom
+ * @param originY y coordinate of the upper left square of the current subroom
+ * @param sizeX horizontal size of the current subroom
+ * @param sizeY vertical size of the current subroom
+ */
+void installWallHorizontal(Square **square, int originX, int originY, int sizeX, int sizeY)
 
 
 
