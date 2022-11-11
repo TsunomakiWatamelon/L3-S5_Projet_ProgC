@@ -51,13 +51,13 @@ void squarePutWall(Square *square);
  * 
  * Recursive function that follows a certain algorithm (see project subject in french)
  * 
- * @param square Two-dimensional array of square, represents the Grid
+ * @param square Pointer to a two-dimensional array of square, represents the Grid
  * @param originX x coordinate of the upper left square of the current subroom
  * @param originY y coordinate of the upper left square of the current subroom
  * @param sizeX horizontal size of the current subroom
  * @param sizeY vertical size of the current subroom
  */
-void generateWallSubroom(Square **square, int originX, int originY, int sizeX, int sizeY);
+void generateWallSubroom(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, int originY, int sizeX, int sizeY);
 
 /**
  * @brief Subfunction that creates a vertical wall in the given subroom
@@ -70,7 +70,7 @@ void generateWallSubroom(Square **square, int originX, int originY, int sizeX, i
  * @param sizeX horizontal size of the current subroom
  * @param sizeY vertical size of the current subroom
  */
-void installWallVertical(Square **square, int originX, int originY, int sizeX, int sizeY);
+void installWallVertical(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, int originY, int sizeX, int sizeY);
 
 /**
  * @brief Subfunction that creates a horizontal wall in the given subroom
@@ -83,7 +83,7 @@ void installWallVertical(Square **square, int originX, int originY, int sizeX, i
  * @param sizeX horizontal size of the current subroom
  * @param sizeY vertical size of the current subroom
  */
-void installWallHorizontal(Square **square, int originX, int originY, int sizeX, int sizeY)
+void installWallHorizontal(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, int originY, int sizeX, int sizeY);
 
 
 

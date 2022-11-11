@@ -9,6 +9,7 @@
  */
 
 #include "../include/Terrain.h"
+#include <stdio.h>
 
 /**
  * @brief Initializes an empty grid
@@ -40,8 +41,10 @@ void initEmptyGrid(Grid *grid){
 void squarePutWall(Square *square){
     assert(square != NULL);
 
+
     square->isWall = 1;
     square->hasMana = 0;
+    /* fprintf(stderr,"usdapekora\n"); */
 }
 
 /**
@@ -55,11 +58,14 @@ void squarePutWall(Square *square){
  * @param sizeX horizontal size of the current subroom
  * @param sizeY vertical size of the current subroom
  */
-void generateWallSubroom(Square **square, int originX, int originY, int sizeX, int sizeY){
+void generateWallSubroom(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, int originY, int sizeX, int sizeY){
     int random;
-    assert(sizeX < MAX_WIDTH);
+    /*
+    fprintf(stderr, "generateWallSubroom : oX %d oY %d sX %d sY %d\n", originX, originY, sizeX, sizeY);
+    */
+    assert(sizeX <= MAX_WIDTH);
     assert(0 <= sizeX); 
-    assert(sizeY < MAX_HEIGHT);
+    assert(sizeY <= MAX_HEIGHT);
     assert(0 <= sizeY);
 
     if ((sizeX < 2 * MIN_SIDE + 1) && (sizeY < 2 * MIN_SIDE + 1)){
@@ -68,7 +74,7 @@ void generateWallSubroom(Square **square, int originX, int originY, int sizeX, i
     
     if (sizeY < sizeX){
         if (sizeX < 4 * MIN_SIDE){
-            if (random = rand() % 2){
+            if ((random = rand() % 2)){
                 return;
             }
         }
@@ -76,7 +82,7 @@ void generateWallSubroom(Square **square, int originX, int originY, int sizeX, i
     }
     else {
         if (sizeY < 4 * MIN_SIDE){
-            if (random = rand() % 2){
+            if ((random = rand() % 2)){
                 return;
             }
         }
@@ -97,32 +103,31 @@ void generateWallSubroom(Square **square, int originX, int originY, int sizeX, i
  * @param sizeX horizontal size of the current subroom
  * @param sizeY vertical size of the current subroom
  */
-void installWallVertical(Square **square, int originX, int originY, int sizeX, int sizeY){
+void installWallVertical(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, int originY, int sizeX, int sizeY){
     int randomSize;
     int randomOpening;
     int offset;
     int i;
 
-    assert(sizeX < MAX_WIDTH);
-    assert(MIN_SIDE <= sizeX); 
-    assert(sizeY < MAX_HEIGHT);
+    assert(sizeX <= MAX_WIDTH);
+    assert(2 * MIN_SIDE + 1 <= sizeX); 
+    assert(sizeY <= MAX_HEIGHT);
     assert(MIN_SIDE <= sizeY);
 
     /* Determining the size of the subrooms, in other words the location of the wall */
     do {
         randomSize = rand() % sizeX;
-    } while(!(randomSize - 1 > MIN_SIDE) || !(sizeX - (randomSize + 1) > MIN_SIDE));
+    } while(!(randomSize - 1 >= MIN_SIDE) || !(sizeX - randomSize >= MIN_SIDE));
 
     /* Location of the opening */
-    randomOpening = random() % 2;
+    randomOpening = rand() % 2;
     offset = randomOpening * 3;
 
     for (i = 0; i < sizeY - 3; i++){
-        squarePutWall(&(square[originY + randomOpening][originX + randomSize]));
+        squarePutWall(&((*square)[originY + offset + i][originX + randomSize]));
     }
-
-    generateWallSubroom(square, originX, originY, randomSize - 1, sizeY);
-    generateWallSubroom(square, originX, originY + randomSize + 1, sizeX - (randomSize + 1), sizeY);
+    generateWallSubroom(square, originX, originY, randomSize, sizeY);
+    generateWallSubroom(square, originX + randomSize, originY, sizeX - randomSize, sizeY);
 
 }
 
@@ -137,31 +142,30 @@ void installWallVertical(Square **square, int originX, int originY, int sizeX, i
  * @param sizeX horizontal size of the current subroom
  * @param sizeY vertical size of the current subroom
  */
-void installWallHorizontal(Square **square, int originX, int originY, int sizeX, int sizeY){
+void installWallHorizontal(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, int originY, int sizeX, int sizeY){
     int randomSize;
     int randomOpening;
     int offset;
     int i;
 
-    assert(sizeX < MAX_WIDTH);
+    assert(sizeX <= MAX_WIDTH);
     assert(MIN_SIDE <= sizeX); 
-    assert(sizeY < MAX_HEIGHT);
-    assert(4 * MIN_SIDE <= sizeY);
+    assert(sizeY <= MAX_HEIGHT);
+    assert(2 * MIN_SIDE + 1 <= sizeY);
 
     /* Determining the size of the subrooms, in other words the location of the wall */
     do {
         randomSize = rand() % sizeY;
-    } while(!(randomSize - 1 > MIN_SIDE) || !(sizeY - (randomSize + 1) > MIN_SIDE));
+    } while(!(randomSize - 1 >= MIN_SIDE) || !(sizeY - randomSize >= MIN_SIDE));
 
     /* Location of the opening */
-    randomOpening = random() % 2;
+    randomOpening = rand() % 2;
     offset = randomOpening * 3;
 
     for (i = 0; i < sizeX - 3; i++){
-        squarePutWall(&(square[originY + randomSize][originX + randomOpening]));
+        squarePutWall(&((*square)[originY + randomSize][originX + offset + i]));
     }
-
-    generateWallSubroom(square, originX, originY, sizeX, randomSize - 1);
-    generateWallSubroom(square, originX, originY + randomSize + 1, sizeX, sizeY - (randomSize + 1));
+    generateWallSubroom(square, originX, originY, sizeX, randomSize);
+    generateWallSubroom(square, originX, originY + randomSize, sizeX, sizeY - randomSize);
 
 }
