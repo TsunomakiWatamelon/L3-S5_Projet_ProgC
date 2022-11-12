@@ -3,7 +3,7 @@
  * @author Herve Nguyen (herve.nguyen@edu.univ-eiffel.fr)
  * @brief Source file for the Terrain module
  * @version 0.1
- * @date 2022-11-07
+ * @date 2022-11-12
  * 
  * 
  */
@@ -52,7 +52,7 @@ void squarePutWall(Square *square){
  * 
  * Recursive function that follows a certain algorithm (see project subject in french)
  * 
- * @param square Two-dimensional array of square, represents the Grid
+ * @param square Pointer to a two-dimensional array of square, represents the Grid
  * @param originX x coordinate of the upper left square of the current subroom
  * @param originY y coordinate of the upper left square of the current subroom
  * @param sizeX horizontal size of the current subroom
@@ -97,14 +97,14 @@ void generateWallSubroom(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, i
  * 
  * Recursive function that follows a certain algorithm (see project subject in french)
  * 
- * @param square Two-dimensional array of square, represents the Grid
+ * @param square Pointer to a two-dimensional array of square, represents the Grid
  * @param originX x coordinate of the upper left square of the current subroom
  * @param originY y coordinate of the upper left square of the current subroom
  * @param sizeX horizontal size of the current subroom
  * @param sizeY vertical size of the current subroom
  */
 void installWallVertical(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, int originY, int sizeX, int sizeY){
-    int randomSize;
+    int wallIndex;
     int randomOpening;
     int offset;
     int i;
@@ -116,18 +116,18 @@ void installWallVertical(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, i
 
     /* Determining the size of the subrooms, in other words the location of the wall */
     do {
-        randomSize = rand() % sizeX;
-    } while(!(randomSize - 1 >= MIN_SIDE) || !(sizeX - randomSize >= MIN_SIDE));
+        wallIndex = rand() % sizeX;
+    } while(!(wallIndex - 1 >= MIN_SIDE) || !(sizeX - wallIndex >= MIN_SIDE));
 
     /* Location of the opening */
     randomOpening = rand() % 2;
     offset = randomOpening * 3;
 
     for (i = 0; i < sizeY - 3; i++){
-        squarePutWall(&((*square)[originY + offset + i][originX + randomSize]));
+        squarePutWall(&((*square)[originY + offset + i][originX + wallIndex]));
     }
-    generateWallSubroom(square, originX, originY, randomSize, sizeY);
-    generateWallSubroom(square, originX + randomSize, originY, sizeX - randomSize, sizeY);
+    generateWallSubroom(square, originX, originY, wallIndex, sizeY);
+    generateWallSubroom(square, originX + wallIndex + 1, originY, sizeX - wallIndex - 1, sizeY);
 
 }
 
@@ -136,14 +136,14 @@ void installWallVertical(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, i
  * 
  * Recursive function that follows a certain algorithm (see project subject in french)
  * 
- * @param square Two-dimensional array of square, represents the Grid
+ * @param square Pointer to a two-dimensional array of square, represents the Grid
  * @param originX x coordinate of the upper left square of the current subroom
  * @param originY y coordinate of the upper left square of the current subroom
  * @param sizeX horizontal size of the current subroom
  * @param sizeY vertical size of the current subroom
  */
 void installWallHorizontal(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, int originY, int sizeX, int sizeY){
-    int randomSize;
+    int wallIndex;
     int randomOpening;
     int offset;
     int i;
@@ -155,17 +155,16 @@ void installWallHorizontal(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX,
 
     /* Determining the size of the subrooms, in other words the location of the wall */
     do {
-        randomSize = rand() % sizeY;
-    } while(!(randomSize - 1 >= MIN_SIDE) || !(sizeY - randomSize >= MIN_SIDE));
+        wallIndex = rand() % sizeY;
+    } while(!(wallIndex - 1 >= MIN_SIDE) || !(sizeY - wallIndex >= MIN_SIDE));
 
     /* Location of the opening */
     randomOpening = rand() % 2;
     offset = randomOpening * 3;
 
     for (i = 0; i < sizeX - 3; i++){
-        squarePutWall(&((*square)[originY + randomSize][originX + offset + i]));
+        squarePutWall(&((*square)[originY + wallIndex][originX + offset + i]));
     }
-    generateWallSubroom(square, originX, originY, sizeX, randomSize);
-    generateWallSubroom(square, originX, originY + randomSize, sizeX, sizeY - randomSize);
-
+    generateWallSubroom(square, originX, originY, sizeX, wallIndex);
+    generateWallSubroom(square, originX, originY + wallIndex + 1, sizeX, sizeY - wallIndex - 1);
 }
