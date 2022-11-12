@@ -31,7 +31,8 @@ int main(void){
     Grid grid;
     srand(time(NULL));
     initEmptyGrid(&grid);
-    generateWallSubroom(&(grid.square), 0, 0, MAX_WIDTH, MAX_HEIGHT);
+    generateGridBorders(&grid);
+    generateWallSubroom(&(grid.square), 1, 1, MAX_WIDTH - 2, MAX_HEIGHT - 2);
     printGrid(grid);
-    return 0; 
+    return 0;
 }

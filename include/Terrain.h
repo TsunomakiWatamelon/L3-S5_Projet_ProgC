@@ -47,6 +47,13 @@ void initEmptyGrid(Grid *grid);
 void squarePutWall(Square *square);
 
 /**
+ * @brief Generates the borders on the given grid.
+ * 
+ * @param grid Pointer to the Grid generate the borders
+ */
+void generateGridBorders(Grid *grid);
+
+/**
  * @brief Main function for generating walls in the Grid.
  * 
  * Recursive function that follows a certain algorithm (see project subject in french)
