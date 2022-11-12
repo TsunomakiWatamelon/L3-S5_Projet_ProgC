@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -ansi -pedantic
 LFLAGS = -lMLV
-OBJ = Test.o Terrain.o
+OBJ = Terrain.o
 
 EXEC: $(OBJ)
 	$(CC) $(OBJ) $(CFLAGS) -o $@ -g
