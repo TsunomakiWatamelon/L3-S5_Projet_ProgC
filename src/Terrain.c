@@ -134,7 +134,7 @@ void installWallVertical(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, i
     /* Determining the size of the subrooms, in other words the location of the wall */
     do {
         wallIndex = rand() % sizeX;
-    } while(!(wallIndex - 1 >= MIN_SIDE) || !(sizeX - wallIndex >= MIN_SIDE));
+    } while(!(wallIndex >= MIN_SIDE) || !(sizeX - wallIndex - 1 >= MIN_SIDE));
 
     /* Location of the opening */
     randomOpening = rand() % 2;
@@ -169,11 +169,11 @@ void installWallHorizontal(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX,
     assert(MIN_SIDE <= sizeX); 
     assert(sizeY <= MAX_HEIGHT);
     assert(2 * MIN_SIDE + 1 <= sizeY);
-
+    
     /* Determining the size of the subrooms, in other words the location of the wall */
     do {
         wallIndex = rand() % sizeY;
-    } while(!(wallIndex - 1 >= MIN_SIDE) || !(sizeY - wallIndex >= MIN_SIDE));
+    } while(!(wallIndex >= MIN_SIDE) || !(sizeY - wallIndex - 1 >= MIN_SIDE));
 
     /* Location of the opening */
     randomOpening = rand() % 2;
