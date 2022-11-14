@@ -11,10 +11,7 @@
 #ifndef __Player__
 #define __Player__
 
-typedef struct {
-   double x;
-   double y;
-} Point;
+#include "Entity.h"
 
 typedef struct {
     int detected;
@@ -24,10 +21,6 @@ typedef struct {
     double speed_max;
     Point location;
  } Player;
-
-typedef enum {
-    up, down, left, right
- } Direction;
 
  /**
  * @brief init player
@@ -45,17 +38,21 @@ void init_Player(Player * player);
 void move(Player * player, Direction direction);
 
 /**
- * @brief performs the acceleration
+ * @brief performs an acceleration
  * 
  * @param player player
+ * @param thrust 1 if player tries to thrust 0 otherwise
+ * @return int mana used
  */
-void accel(Player * player, int thrust);
+int accel(Player * player, int thrust);
 
 /**
- * @brief uses invisibility
+ * @brief tries to use the invisibility ability
  * 
  * @param player player
+ * @return int mana used
  */
-void useInvisibility(Player * player);
+int useInvisibility(Player * player);
 
  #endif
+

@@ -8,12 +8,20 @@
  * 
  */
 
-#ifndef __Move__
-#define __Move__
+#ifndef __Golem__
+#define __Golem__
 
- typedef enum {
-    up, down, left, right
- } Direction;
+#include "Entity.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+
+typedef struct {
+   Direction direction;
+   int detectionRadius;
+   double speed;
+   int panic;
+}Golem;
 
 
  #endif
