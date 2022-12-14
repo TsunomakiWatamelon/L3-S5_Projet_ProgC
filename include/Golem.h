@@ -18,10 +18,14 @@
 
 typedef struct {
    Direction direction;
-   int detectionRadius;
+   double detectionRadius;
    double speed;
    int panic;
-}Golem;
+   Point location;
+} Golem;
 
+
+void moveGolem(Golem * golem);
+void initGolem(Golem * golem, Point location);
 
  #endif
