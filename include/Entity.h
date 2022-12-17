@@ -3,7 +3,7 @@
 #define __Entity__
 
 #include "MathTools.h"
-
+#include "Terrain.h"
 #define V 1
 
 typedef enum {

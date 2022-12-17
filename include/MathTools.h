@@ -7,4 +7,6 @@
 double randRange(double min, double max);
 int getProbability(int probability);
 
+int getRandomDirection(int direction);
+
 #endif

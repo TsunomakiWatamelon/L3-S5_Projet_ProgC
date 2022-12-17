@@ -12,6 +12,7 @@
 #define __Golem__
 
 #include "Entity.h"
+#include "Collision.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -25,7 +26,7 @@ typedef struct {
 } Golem;
 
 
-void moveGolem(Golem * golem);
+int moveGolem(Golem * golem, Grid * grid);
 void initGolem(Golem * golem, Point location);
 
  #endif
