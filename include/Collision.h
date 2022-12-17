@@ -19,4 +19,6 @@ typedef struct {
     int y;
 } Coordinate;
 
+int isCollision(Point *center, Grid grid, Direction d);
+
 #endif

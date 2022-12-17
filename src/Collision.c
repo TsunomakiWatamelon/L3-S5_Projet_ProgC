@@ -283,13 +283,13 @@ int isCollision(Point *center, Grid grid, Direction d){
     else{
         targetB.y -= 1;
         targetC.y -= 1;
-    } // pas fini ici
-
+    }
     if (isLimit(targetA, grid) && isCollisionA(center, d))
         return 1;
     if (isLimit(targetB, grid) && isCollisionB(center, d))
         return 1;
     if (isLimit(targetC, grid) && isCollisionC(center, d))
         return 1;
+    
         
 }
