@@ -194,7 +194,73 @@ static int isCollisionB(Point *center, Direction d){
 }
 
 static int isCollisionC_Vertical(Point *center, Direction d){
-    
+    double limit, delta;
+    double x, y;
+    int absY, absX;
+
+    assert((d == up || d == down));
+
+    x = center->x;
+    y = center->y;
+    absX = (int)center->x;
+    absY = (int)center->y;
+
+    if (d == up){
+        delta = x - absX;
+        limit = (absY - 1.0 + sqrt(0.25 - sqr(delta)));
+        if ((x > absX + 0.5) &&
+            y <= limit)
+        {
+            center->y = limit;
+            return 1;
+        }
+    }
+
+    else {
+        delta = absX + 1.0 - x;
+        limit = (absY + 1.0 - sqrt(0.25 - sqr(delta)));
+        if ((x < absX + 0.5) &&
+            (y >= limit))
+        {
+            center->y = limit;
+            return 1;
+        }
+    }
+}
+
+static int isCollisionB_Horizontal(Point *center, Direction d){
+    double step, limit, delta;
+    double x, y;
+    int absY, absX;
+
+    assert((d == left || d == right));
+
+    x = center->x;
+    y = center->y;
+    absX = (int)center->x;
+    absY = (int)center->y;
+
+    if (d == left){
+        delta = y - absY;
+        limit = (absX - 1.0 + sqrt(0.25 - sqr(delta)));
+        if ((y > absY + 0.5) &&
+            x <= limit)
+        {
+            center->x = limit;
+            return 1;
+        }
+    }
+
+    else {
+        delta = absY + 1.0 - y;
+        limit = (absX + 1.0 - sqrt(0.25 - sqr(delta)));
+        if ((y < absY + 0.5) &&
+            (x >= limit))
+        {
+            center->x = limit;
+            return 1;
+        }
+    }
 }
 
 static int isCollisionC(Point *center, Direction d){
