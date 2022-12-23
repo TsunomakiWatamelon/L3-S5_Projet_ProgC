@@ -28,5 +28,6 @@ typedef struct {
 
 int moveGolem(Golem * golem, Grid * grid);
 void initGolem(Golem * golem, Point location);
+void detection(Square * boxesCrossed, int * nbBoxCrossed, Point golem, Point player);
 
  #endif

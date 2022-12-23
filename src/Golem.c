@@ -57,5 +57,38 @@ void patrolGolem(Golem * golem, Grid * grid){
 }
 
 
+void detection(Square * boxesCrossed, int * nbBoxCrossed, Point golem, Point player){
+    int i, nb_x, nb_y, a;
+    double x0, x1, y0, y1;
+    double pa[120];  /*120 is maximum number of case that can be detected */
+    x0 = golem.x, y0 = golem.y;
+    x1 = player.x, y1 = player.y;
+    if(player.x < golem.x){
+        x1 = golem.x, y1 = golem.y;
+        x0 = player.x, y0 = player.y;
+    }
+    nb_x = (int)x1 - (int)x0;
+    nb_y = (int)y1 - (int)y0;
+    
+    *nbBoxCrossed = nb_x + nb_y;;
+    a = (int)x0 +1;
+    for(i = 0; i < nb_x; i++){
+        pa[i] = (a - x0) / (x1 - x0);
+        printf("%f\n", pa[i]);
+        a++;
+    }
+    a = (int)y0 +1;
+
+    printf("\n");
+    for(i; i < *nbBoxCrossed; i++){
+        pa[i] = (a - y0) / (y1 - y0);
+        printf("%f\n", pa[i]);
+        a++;
+    }
+    for(i=0; i < *nbBoxCrossed; i++){
+        boxesCrossed[i].isWall = pa[i] * x1 + (1 - pa[i]) * x0;  /*horizontal position*/
+        boxesCrossed[i].hasMana = pa[i] * y1 + (1 - pa[i]) * y0; /*vertical position*/
+    }
+}
 
 
