@@ -21,51 +21,79 @@ int isLimit(Coordinate target, Grid grid){
 }
 
 int nextCoordinate(Point *center, Coordinate *target, Direction d){
-    int x;
-    int y;
-    
+    assert(center);
     assert(target);
 
-    x = center->x;
-    y = center->y;
-    if (d == left)
-        x -= 1;
-    else if (d == right)
-        x += 1;
-    else if (d == up)
-        y -= 1;
-    else
-        y += 1;
-    
-    target->x = x;
-    target->y = y;
+    target->x = (int)center->x;
+    target->y = (int)center->y;
 
+    if (d == left) {
+        target->x -= 1;
+    }
+    else if (d == right) {
+        target->x += 1;
+    }
+    else if (d == up) {
+        target->y -= 1;
+    }
+    else {
+        target->y += 1;
+    }
     return 1;
 }
 
-static int isCollisionA_Vertical(Point *center, Direction d){
-    double step, limit;
-    double x, y;
-    int absY, absX;
+int isCollisionA(Point *center, Direction d) {
+    double limit;
+    int abs_x, abs_y;
 
-    assert((d == up || d == down));
+    abs_x = (int)center->x;
+    abs_y = (int)center->y;
 
-    x = center->x;
-    y = center->y;
-    absX = (int)center->x;
-    absY = (int)center->y;
-
-    if (d == up){
-        limit = absY - 0.5;
-        if (center->y <= limit){
+    if (d == left || d == right) {
+        /* Fetching the "limit" coordinate for the x axis */
+        limit = abs_x + (d == left ? -1 : 1) * 0.5;
+        if ((d == left && center->x <= limit) || (d == right && center->x >= limit)) {
+            center->x = limit;
+            return 1;
+        }
+    }
+    else if (d == up || d == down) {
+        /* Fetching the "limit" coordinate for the y axis */
+        limit = abs_y + (d == up ? -1 : 1) * 0.5;
+        if ((d == up && center->y <= limit) || (d == down && center->y >= limit)) {
             center->y = limit;
             return 1;
         }
     }
-    else {
-        limit = absY + 0.5;
-        if (center->y >= limit){
+    return 0;
+}
+int isCollisionB(Point* center, Direction d) {
+    int abs_x = (int)center->x;
+    int abs_y = (int)center->y;
+    double delta;
+    double limit;
+
+    if (d == up || d == down) {
+        /* Calculating the delta between the wall cell and the entity */
+        delta = (d == up) ? (abs_x + 1.0 - center->x) : (center->x - abs_x);
+        /* Fetching the "limit" coordinate for the y axis */
+        limit = (d == up) ? (abs_y - 1.0 + sqrt(0.25 - sqr(delta))) : (abs_y + 1.0 - sqrt(0.25 - sqr(delta)));
+
+        if ((d == up && center->x > abs_x + 0.5 && center->y <= limit) ||
+            (d == down && center->x < abs_x + 0.5 && center->y >= limit)) {
             center->y = limit;
+            return 1;
+        }
+    }
+    else if (d == left || d == right) {
+        /* Calculating the delta between the wall cell and the entity */
+        delta = (d == left) ? (abs_y + 1.0 - center->y) : (center->y - abs_y);
+        /* Fetching the "limit" coordinate for the x axis */
+        limit = (d == left) ? (abs_x - 1.0 + sqrt(0.25 - sqr(delta))) : (abs_x + 1.0 - sqrt(0.25 - sqr(delta)));
+
+        if ((d == left && center->y > abs_y + 0.5 && center->x <= limit) ||
+            (d == right && center->y < abs_y + 0.5 && center->x >= limit)) {
+            center->x = limit;
             return 1;
         }
     }
@@ -73,28 +101,32 @@ static int isCollisionA_Vertical(Point *center, Direction d){
     return 0;
 }
 
-static int isCollisionA_Horizontal(Point *center, Direction d){
-    double step, limit;
-    double x, y;
-    int absY, absX;
 
-    assert((d == left || d == right));
 
-    x = center->x;
-    y = center->y;
-    absX = (int)center->x;
-    absY = (int)center->y;
+int isCollisionC(Point* center, Direction d) {
+    int abs_x = (int)center->x;
+    int abs_y = (int)center->y;
+    double delta;
+    double limit;
 
-    if (d == left){
-        limit = absX - 0.5;
-        if (center->x <= limit){
-            center->x = limit;
+    if (d == up || d == down) {
+        /* Calculating the delta between the wall cell and the entity */
+        delta = (d == up) ? (center->x - abs_x) : (abs_x + 1.0 - center->x);
+        /* Fetching the "limit" coordinate for the y axis */
+        limit = (d == up) ? (abs_y - 1.0 + sqrt(0.25 - sqr(delta))) : (abs_y + 1.0 - sqrt(0.25 - sqr(delta)));
+        if ((d == up && center->x > abs_x + 0.5 && center->y <= limit) ||
+            (d == down && center->x < abs_x + 0.5 && center->y >= limit)) {
+            center->y = limit;
             return 1;
         }
     }
-    else {
-        limit = absX + 0.5;
-        if (center->x >= limit){
+    else if (d == left || d == right) {
+        /* Calculating the delta between the wall cell and the entity */
+        delta = (d == left) ? (center->y - abs_y) : (abs_y + 1.0 - center->y);
+        /* Fetching the "limit" coordinate for the x axis */
+        limit = (d == left) ? (abs_x - 1.0 + sqrt(0.25 - sqr(delta))) : (abs_x + 1.0 - sqrt(0.25 - sqr(delta)));
+        if ((d == left && center->y > abs_y + 0.5 && center->x <= limit) ||
+            (d == right && center->y < abs_y + 0.5 && center->x >= limit)) {
             center->x = limit;
             return 1;
         }
@@ -103,169 +135,7 @@ static int isCollisionA_Horizontal(Point *center, Direction d){
     return 0;
 }
 
-static int isCollisionA(Point *center, Direction d){
-    if (d == left || d == right){
-        return isCollisionA_Horizontal(center, d);
-    }
-    else {
-        return isCollisionA_Vertical(center, d);
-    }
-    return 0;
-}
 
-static int isCollisionB_Vertical(Point *center, Direction d){
-    double step, limit, delta;
-    double x, y;
-    int absY, absX;
-
-    assert((d == up || d == down));
-
-    x = center->x;
-    y = center->y;
-    absX = (int)center->x;
-    absY = (int)center->y;
-
-    if (d == up){
-        delta = absX + 1.0 - x;
-        limit = (absY - 1.0 + sqrt(0.25 - sqr(delta)));
-        if ((x > absX + 0.5) &&
-            y <= limit)
-        {
-            center->y = limit;
-            return 1;
-        }
-    }
-
-    else {
-        delta = x - absX;
-        limit = (absY + 1.0 - sqrt(0.25 - sqr(delta)));
-        if ((x < absX + 0.5) &&
-            (y >= limit))
-        {
-            center->y = limit;
-            return 1;
-        }
-    }
-}
-
-static int isCollisionB_Horizontal(Point *center, Direction d){
-    double step, limit, delta;
-    double x, y;
-    int absY, absX;
-
-    assert((d == left || d == right));
-
-    x = center->x;
-    y = center->y;
-    absX = (int)center->x;
-    absY = (int)center->y;
-
-    if (d == left){
-        delta = absY + 1.0 - y;
-        limit = (absX - 1.0 + sqrt(0.25 - sqr(delta)));
-        if ((y > absY + 0.5) &&
-            x <= limit)
-        {
-            center->x = limit;
-            return 1;
-        }
-    }
-
-    else {
-        delta = y - absY;
-        limit = (absX + 1.0 - sqrt(0.25 - sqr(delta)));
-        if ((y < absY + 0.5) &&
-            (x >= limit))
-        {
-            center->x = limit;
-            return 1;
-        }
-    }
-}
-
-static int isCollisionB(Point *center, Direction d){
-    if (d == left || d == right){
-        return isCollisionA_Horizontal(center, d);
-    }
-    else {
-        return isCollisionA_Vertical(center, d);
-    }
-    return 0;
-}
-
-static int isCollisionC_Vertical(Point *center, Direction d){
-    double limit, delta;
-    double x, y;
-    int absY, absX;
-
-    assert((d == up || d == down));
-
-    x = center->x;
-    y = center->y;
-    absX = (int)center->x;
-    absY = (int)center->y;
-
-    if (d == up){
-        delta = x - absX;
-        limit = (absY - 1.0 + sqrt(0.25 - sqr(delta)));
-        if ((x > absX + 0.5) &&
-            y <= limit)
-        {
-            center->y = limit;
-            return 1;
-        }
-    }
-
-    else {
-        delta = absX + 1.0 - x;
-        limit = (absY + 1.0 - sqrt(0.25 - sqr(delta)));
-        if ((x < absX + 0.5) &&
-            (y >= limit))
-        {
-            center->y = limit;
-            return 1;
-        }
-    }
-}
-
-static int isCollisionB_Horizontal(Point *center, Direction d){
-    double step, limit, delta;
-    double x, y;
-    int absY, absX;
-
-    assert((d == left || d == right));
-
-    x = center->x;
-    y = center->y;
-    absX = (int)center->x;
-    absY = (int)center->y;
-
-    if (d == left){
-        delta = y - absY;
-        limit = (absX - 1.0 + sqrt(0.25 - sqr(delta)));
-        if ((y > absY + 0.5) &&
-            x <= limit)
-        {
-            center->x = limit;
-            return 1;
-        }
-    }
-
-    else {
-        delta = absY + 1.0 - y;
-        limit = (absX + 1.0 - sqrt(0.25 - sqr(delta)));
-        if ((y < absY + 0.5) &&
-            (x >= limit))
-        {
-            center->x = limit;
-            return 1;
-        }
-    }
-}
-
-static int isCollisionC(Point *center, Direction d){
-    return 0;
-}
 
 int isCollision(Point *center, Grid grid, Direction d){
     double radius;
@@ -289,7 +159,27 @@ int isCollision(Point *center, Grid grid, Direction d){
     if (isLimit(targetB, grid) && isCollisionB(center, d))
         return 1;
     if (isLimit(targetC, grid) && isCollisionC(center, d))
-        return 1;
+        return 1; 
+    return 0;
+}
+
+int willCollide(Point *center, Grid grid, Direction d, double speed){
+    Point newPosition;
+    double *modified;
+
+    assert(center);
+
+    newPosition = *center;
+    if (d == left || d == right)
+        modified = &(newPosition.x);
+    else
+        modified = &(newPosition.y);
+
+    if (d == left || d == up)
+        *modified -= speed * V;
+    else
+        *modified += speed * V;
     
-        
+    return isCollision(&newPosition, grid, d);
+    
 }
