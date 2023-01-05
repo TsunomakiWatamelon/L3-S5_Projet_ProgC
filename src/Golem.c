@@ -10,6 +10,11 @@
 
 #include "../include/Golem.h"
 
+struct intPoint {
+    int x;
+    int y;
+};
+
 
 void initGolem(Golem * golem, Point location){
     golem->direction = rand() % 4;
@@ -43,7 +48,7 @@ int moveGolem(Golem * golem, Grid * grid){
 }
  
 
-void patrolGolem(Golem * golem, Grid * grid){
+int patrolGolem(Golem * golem, Player * player, Grid * grid){
     
     if(golem->panic && anticipateCollision(golem->location, *grid, golem->direction, 1.0)){
         golem->direction = getRandomDirection(golem->direction);
@@ -54,41 +59,76 @@ void patrolGolem(Golem * golem, Grid * grid){
         golem->speed = randRange(0.3, 0.8);
     }
 
+    if (detection(golem->location, player->location, grid))
+        return 1;
+    
+    return 0;
 }
 
+static void getCrossedSquare(Point golem, Point player, struct intPoint **target, int *crossedLen){
+    int i, arrayLen;
+    int a;
+    double x0, x1, y0, y1, xa, ya;
+    double pa;
+    struct intPoint *crossed;
 
-void detection(Square * boxesCrossed, int * nbBoxCrossed, Point golem, Point player){
-    int i, nb_x, nb_y, a;
-    double x0, x1, y0, y1;
-    double pa[120];  /*120 is maximum number of case that can be detected */
+    crossed = (struct intPoint *) malloc(sizeof(struct intPoint) * 120);
+    *target = crossed;
+
+    arrayLen = 0;
     x0 = golem.x, y0 = golem.y;
     x1 = player.x, y1 = player.y;
     if(player.x < golem.x){
         x1 = golem.x, y1 = golem.y;
         x0 = player.x, y0 = player.y;
     }
-    nb_x = (int)x1 - (int)x0;
-    nb_y = (int)y1 - (int)y0;
-    
-    *nbBoxCrossed = nb_x + nb_y;;
-    a = (int)x0 +1;
-    for(i = 0; i < nb_x; i++){
-        pa[i] = (a - x0) / (x1 - x0);
-        printf("%f\n", pa[i]);
-        a++;
-    }
-    a = (int)y0 +1;
 
-    printf("\n");
-    for(i; i < *nbBoxCrossed; i++){
-        pa[i] = (a - y0) / (y1 - y0);
-        printf("%f\n", pa[i]);
-        a++;
+    
+    for (a = (int)x0; a <= (int)x1; a++){
+        pa = (a - x1) / (x0 - x1);
+        if (!(0 <= pa) || !(1 <= pa))
+            continue;
+        else{
+            ya = y1 + ((y0 - y1) / (x0 - x1)) * (a - x1);
+            crossed[arrayLen].y = (int)ya;
+            crossed[arrayLen].x = a;
+            arrayLen++;
+        }
     }
-    for(i=0; i < *nbBoxCrossed; i++){
-        boxesCrossed[i].isWall = pa[i] * x1 + (1 - pa[i]) * x0;  /*horizontal position*/
-        boxesCrossed[i].hasMana = pa[i] * y1 + (1 - pa[i]) * y0; /*vertical position*/
+
+    x0 = golem.x, y0 = golem.y;
+    x1 = player.x, y1 = player.y;
+    if(player.y < golem.y){
+        x1 = golem.x, y1 = golem.y;
+        x0 = player.x, y0 = player.y;
     }
+
+    for (a = (int)y0; a <= (int)y1; a++){
+        pa = (a - y1) / (y0 - y1);
+        if (!(0 <= pa) || !(1 <= pa))
+            continue;
+        else{
+            xa = x1 + ((x0 - x1) / (y0 - y1)) * (a - y1);
+            crossed[arrayLen].y = a;
+            crossed[arrayLen].x = (int)xa;
+            arrayLen++;
+        }
+    }
+
+    *crossedLen = arrayLen;
+
 }
 
+int detection(Point golem, Point player, Grid *grid){
+    struct intPoint *crossed;
+    int crossedLen, i;
 
+    getCrossedSquare(golem, player, &crossed, &crossedLen);
+
+    for (i = 0; i < crossedLen; i++){
+        if (grid->square[crossed[i].y][crossed[i].x].isWall)
+            return 1;
+    }
+    return 0;
+
+}

@@ -17,17 +17,11 @@
 #include <stdlib.h>
 #include <assert.h>
 
-typedef struct {
-   Direction direction;
-   double detectionRadius;
-   double speed;
-   int panic;
-   Point location;
-} Golem;
+
 
 
 int moveGolem(Golem * golem, Grid * grid);
 void initGolem(Golem * golem, Point location);
-void detection(Square * boxesCrossed, int * nbBoxCrossed, Point golem, Point player);
+int detection(Point golem, Point player, Grid *grid);
 
  #endif

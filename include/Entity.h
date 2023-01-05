@@ -15,4 +15,21 @@ typedef struct {
    double y;
 } Point;
 
+typedef struct {
+   Direction direction;
+   double detectionRadius;
+   double speed;
+   int panic;
+   Point location;
+} Golem;
+
+typedef struct {
+    int detected;
+    int mana;
+    int invisible;
+    double speed;
+    double speed_max;
+    Point location;
+ } Player;
+
 #endif

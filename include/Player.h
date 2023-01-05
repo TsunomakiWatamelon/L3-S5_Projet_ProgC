@@ -13,15 +13,6 @@
 
 #include "Entity.h"
 
-typedef struct {
-    int detected;
-    int mana;
-    int invisible;
-    double speed;
-    double speed_max;
-    Point location;
- } Player;
-
  /**
  * @brief init player
  * 
