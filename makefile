@@ -1,16 +1,16 @@
 CC = gcc
 CFLAGS = -Wall -ansi -pedantic
 LFLAGS = -lMLV
-OBJ = Terrain.o
+OBJ = obj/Terrain.o obj/Test.o obj/Collision.o
 
-EXEC: $(OBJ)
-	$(CC) $(OBJ) $(CFLAGS) -o $@ -g
+bin/EXEC: $(OBJ)
+	$(CC) -o $@ $(OBJ) $(CFLAGS) -g
 
-%.o: ./src/%.c ./include/%.h
+obj/%.o: ./src/%.c ./include/%.h
 	$(CC) -o $@ -c -g $< $(CFLAGS)
 
 clean:
-	rm -rf *.o
+	rm -rf obj/*.o
 
 mrproper: clean
 	rm -rf ./EXEC
