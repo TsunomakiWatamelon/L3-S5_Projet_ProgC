@@ -1,6 +1,6 @@
 
 #ifndef __MathTools__
-#define __MathTools_
+#define __MathTools__
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>

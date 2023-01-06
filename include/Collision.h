@@ -19,6 +19,15 @@ typedef struct {
     int y;
 } Coordinate;
 
-int isCollision(Point *center, Grid grid, Direction d);
+/**
+ * @brief Checks if the supposed entity of radius 1 described by the point is colliding any walls
+ * 
+ * The entity's position will be adjusted if there is a collision, so that it's boundaries won't be crossing beyond the walls.
+ * 
+ * @param center 
+ * @param grid 
+ * @return int 1 if there is a collision, 0 otherwise
+ */
+int isCollision(Point *center, Grid grid);
 
 #endif
