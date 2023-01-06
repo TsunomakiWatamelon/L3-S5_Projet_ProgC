@@ -2,7 +2,12 @@
 #include "../include/Collision.h"
 #include "../include/Terrain.h"
 
-int test_a(void){
+/**
+ * @brief Testing the type A collisions
+ * 
+ * @return int 1 if success, otherwise 0
+ */
+static int collision_a(void){
     Point center;
     Grid grid;
 
@@ -45,7 +50,12 @@ int test_a(void){
     return 1;
 }
 
-int test_b(void){
+/**
+ * @brief Testing the type B collisions
+ * 
+ * @return int 1 if success, otherwise 0
+ */
+int collision_b(void){
     Point center;
     Grid grid;
 
@@ -58,7 +68,7 @@ int test_b(void){
     center.x = 1.5;
     center.y = 1.5;
     if (isCollision(&center, grid) || (center.x != 1.5 || center.y != 1.5)){
-        printf("test_b fail at test 1\n");
+        printf("collision_b fail at test 1\n");
         return 0;
     }
         
@@ -67,7 +77,7 @@ int test_b(void){
     center.x = 1.2;
     center.y = 1.6;
     if (!isCollision(&center, grid)){
-        printf("test_b fail at test 2\n");
+        printf("collision_b fail at test 2\n");
         return 0;
     }
 
@@ -75,7 +85,7 @@ int test_b(void){
     center.x = 1.1;
     center.y = 1.55;
     if (!isCollision(&center, grid)){
-        printf("test_b fail at test 3\n");
+        printf("collision_b fail at test 3\n");
         return 0;
     }
 
@@ -83,7 +93,7 @@ int test_b(void){
     center.x = 1.7;
     center.y = 1.2;
     if (!isCollision(&center, grid)){
-        printf("test_b fail at test 4\n");
+        printf("collision_b fail at test 4\n");
         return 0;
     }
 
@@ -91,14 +101,19 @@ int test_b(void){
     center.x = 1.7;
     center.y = 1.05;
     if (!isCollision(&center, grid)){
-        printf("test_b fail at test 5\n");
+        printf("collision_b fail at test 5\n");
         return 0;
     }
     
     return 1;
 }
 
-int test_c(void){
+/**
+ * @brief Testing the type C collisions
+ * 
+ * @return int 1 if success, otherwise 0
+ */
+int collision_c(void){
     Point center;
     Grid grid;
 
@@ -111,7 +126,7 @@ int test_c(void){
     center.x = 1.5;
     center.y = 1.5;
     if (isCollision(&center, grid) || (center.x != 1.5 || center.y != 1.5)){
-        printf("test_c fail at test 1\n");
+        printf("collision_c fail at test 1\n");
         return 0;
     }
         
@@ -120,7 +135,7 @@ int test_c(void){
     center.x = 1.8;
     center.y = 1.6;
     if (!isCollision(&center, grid)){
-        printf("test_c fail at test 2\n");
+        printf("collision_c fail at test 2\n");
         return 0;
     }
 
@@ -128,7 +143,7 @@ int test_c(void){
     center.x = 1.9;
     center.y = 1.55;
     if (!isCollision(&center, grid)){
-        printf("test_c fail at test 3\n");
+        printf("collision_c fail at test 3\n");
         return 0;
     }
 
@@ -136,7 +151,7 @@ int test_c(void){
     center.x = 1.3;
     center.y = 1.2;
     if (!isCollision(&center, grid)){
-        printf("test_c fail at test 4\n");
+        printf("collision_c fail at test 4\n");
         return 0;
     }
 
@@ -144,18 +159,30 @@ int test_c(void){
     center.x = 1.4;
     center.y = 1.05;
     if (!isCollision(&center, grid)){
-        printf("test_c fail at test 5\n");
+        printf("collision_c fail at test 5\n");
         return 0;
     }
     
     return 1;
 }
 
+/**
+ * @brief Runs the tests below and will show the results of each tests
+ * 
+ * @return int 1
+ */
 int main(void){
-    if (test_a())
-        printf("test_a pass\n");
-    if (test_b())
-        printf("test_b pass\n");
-    if (test_c())
-        printf("test_c pass\n");
+    if (collision_a())
+        printf("collision_a pass\n");
+    else
+        printf("collision_a fail\n");
+    if (collision_b())
+        printf("collision_b pass\n");
+    else
+        printf("collision_b fail\n");
+    if (collision_c())
+        printf("collision_c pass\n");
+    else
+        printf("collision_c fail\n");
+    return 1;
 }
