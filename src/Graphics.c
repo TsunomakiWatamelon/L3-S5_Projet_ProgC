@@ -38,16 +38,20 @@ static void drawEntity(Point position, MLV_Color color){
 /**
  * @brief Draws the detection radius of the golem
  * 
+ * The color and radius depends on the state of the golem (panic or not)
+ * 
  * @param position the positon of the golem
  */
 static void drawDetectionRadius(Golem golem){
     Point position;
+    int radius;
+    MLV_Color color;
 
     position = golem.location;
-    if (golem.panic)
-        MLV_draw_circle(roundToInt(position.x * 20.0), roundToInt(position.y * 20.0), PANIC_RADIUS, MLV_COLOR_RED1);
-    else
-        MLV_draw_circle(roundToInt(position.x * 20.0), roundToInt(position.y * 20.0), DETECT_RADIUS, MLV_COLOR_BLUE1);
+    radius = golem.panic ? PANIC_RADIUS : DETECT_RADIUS;
+    color = golem.panic ? MLV_COLOR_RED1 : MLV_COLOR_BLUE1;
+
+    MLV_draw_circle(roundToInt(position.x * 20.0), roundToInt(position.y * 20.0), radius, color);
 }
 
 /**
@@ -91,7 +95,10 @@ void drawGolems(Golem *golems, int arraySize){
  * @param player the player
  */
 void drawPlayer(Player player){
-    drawEntity(player.location, MLV_COLOR_GOLD1);
+    MLV_Color color;
+    
+    color = player.invisible ? MLV_COLOR_GOLD4 : MLV_COLOR_GOLD1;
+    drawEntity(player.location, color);
 }
 
 /**
