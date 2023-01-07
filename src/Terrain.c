@@ -64,50 +64,6 @@ void generateGridBorders(Grid *grid){
     }
 }
 
-/**
- * @brief Main function for generating walls in the Grid.
- * 
- * Recursive function that follows a certain algorithm (see project subject in french)
- * 
- * @param square Pointer to a two-dimensional array of square, represents the Grid
- * @param originX x coordinate of the upper left square of the current subroom
- * @param originY y coordinate of the upper left square of the current subroom
- * @param sizeX horizontal size of the current subroom
- * @param sizeY vertical size of the current subroom
- */
-void generateWallSubroom(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, int originY, int sizeX, int sizeY){
-    int random;
-    /*
-    fprintf(stderr, "generateWallSubroom : oX %d oY %d sX %d sY %d\n", originX, originY, sizeX, sizeY);
-    */
-    assert(sizeX <= MAX_WIDTH);
-    assert(0 <= sizeX); 
-    assert(sizeY <= MAX_HEIGHT);
-    assert(0 <= sizeY);
-
-    if ((sizeX < 2 * MIN_SIDE + 1) && (sizeY < 2 * MIN_SIDE + 1)){
-        return;
-    }
-    
-    if (sizeY < sizeX){
-        if (sizeX < 4 * MIN_SIDE){
-            if ((random = rand() % 2)){
-                return;
-            }
-        }
-        installWallVertical(square, originX, originY, sizeX, sizeY);
-    }
-    else {
-        if (sizeY < 4 * MIN_SIDE){
-            if ((random = rand() % 2)){
-                return;
-            }
-        }
-        installWallHorizontal(square, originX, originY, sizeX, sizeY);
-    }
-
-
-}
 
 /**
  * @brief Subfunction that creates a vertical wall in the given subroom
@@ -120,7 +76,7 @@ void generateWallSubroom(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, i
  * @param sizeX horizontal size of the current subroom
  * @param sizeY vertical size of the current subroom
  */
-void installWallVertical(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, int originY, int sizeX, int sizeY){
+static void installWallVertical(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, int originY, int sizeX, int sizeY){
     int wallIndex;
     int randomOpening;
     int offset;
@@ -159,7 +115,7 @@ void installWallVertical(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, i
  * @param sizeX horizontal size of the current subroom
  * @param sizeY vertical size of the current subroom
  */
-void installWallHorizontal(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, int originY, int sizeX, int sizeY){
+static void installWallHorizontal(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, int originY, int sizeX, int sizeY){
     int wallIndex;
     int randomOpening;
     int offset;
@@ -184,4 +140,99 @@ void installWallHorizontal(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX,
     }
     generateWallSubroom(square, originX, originY, sizeX, wallIndex);
     generateWallSubroom(square, originX, originY + wallIndex + 1, sizeX, sizeY - wallIndex - 1);
+}
+
+/**
+ * @brief Subfunction that creates a vertical wall in the given subroom
+ * 
+ * Recursive function that follows a certain algorithm (see project subject in french)
+ * 
+ * @param square Pointer to a two-dimensional array of square, represents the Grid
+ * @param originX x coordinate of the upper left square of the current subroom
+ * @param originY y coordinate of the upper left square of the current subroom
+ * @param sizeX horizontal size of the current subroom
+ * @param sizeY vertical size of the current subroom
+ */
+static void installWall(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, int originY, int sizeX, int sizeY, int vertical){
+    int wallIndex, randomOpening, offset, i;
+    int mod;
+
+    assert(sizeX <= MAX_WIDTH);
+    assert(2 * MIN_SIDE + 1 <= sizeX); 
+    assert(sizeY <= MAX_HEIGHT);
+    assert(MIN_SIDE <= sizeY);
+
+    /* Determining the size of the subrooms, in other words the location of the wall */
+
+    mod = vertical ? sizeX : sizeY;
+
+    do {
+        wallIndex = rand() % mod;
+    } while(!(wallIndex >= MIN_SIDE) || !(mod - wallIndex - 1 >= MIN_SIDE));
+
+    /* Location of the opening */
+    randomOpening = rand() % 2;
+    offset = randomOpening * 3;
+
+    for (i = 0; i < mod - 3; i++){
+        if (vertical)
+            squarePutWall(&((*square)[originY + offset + i][originX + wallIndex]));
+        else
+            squarePutWall(&((*square)[originY + wallIndex][originX + offset + i]));
+    }
+
+    if (vertical){
+        generateWallSubroom(square, originX, originY, wallIndex, sizeY);
+        generateWallSubroom(square, originX + wallIndex + 1, originY, sizeX - wallIndex - 1, sizeY);
+    }
+    else{
+        generateWallSubroom(square, originX, originY, sizeX, wallIndex);
+        generateWallSubroom(square, originX, originY + wallIndex + 1, sizeX, sizeY - wallIndex - 1);
+    }
+
+}
+
+/**
+ * @brief Main function for generating walls in the Grid.
+ * 
+ * Recursive function that follows a certain algorithm (see project subject in french)
+ * 
+ * @param square Pointer to a two-dimensional array of square, represents the Grid
+ * @param originX x coordinate of the upper left square of the current subroom
+ * @param originY y coordinate of the upper left square of the current subroom
+ * @param sizeX horizontal size of the current subroom
+ * @param sizeY vertical size of the current subroom
+ */
+static void generateWallSubroom(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, int originY, int sizeX, int sizeY){
+    int random;
+    /*
+    fprintf(stderr, "generateWallSubroom : oX %d oY %d sX %d sY %d\n", originX, originY, sizeX, sizeY);
+    */
+    assert(sizeX <= MAX_WIDTH);
+    assert(0 <= sizeX); 
+    assert(sizeY <= MAX_HEIGHT);
+    assert(0 <= sizeY);
+
+    if ((sizeX < 2 * MIN_SIDE + 1) && (sizeY < 2 * MIN_SIDE + 1)){
+        return;
+    }
+    
+    if (sizeY < sizeX){
+        if (sizeX < 4 * MIN_SIDE){
+            if ((random = rand() % 2)){
+                return;
+            }
+        }
+        installWall(square, originX, originY, sizeX, sizeY, 1);
+    }
+    else {
+        if (sizeY < 4 * MIN_SIDE){
+            if ((random = rand() % 2)){
+                return;
+            }
+        }
+        installWall(square, originX, originY, sizeX, sizeY, 0);
+    }
+
+
 }

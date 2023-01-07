@@ -27,5 +27,6 @@ int roundToInt(double value);
  * @param max the maximum allowed value
  * @return the clamped value
  */
-int clamp(int value, int min, int max) 
+int clamp(int value, int min, int max);
+
 #endif
