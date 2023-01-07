@@ -29,8 +29,10 @@ void createWindow(void){
  */
 static void drawEntity(Point position, MLV_Color color){
     
-    assert(0 <= position.x < (double)MAX_WIDTH);
-    assert(0 <= position.y < (double)MAX_HEIGHT);
+    assert(position.x < (double)MAX_WIDTH);
+    assert(0 <= position.x);
+    assert(position.y < (double)MAX_HEIGHT);
+    assert(0 <= position.y);
 
     MLV_draw_filled_circle(roundToInt(position.x * 20.0), roundToInt(position.y * 20.0), 20, color);
 }
@@ -184,6 +186,7 @@ void drawWalls(Grid grid){
  * @param height height of the subspace (in squares, not pixels)
  */
 void drawManaSubspace(Grid grid, int x, int y, int width, int height) {
+    int i, j;
     assert(0 <= x);
     assert(x < MAX_WIDTH);
     assert(0 <= y);
@@ -191,8 +194,8 @@ void drawManaSubspace(Grid grid, int x, int y, int width, int height) {
     assert(x + width <= MAX_WIDTH);
     assert(y + height <= MAX_HEIGHT);
 
-    for (int i = y; i < y + height; i++) {
-        for (int j = x; j < x + width; j++) {
+    for (i = y; i < y + height; i++) {
+        for (j = x; j < x + width; j++) {
             if (grid.square[i][j].hasMana) {
                 MLV_draw_filled_rectangle(i * 20, j * 20, 20, 20, MLV_COLOR_WHITE);
             }
@@ -284,12 +287,12 @@ void redrawSubspaceEntity(int x, int y, int width, int height, Grid grid) {
  * @param grid the grid containing information about the walls and mana
  */
 void redrawSubspacePlayer(Player player, Grid grid) {
-    int width, height;
+    int width, height, x, y;
 
     width = height = 3;
 
-    int x = roundToInt(player.location.x);
-    int y = roundToInt(player.location.y);
+    x = roundToInt(player.location.x);
+    y = roundToInt(player.location.y);
     redrawSubspaceEntity(x, y, width, height, grid);
 }
 
@@ -300,12 +303,12 @@ void redrawSubspacePlayer(Player player, Grid grid) {
  * @param grid the grid containing information about the walls and mana
  */
 void redrawSubspaceGolem(Golem golem, Grid grid) {
-    int width, height;
+    int width, height, x, y;
 
     width = golem.panic ? 7 : 5;
     height = width;
     
-    int x = roundToInt(golem.location.x);
-    int y = roundToInt(golem.location.y);
+    x = roundToInt(golem.location.x);
+    y = roundToInt(golem.location.y);
     redrawSubspaceEntity(x, y, width, height, grid);
 }

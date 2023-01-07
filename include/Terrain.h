@@ -38,10 +38,32 @@ typedef struct grid {
 void initEmptyGrid(Grid *grid);
 
 /**
+ * @brief Sets the given square as a wall
+ * 
+ * The square will have no mana.
+ * 
+ * @param square Pointer to the square to set as a wall
+ */
+void squarePutWall(Square *square);
+
+/**
  * @brief Generates the borders on the given grid.
  * 
  * @param grid Pointer to the Grid generate the borders
  */
 void generateGridBorders(Grid *grid);
+
+/**
+ * @brief Main function for generating walls in the Grid.
+ * 
+ * Recursive function that follows a certain algorithm (see project subject in french)
+ * 
+ * @param square Pointer to a two-dimensional array of square, represents the Grid
+ * @param originX x coordinate of the upper left square of the current subroom
+ * @param originY y coordinate of the upper left square of the current subroom
+ * @param sizeX horizontal size of the current subroom
+ * @param sizeY vertical size of the current subroom
+ */
+void generateWallSubroom(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, int originY, int sizeX, int sizeY);
 
 #endif

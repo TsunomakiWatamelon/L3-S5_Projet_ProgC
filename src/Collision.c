@@ -345,22 +345,31 @@ int isCollision(Point *center, Grid grid){
     return collided;
 }
 
-int willCollide(Point *center, Grid grid, Direction d, double speed){
+/**
+ * @brief Checks if the given entity will collide into a wall if going toward a certain direction for a certain unit of space
+ * 
+ * Returns 1 if it WILL be in collision with a wall, 0 otherwise
+ * 
+ * @param center the center position of the entity
+ * @param grid the grid (have info about the possible existing walls)
+ * @param d the direction of the move
+ * @param distance the unit of distance to anticipate
+ * @return int 1 if it WILL be in collision with a wall, 0 otherwise
+ */
+int willCollide(Point center, Grid grid, Direction d, double distance){
     Point newPosition;
     double *modified;
 
-    assert(center);
-
-    newPosition = *center;
+    newPosition = center;
     if (d == left || d == right)
         modified = &(newPosition.x);
     else
         modified = &(newPosition.y);
 
     if (d == left || d == up)
-        *modified -= speed * V;
+        *modified -= distance;
     else
-        *modified += speed * V;
+        *modified += distance;
     
     return isCollision(&newPosition, grid);
     

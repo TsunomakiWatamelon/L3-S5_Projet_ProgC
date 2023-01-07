@@ -4,7 +4,7 @@
 
 #include "MathTools.h"
 #include "Terrain.h"
-#define V 1
+#define V 0.05
 #define DETECT_RADIUS 4
 #define PANIC_RADIUS 6
 
@@ -13,15 +13,12 @@ typedef enum {
  } Direction;
 
 typedef struct {
-   double x;
-   double y;
-} Point;
-
-typedef struct {
    Direction direction;
    double speed;
    int panic;
    Point location;
+   Point lostRelic[3];
+   int lostNb;
 } Golem;
 
 typedef struct {
@@ -32,5 +29,10 @@ typedef struct {
     double speed_max;
     Point location;
  } Player;
+
+typedef struct {
+   Point location;
+   int taken;
+} Relic;
 
 #endif
