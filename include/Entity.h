@@ -17,6 +17,8 @@ typedef struct {
    double speed;
    int panic;
    Point location;
+   Point lostRelic[3];
+   int lostNb;
 } Golem;
 
 typedef struct {

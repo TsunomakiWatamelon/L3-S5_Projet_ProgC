@@ -105,3 +105,32 @@ double distance(double x1, double y1, double x2, double y2) {
 double pointDistance(Point a, Point b){
     return distance(a.x, a.y, b.x, b.y);
 }
+
+/**
+ * @brief Compares two points
+ * 
+ * @param a first point
+ * @param b second point
+ * @return int 1 if their values are equal, 0 otherwise
+ */
+int pointEquals(Point a, Point b){
+    return ((a.x == b.x) && (a.y == b.y));
+}
+
+/**
+ * @brief Checks if a point's value is in the given array
+ * 
+ * @param array the array of points
+ * @param check the point to be searched in the array
+ * @param len the length of the array
+ * @return int 1 if it's value is present, 0 otherwise
+ */
+int pointInArray(Point * array, Point check, int len){
+    int i;
+
+    for (i = 0; i < len; i++){
+        if (pointEquals(array[i], check))
+            return 1;
+    }
+    return 0;
+}

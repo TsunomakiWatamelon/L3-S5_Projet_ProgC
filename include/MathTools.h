@@ -13,6 +13,7 @@
 #define __MathTools__
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 #include <math.h>
 
 typedef struct {
@@ -87,5 +88,24 @@ double distance(double x1, double y1, double x2, double y2);
  * @return double the distance
  */
 double pointDistance(Point a, Point b);
+
+/**
+ * @brief Compares two points
+ * 
+ * @param a first point
+ * @param b second point
+ * @return int 1 if their values are equal, 0 otherwise
+ */
+int pointEquals(Point a, Point b);
+
+/**
+ * @brief Checks if a point's value is in the given array
+ * 
+ * @param array the array of points
+ * @param check the point to be searched in the array
+ * @param len the length of the array
+ * @return int 1 if it's value is present, 0 otherwise
+ */
+int pointInArray(Point * array, Point check, int len);
 
 #endif

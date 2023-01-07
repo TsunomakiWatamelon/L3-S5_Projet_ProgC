@@ -50,4 +50,18 @@ int moveGolem(Golem * golem, Grid * grid);
  */
 int patrolGolem(Golem * golem, Player * player, Grid * grid);
 
+/**
+ * @brief For a given golem, makes him check every relic (in the array).
+ * 
+ * If for a specific relic, the golem finds out for the first time that it has been stolen. The function will return 1.
+ * Here, the function will return 1 on the first detection of theft (to not have simultaneous multiple detection which would makes the game easier)
+ * 
+ * @param golem pointer to the golem
+ * @param relic array of relic to be checked
+ * @param grid pointer to the grid
+ * @param arraySize size of the array of relic
+ * @return int 1 if a relic is discovered to be stolen, 0 otherwise
+ */
+int relicChecking(Golem * golem, Relic * relic, Grid * grid, int arraySize);
+
 #endif

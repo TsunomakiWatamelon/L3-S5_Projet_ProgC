@@ -22,6 +22,7 @@ void initGolem(Golem * golem, Point location){
     golem->speed = randRange(0.3, 0.8);
     golem->panic = 0;
     golem->location = location;
+    golem->lostNb = 0;
 }
 
 /**
@@ -181,21 +182,24 @@ static int inLineOfSight(Point golem, Point player, Grid *grid){
 }
 
 /**
- * @brief Determines if a golem has detected the player.
+ * @brief Determines if a golem has detected the object.
  * 
- * A golem is able to detect a player if they are within a certain radius of each other and if the player is in the golem's line of sight.
+ * A golem is able to detect the object if they are within a certain radius of each other and if the object is in the golem's line of sight (free of any wall blocking it)
  * The radius of detection depends on the state of the golem (if it is in panic mode or not)
  * 
- * The center of the player is actually being used instead of it's borders (to be a bit fairer and let the player escape tight situations)
+ * The center of the object is actually being used instead of it's borders (to be a bit fairer and to the player escape tight situations)
  * 
  * @param golem the golem to check for detection
- * @param player the player to check for detection
+ * @param object the position of the object
  * @param grid the grid which has information about possible walls
- * @return int 1 if the golem has detected the player, 0 otherwise
+ * @return int 1 if the golem has detected the object, 0 otherwise
  */
-static int detection(Golem golem, Player player, Grid *grid){
-    if (pointDistance(golem.location, player.location) < (golem.panic ? (double)PANIC_RADIUS : (double)DETECT_RADIUS)){
-        if (inLineOfSight(golem.location, player.location, grid))
+static int detection(Golem golem, Point object, Grid *grid){
+
+    assert(grid);
+
+    if (pointDistance(golem.location, object) < (golem.panic ? (double)PANIC_RADIUS : (double)DETECT_RADIUS)){
+        if (inLineOfSight(golem.location, object, grid))
             return 1;
     }
     return 0;
@@ -206,13 +210,17 @@ static int detection(Golem golem, Player player, Grid *grid){
  * 
  * Depending on the situation and randomly, the golem can alter it's course in direction or speed or even both.
  * 
- * @param golem pointe the golem
+ * @param golem pointer the golem
  * @param player pointer to the player
  * @param grid pointer to the grid
  * @return int 1 if the player was detected, 0 otherwise
  */
 int patrolGolem(Golem * golem, Player * player, Grid * grid){
-    
+
+    assert(golem);
+    assert(player);
+    assert(grid);
+
     if (golem->panic && anticipateCollision(golem->location, *grid, golem->direction, 1.0)){
         golem->direction = getRandomDirection(golem->direction);
     }
@@ -221,10 +229,43 @@ int patrolGolem(Golem * golem, Player * player, Grid * grid){
         golem->speed = randRange(0.3, 0.8);
     }
 
-    if (detection(*golem, *player, grid) && !player->invisible){
+    if (detection(*golem, player->location, grid) && !player->invisible){
         player->detected = 1;
         return 1;
     }
     
     return 0;
+}
+
+/**
+ * @brief For a given golem, makes him check every relic (in the array).
+ * 
+ * If for a specific relic, the golem finds out for the first time that it has been stolen. The function will return 1.
+ * Here, the function will return 1 on the first detection of theft (to not have simultaneous multiple detection which would makes the game easier)
+ * 
+ * @param golem pointer to the golem
+ * @param relic array of relic to be checked
+ * @param grid pointer to the grid
+ * @param arraySize size of the array of relic
+ * @return int 1 if a relic is discovered to be stolen, 0 otherwise
+ */
+int relicChecking(Golem * golem, Relic * relic, Grid * grid, int arraySize){
+    int i;
+
+    assert(golem);
+    assert(relic);
+    assert(grid);
+    assert(arraySize >= 0);
+
+    for (i = 0; i < arraySize; i++){
+        if (detection(*golem, relic[i].location, grid) && relic[i].taken){
+            /* Check if the golem is already aware that this specific relic is has been stolen */
+            /* Avoid having the panic mode being tripped excessively */
+            if (!pointInArray(golem->lostRelic, relic->location, golem->lostNb)){
+                golem->lostRelic[golem->lostNb] = relic->location;
+                golem->lostNb++;
+                return 1;
+            }
+        }
+    }
 }
