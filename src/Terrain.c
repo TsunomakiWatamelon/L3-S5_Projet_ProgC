@@ -143,24 +143,35 @@ static void installWallHorizontal(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int o
 }
 
 /**
- * @brief Subfunction that creates a vertical wall in the given subroom
+ * @brief Subfunction that creates a wall in the given subroom
  * 
  * Recursive function that follows a certain algorithm (see project subject in french)
+ * 
+ * The wall is vertical or horizontal depending on the value of the integer : vertical
  * 
  * @param square Pointer to a two-dimensional array of square, represents the Grid
  * @param originX x coordinate of the upper left square of the current subroom
  * @param originY y coordinate of the upper left square of the current subroom
  * @param sizeX horizontal size of the current subroom
  * @param sizeY vertical size of the current subroom
+ * @param vertical tells the function if the wall should be vertical or not
  */
 static void installWall(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, int originY, int sizeX, int sizeY, int vertical){
     int wallIndex, randomOpening, offset, i;
     int mod;
 
-    assert(sizeX <= MAX_WIDTH);
-    assert(2 * MIN_SIDE + 1 <= sizeX); 
-    assert(sizeY <= MAX_HEIGHT);
-    assert(MIN_SIDE <= sizeY);
+    if (vertical){
+        assert(sizeX <= MAX_WIDTH);
+        assert(2 * MIN_SIDE + 1 <= sizeX); 
+        assert(sizeY <= MAX_HEIGHT);
+        assert(MIN_SIDE <= sizeY);
+    }
+    else{
+        assert(sizeX <= MAX_WIDTH);
+        assert(MIN_SIDE <= sizeX); 
+        assert(sizeY <= MAX_HEIGHT);
+        assert(2 * MIN_SIDE + 1 <= sizeY);
+    }
 
     /* Determining the size of the subrooms, in other words the location of the wall */
 
