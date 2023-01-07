@@ -14,7 +14,6 @@
 #include <MLV/MLV_all.h>
 #include <Entity.h>
 #include <assert.h>
-#include <Player.h>
 #include <Terrain.h>
 
 #define WINX 1200
