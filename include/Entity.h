@@ -4,20 +4,16 @@
 
 #include "MathTools.h"
 #include "Terrain.h"
-#define V 1
+#define V 0.05
+#define DETECT_RADIUS 4
+#define PANIC_RADIUS 6
 
 typedef enum {
     up, down, left, right
  } Direction;
 
 typedef struct {
-   double x;
-   double y;
-} Point;
-
-typedef struct {
    Direction direction;
-   double detectionRadius;
    double speed;
    int panic;
    Point location;
