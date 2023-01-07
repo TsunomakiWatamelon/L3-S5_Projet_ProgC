@@ -235,10 +235,55 @@ void initializeField(Grid grid){
  * @param height height of the subspace (in squares, not pixels)
  */
 void redrawSubspace(Grid grid, int x, int y, int width, int height){
+    assert(0 <= x);
+    assert(x < MAX_WIDTH);
+    assert(0 <= y);
+    assert(y < MAX_HEIGHT);
+    assert(x + width <= MAX_WIDTH);
+    assert(y + height <= MAX_HEIGHT);
+
     wipeSubspace(x, y, width, height);
     drawManaSubspace(grid, x, y, width, height);
     drawWallsSubspace(grid, x, y, width, height);
     drawGridSubspace(x, y, width, height, MLV_COLOR_BLACK);
+}
+
+/**
+ * Redraws the area surrounding an entity on the game field.
+ *
+ * @param x the x-coordinate of the center of the surrounding area
+ * @param y the y-coordinate of the center of the surrounding area
+ * @param grid the grid containing information about the walls and mana
+ */
+void redrawSubspaceEntity(int x, int y, int width, int height, Grid grid) {
+    assert(0 <= x);
+    assert(x < MAX_WIDTH);
+    assert(0 <= y);
+    assert(y < MAX_HEIGHT);
+    assert(x + width <= MAX_WIDTH);
+    assert(y + height <= MAX_HEIGHT);
+
+    x = clamp(x - width / 2, 0, MAX_WIDTH - width);
+    y = clamp(y - height / 2, 0, MAX_HEIGHT - height);
+    width = clamp(width, 0, MAX_WIDTH - x);
+    height = clamp(height, 0, MAX_HEIGHT - y);
+    redrawSubspace(grid, x, y, width, height);
+}
+
+/**
+ * Redraws the area surrounding a player on the game field.
+ *
+ * @param player the player whose surrounding area should be redrawn
+ * @param grid the grid containing information about the walls and mana
+ */
+void redrawSubspacePlayer(Player player, Grid grid) {
+    int width, height;
+
+    width = height = 3;
+
+    int x = roundToInt(player.location.x);
+    int y = roundToInt(player.location.y);
+    redrawSubspaceEntity(x, y, width, height, grid);
 }
 
 /**
@@ -249,36 +294,11 @@ void redrawSubspace(Grid grid, int x, int y, int width, int height){
  */
 void redrawSubspaceGolem(Golem golem, Grid grid) {
     int width, height;
-    if (golem.panic) {
-        width = 7;
-        height = 7;
-    } else {
-        width = 5;
-        height = 5;
-    }
-    int x = roundToInt(golem.location.x) - width / 2;
-    int y = roundToInt(golem.location.y) - height / 2;
-    x = clamp(x, 0, MAX_WIDTH - width);
-    y = clamp(y, 0, MAX_HEIGHT - height);
-    width = clamp(width, 0, MAX_WIDTH - x);
-    height = clamp(height, 0, MAX_HEIGHT - y);
-    redrawSubspace(grid, x, y, width, height);
-}
 
-/**
- * Clamps a value to a given range.
- *
- * @param value the value to clamp
- * @param min the minimum allowed value
- * @param max the maximum allowed value
- * @return the clamped value
- */
-int clamp(int value, int min, int max) {
-    if (value < min) {
-        return min;
-    }
-    if (value > max) {
-        return max;
-    }
-    return value;
+    width = golem.panic ? 7 : 5;
+    height = width;
+    
+    int x = roundToInt(golem.location.x);
+    int y = roundToInt(golem.location.y);
+    redrawSubspaceEntity(x, y, width, height, grid);
 }

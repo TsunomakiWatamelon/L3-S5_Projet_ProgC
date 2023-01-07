@@ -19,4 +19,13 @@ double randRange(double min, double max);
 int getProbability(int probability);
 int roundToInt(double value);
 
+/**
+ * Clamps a value to a given range.
+ *
+ * @param value the value to clamp
+ * @param min the minimum allowed value
+ * @param max the maximum allowed value
+ * @return the clamped value
+ */
+int clamp(int value, int min, int max) 
 #endif
