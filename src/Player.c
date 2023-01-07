@@ -32,14 +32,22 @@ void init_Player(Player * player){
  * 
  * @param player player
  * @param direction direction(up, down, left, right)
+ * @param grid pointer to the grid that has information about possible walls
  */
-void move(Player * player, Direction direction){
+void move(Player * player, Direction direction, Grid *grid){
+    
+    assert(grid);
+    assert(player);
+
     switch (direction){
         case up: player->location.y -= player->speed * V;
         case down: player->location.y += player->speed * V;
         case left: player->location.x -= player->speed * V;
         case right: player->location.x -= player->speed * V;
     }
+
+    /* Used here to just adjust the player's position if it collides */
+    isCollision(&(player->location), *grid, direction);
  }
 
 /**
@@ -51,6 +59,9 @@ void move(Player * player, Direction direction){
  */
 int accel(Player * player, int thrust){
     int maxSpeed, acceleration, manaUsed;
+
+    assert(player);
+
     maxSpeed = player->speed_max;
     acceleration = 0.03; 
     manaUsed = 0;
@@ -76,6 +87,9 @@ int accel(Player * player, int thrust){
  * @return int mana used
  */
 int useInvisibility(Player * player){
+
+    assert(player);
+
     if(player->mana == 0){
         player->invisible = 0;
         return 0;

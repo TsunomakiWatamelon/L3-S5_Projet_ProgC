@@ -186,6 +186,8 @@ static int inLineOfSight(Point golem, Point player, Grid *grid){
  * A golem is able to detect a player if they are within a certain radius of each other and if the player is in the golem's line of sight.
  * The radius of detection depends on the state of the golem (if it is in panic mode or not)
  * 
+ * The center of the player is actually being used instead of it's borders (to be a bit fairer and let the player escape tight situations)
+ * 
  * @param golem the golem to check for detection
  * @param player the player to check for detection
  * @param grid the grid which has information about possible walls
@@ -219,7 +221,7 @@ int patrolGolem(Golem * golem, Player * player, Grid * grid){
         golem->speed = randRange(0.3, 0.8);
     }
 
-    if (detection(*golem, *player, grid)){
+    if (detection(*golem, *player, grid) && !player->invisible){
         player->detected = 1;
         return 1;
     }

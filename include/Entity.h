@@ -28,4 +28,9 @@ typedef struct {
     Point location;
  } Player;
 
+typedef struct {
+   Point location;
+   int taken;
+} Relic;
+
 #endif
