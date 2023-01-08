@@ -34,7 +34,7 @@ static void drawEntity(Point position, MLV_Color color){
     assert(position.y < (double)MAX_HEIGHT);
     assert(0 <= position.y);
 
-    MLV_draw_filled_circle(roundToInt(position.x * 20.0), roundToInt(position.y * 20.0), 20, color);
+    MLV_draw_filled_circle(roundToInt(position.x * 20.0), roundToInt(position.y * 20.0), 10, color);
 }
 
 /**
@@ -53,7 +53,7 @@ static void drawDetectionRadius(Golem golem){
     radius = golem.panic ? PANIC_RADIUS : DETECT_RADIUS;
     color = golem.panic ? MLV_COLOR_RED1 : MLV_COLOR_BLUE1;
 
-    MLV_draw_circle(roundToInt(position.x * 20.0), roundToInt(position.y * 20.0), radius, color);
+    MLV_draw_circle(roundToInt(position.x * 20.0), roundToInt(position.y * 20.0), radius * 20, color);
 }
 
 /**
@@ -104,6 +104,16 @@ void drawPlayer(Player player){
 }
 
 /**
+ * @brief Draws the player
+ * 
+ * @param player the player
+ */
+void drawRelic(Relic relic){
+    if (!relic.taken)
+        drawEntity(relic.location, MLV_COLOR_GREEN1);
+}
+
+/**
  * @brief Draw a grid within a certain subspace
  * 
  * @param x x coordinate of the top left corner of the subspace
@@ -123,10 +133,10 @@ void drawGridSubspace(int x, int y, int width, int height, MLV_Color color) {
     assert(y + height <= MAX_HEIGHT);
 
     for (i = x; i <= x + width; i++) {
-        MLV_draw_line(i * 20, y, i * 20, y + height, color);
+        MLV_draw_line(i * 20, y, i * 20, y + height * 20, color);
     }
     for (i = y; i <= y + height; i++) {
-        MLV_draw_line(x, i * 20, x + width, i * 20, color);
+        MLV_draw_line(x, i * 20, x + width * 20, i * 20, color);
     }
 }
 
@@ -160,7 +170,7 @@ void drawWallsSubspace(Grid grid, int x, int y, int width, int height) {
     for (i = y; i < y + height; i++) {
         for (j = x; j < x + width; j++) {
             if (grid.square[i][j].isWall) {
-                MLV_draw_filled_rectangle(i * 20, j * 20, 20, 20, MLV_COLOR_BLACK);
+                MLV_draw_filled_rectangle(j * 20, i * 20, 20, 20, MLV_COLOR_BLACK);
             }
         }
     }
@@ -197,7 +207,7 @@ void drawManaSubspace(Grid grid, int x, int y, int width, int height) {
     for (i = y; i < y + height; i++) {
         for (j = x; j < x + width; j++) {
             if (grid.square[i][j].hasMana) {
-                MLV_draw_filled_rectangle(i * 20, j * 20, 20, 20, MLV_COLOR_WHITE);
+                MLV_draw_filled_rectangle(j * 20, i * 20, 20, 20, MLV_COLOR_WHITE);
             }
         }
     }
@@ -228,7 +238,7 @@ void wipeAll(void){
  * 
  * @param grid the grid containing information about the squares with mana and the walls
  */
-void initializeField(Grid grid){
+void drawTerrain(Grid grid){
     wipeAll();
     drawMana(grid);
     drawWalls(grid);
@@ -255,7 +265,7 @@ void redrawSubspace(Grid grid, int x, int y, int width, int height){
     wipeSubspace(x, y, width, height);
     drawManaSubspace(grid, x, y, width, height);
     drawWallsSubspace(grid, x, y, width, height);
-    drawGridSubspace(x, y, width, height, MLV_COLOR_BLACK);
+    drawGridSubspace(x, y, width + 1, height + 1, MLV_COLOR_BLACK);
 }
 
 /**

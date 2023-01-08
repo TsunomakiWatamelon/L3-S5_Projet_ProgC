@@ -9,6 +9,7 @@
  */
 
 #include "../include/Terrain.h"
+#include "../include/Graphics.h"
 #include <stdio.h>
 
 /**
@@ -65,6 +66,58 @@ void generateGridBorders(Grid *grid){
 }
 
 /**
+ * @brief Recursive function for generating walls in a subroom of the Grid.
+ * 
+ * Recursive function that follows a certain algorithm (see project subject in french)
+ * 
+ * @param square Pointer to a two-dimensional array of square, represents the Grid
+ * @param originX x coordinate of the upper left square of the current subroom
+ * @param originY y coordinate of the upper left square of the current subroom
+ * @param sizeX horizontal size of the current subroom
+ * @param sizeY vertical size of the current subroom
+ */
+void generateWallSubroom(Grid *grid, int originX, int originY, int sizeX, int sizeY){
+    int random;
+    /*
+    fprintf(stderr, "generateWallSubroom : oX %d oY %d sX %d sY %d\n", originX, originY, sizeX, sizeY);
+    */
+    assert(sizeX <= MAX_WIDTH);
+    assert(0 <= sizeX); 
+    assert(sizeY <= MAX_HEIGHT);
+    assert(0 <= sizeY);
+
+    if ((sizeX <= 2 * MIN_SIDE + 1) && (sizeY <= 2 * MIN_SIDE + 1)){
+        return;
+    }
+    
+    if (sizeY < sizeX){
+        if (sizeX <= 2 * MIN_SIDE + 1){
+            return;
+        }
+        if (sizeX < 4 * MIN_SIDE){
+            if ((random = rand() % 2)){
+                return;
+            }
+        }
+        installWall(grid, originX, originY, sizeX, sizeY, 1);
+    }
+    else {
+        if (sizeY <= 2 * MIN_SIDE + 1){
+            return;
+        }
+        if (sizeY < 4 * MIN_SIDE){
+            if ((random = rand() % 2)){
+                return;
+            }
+        }
+        installWall(grid, originX, originY, sizeX, sizeY, 0);
+    }
+
+
+}
+
+
+/**
  * @brief Subfunction that creates a wall in the given subroom
  * 
  * Recursive function that follows a certain algorithm (see project subject in french)
@@ -76,91 +129,82 @@ void generateGridBorders(Grid *grid){
  * @param originY y coordinate of the upper left square of the current subroom
  * @param sizeX horizontal size of the current subroom
  * @param sizeY vertical size of the current subroom
- * @param vertical tells the function if the wall should be vertical or not
+ * @param type tells the function if the wall should be vertical or not (1 yes, 0 no)
  */
-static void installWall(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, int originY, int sizeX, int sizeY, int vertical){
+void installWall(Grid *grid, int originX, int originY, int sizeX, int sizeY, int type){
     int wallIndex, randomOpening, offset, i;
-    int mod;
+    int nmod, mod;
+    int loop;
 
-    if (vertical){
+    assert(originX >= 0);
+    assert(originX + sizeX <= MAX_WIDTH);
+    assert(sizeX <= MAX_WIDTH);
+    assert(originY >= 0);
+    assert(originY + sizeY <= MAX_HEIGHT);
+    assert(sizeY <= MAX_HEIGHT);
+
+    if (type){
         assert(sizeX <= MAX_WIDTH);
-        assert(2 * MIN_SIDE + 1 <= sizeX); 
+        assert((2 * MIN_SIDE + 1) <= sizeX); 
         assert(sizeY <= MAX_HEIGHT);
         assert(MIN_SIDE <= sizeY);
+
     }
     else{
         assert(sizeX <= MAX_WIDTH);
         assert(MIN_SIDE <= sizeX); 
         assert(sizeY <= MAX_HEIGHT);
-        assert(2 * MIN_SIDE + 1 <= sizeY);
+        assert((2 * MIN_SIDE + 1) <= sizeY);
     }
-
-    /* Determining the size of the subrooms, in other words the location of the wall */
-
-    mod = vertical ? sizeX : sizeY;
-
-    do {
-        wallIndex = rand() % mod;
-    } while(!(wallIndex >= MIN_SIDE) || !(mod - wallIndex - 1 >= MIN_SIDE));
 
     /* Location of the opening */
     randomOpening = rand() % 2;
     offset = randomOpening * 3;
 
-    for (i = 0; i < mod - 3; i++){
-        if (vertical)
-            squarePutWall(&((*square)[originY + offset + i][originX + wallIndex]));
-        else
-            squarePutWall(&((*square)[originY + wallIndex][originX + offset + i]));
-    }
+    mod = type ? sizeY : sizeX;
+    nmod = type ? sizeX : sizeY;
 
-    if (vertical){
-        generateWallSubroom(square, originX, originY, wallIndex, sizeY);
-        generateWallSubroom(square, originX + wallIndex + 1, originY, sizeX - wallIndex - 1, sizeY);
+    loop = 0;
+    /* Determining the size of the subrooms, in other words the location of the wall */
+    do {
+        wallIndex = rand() % mod;
+        loop++;
+        if (loop == 100){
+            /* Particular case */
+            return;
+        }
+    } while(((wallIndex < MIN_SIDE) || (nmod - wallIndex - 1 < MIN_SIDE)));
+
+    for (i = 0; i < mod - 3; i++){
+        type ? squarePutWall(&(grid->square[originY + offset + i][originX + wallIndex]))
+             : squarePutWall(&(grid->square[originY + wallIndex][originX + offset + i]));
     }
-    else{
-        generateWallSubroom(square, originX, originY, sizeX, wallIndex);
-        generateWallSubroom(square, originX, originY + wallIndex + 1, sizeX, sizeY - wallIndex - 1);
+    if (type){
+        generateWallSubroom(grid, originX, originY, wallIndex, sizeY);
+        generateWallSubroom(grid, originX + wallIndex + 1, originY, sizeX - wallIndex - 1, sizeY);
+    }
+    else {
+        generateWallSubroom(grid, originX, originY, sizeX, wallIndex);
+        generateWallSubroom(grid, originX, originY + wallIndex + 1, sizeX, sizeY - wallIndex - 1);
     }
 }
 
 /**
- * @brief Main function for generating walls in the Grid.
+ * @brief Generates walls the grid using a recursive function.
  * 
- * Recursive function that follows a certain algorithm (see project subject in french)
- * 
- * @param square Pointer to a two-dimensional array of square, represents the Grid
- * @param originX x coordinate of the upper left square of the current subroom
- * @param originY y coordinate of the upper left square of the current subroom
- * @param sizeX horizontal size of the current subroom
- * @param sizeY vertical size of the current subroom
+ * @param grid Pointer to a Grid object representing the grid to generate walls in.
  */
-void generateWallSubroom(Square (*square)[MAX_HEIGHT][MAX_WIDTH], int originX, int originY, int sizeX, int sizeY){
-    int random;
+void generateWallGrid(Grid *grid){
+    generateWallSubroom(grid, 1, 1, MAX_WIDTH - 2, MAX_HEIGHT - 2);
+}
 
-    assert(sizeX <= MAX_WIDTH);
-    assert(0 <= sizeX); 
-    assert(sizeY <= MAX_HEIGHT);
-    assert(0 <= sizeY);
-
-    if ((sizeX < 2 * MIN_SIDE + 1) && (sizeY < 2 * MIN_SIDE + 1)){
-        return;
-    }
-    
-    if (sizeY < sizeX){
-        if (sizeX < 4 * MIN_SIDE){
-            if ((random = rand() % 2)){
-                return;
-            }
-        }
-        installWall(square, originX, originY, sizeX, sizeY, 1);
-    }
-    else {
-        if (sizeY < 4 * MIN_SIDE){
-            if ((random = rand() % 2)){
-                return;
-            }
-        }
-        installWall(square, originX, originY, sizeX, sizeY, 0);
-    }
+/**
+ * @brief Initializes a grid with empty squares and generates walls in it and the borders.
+ * 
+ * @param grid Pointer to a Grid object to initialize and generate walls in.
+ */
+void initializeTerrain(Grid *grid){
+    initEmptyGrid(grid);
+    generateGridBorders(grid);
+    generateWallGrid(grid);
 }

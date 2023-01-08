@@ -166,6 +166,8 @@ static int isCollisionA(Point* center, Grid grid){
     getCoordinate(center, &targetA_left, left);
     getCoordinate(center, &targetA_right, right);
 
+    collided = 0;
+
     if (isLimit(targetA_up, grid)){
         collided = isCollisionA_aux(center, up);
     }
@@ -242,6 +244,8 @@ static int isCollisionB(Point* center, Grid grid){
     getCoordinateB(center, &targetB_up, up);
     getCoordinateB(center, &targetB_down, down);
 
+    collided = 0;
+
     if (isLimit(targetB_up, grid)){
         collided = isCollisionB_aux(center, up);
     }
@@ -310,6 +314,8 @@ static int isCollisionC(Point* center, Grid grid){
 
     getCoordinateC(center, &targetC_up, up);
     getCoordinateC(center, &targetC_down, down);
+
+    collided = 0;
 
     if (isLimit(targetC_up, grid)){
         collided = isCollisionC_aux(center, up);

@@ -1,6 +1,15 @@
-#include "../include/Entity.h"
-#include "../include/Collision.h"
-#include "../include/Terrain.h"
+/**
+ * @file Test.c
+ * @author HERVE NGUYEN (herve.nguyen@edu.univ-eiffel.fr)
+ * @brief 
+ * @version 0.1
+ * @date 2023-01-07
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
+#include "../include/Test.h"
 
 /**
  * @brief Testing the type A collisions
@@ -68,7 +77,7 @@ int collision_b(void){
     center.x = 1.5;
     center.y = 1.5;
     if (isCollision(&center, grid) || (center.x != 1.5 || center.y != 1.5)){
-        printf("collision_b fail at test 1\n");
+        printf("collision_b fail at test 1 : %f %f\n", center.x, center.y);
         return 0;
     }
         
@@ -166,23 +175,66 @@ int collision_c(void){
     return 1;
 }
 
+
+
+
+/**
+ * @brief Runs the tests for the collisions
+ * 
+ * @return int 1
+ */
+int collisions(void){
+    if (collision_a())
+        printf("collision_a pass\n");
+    else {
+        printf("collision_a fail\n");
+        return 0;
+    }
+    if (collision_b())
+        printf("collision_b pass\n");
+    else {
+        printf("collision_b fail\n");
+        return 0;
+    }
+    if (collision_c())
+        printf("collision_c pass\n");
+    else {
+        printf("collision_c fail\n");
+        return 0;
+    }
+    
+    return 1;
+}
+
+void graphics(void){
+    Grid grid;
+    Player player;
+    Golem golem;
+    Point a, b;
+
+    a.x = 2.4; a.y = 4.2;
+    b.x = 5.2; b.y = 7.6;
+
+    srand(time(NULL));
+    createWindow();
+    init_Player(&player);
+    initGolem(&golem, a);
+    initializeTerrain(&grid);
+    drawTerrain(grid);
+    redrawSubspacePlayer(player, grid);
+    drawPlayer(player);
+    drawGolems(&golem, 1);
+    MLV_actualise_window();
+    MLV_wait_seconds(15);
+}
+
 /**
  * @brief Runs the tests below and will show the results of each tests
  * 
  * @return int 1
  */
-int main(void){
-    if (collision_a())
-        printf("collision_a pass\n");
-    else
-        printf("collision_a fail\n");
-    if (collision_b())
-        printf("collision_b pass\n");
-    else
-        printf("collision_b fail\n");
-    if (collision_c())
-        printf("collision_c pass\n");
-    else
-        printf("collision_c fail\n");
+int test(void){
+    collisions() ? printf("Result : Collisions pass\n") : printf("Result : Collisions fail\n");
+    graphics();
     return 1;
 }

@@ -8,3 +8,10 @@
  * @copyright Copyright (c) 2023
  * 
  */
+
+#include "../include/Main.h"
+
+int main(void){
+    test();
+    return 0;
+}
