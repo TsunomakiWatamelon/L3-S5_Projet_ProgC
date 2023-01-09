@@ -87,7 +87,7 @@ int accel(Player * player, int thrust){
     if (player->speed < maxSpeed)
         player->speed += acceleration;
 
-        /* Can't really go beyond the speed limit, it's illegal */
+    /* Can't really go beyond the speed limit, it's illegal */
     if (player->speed > maxSpeed)
         player->speed = maxSpeed;
 

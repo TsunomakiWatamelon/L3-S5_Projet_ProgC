@@ -307,11 +307,12 @@ void game(void){
     srand48(time(NULL)); /* For drand48 */
 
     initGame(&grid, &player, golems, relics);
+    printf("pekora");
     createWindow();
     drawTerrain(grid);
-
     clock_gettime(CLOCK_REALTIME, &start_time);
-    while(0){
+    
+    while(1){
         frameNumber++;
         clock_gettime(CLOCK_REALTIME, &end_time);
 
@@ -348,7 +349,7 @@ void game(void){
             remainingRelics--;
         /* If all relics are stolen then proceed to the win page */
         if (remainingRelics == 0){
-            drawWin("skt", timeElapsed, totalUsed);
+            drawWin();
             break;
         }
         /* If the player is spotted, show the gameover animation then quit the loop to quit the game */
