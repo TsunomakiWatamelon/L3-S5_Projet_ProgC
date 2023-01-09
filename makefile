@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -ansi -pedantic
 LFLAGS = -lMLV -lm
-OBJ = obj/Terrain.o obj/Test.o obj/Collision.o obj/Golem.o obj/Relic.o obj/Graphics.o obj/Player.o obj/MathTools.o obj/Main.o
+OBJ = obj/Terrain.o obj/Test.o obj/Collision.o obj/Golem.o obj/Relic.o obj/Graphics.o obj/Player.o obj/MathTools.o obj/Main.o obj/Game.o
 
 bin/EXEC: $(OBJ)
 	$(CC) -o $@ $(OBJ) $(CFLAGS) $(LFLAGS) -g
