@@ -13,9 +13,9 @@
 #include "../include/Player.h"
 
 /**
- * @brief init player
+ * @brief initalizes the player in game start conditions
  * 
- * @param player player
+ * @param player Pointer to the player
  */
 void init_Player(Player * player){
     player->detected = 0;
@@ -31,7 +31,7 @@ void init_Player(Player * player){
 /**
  * @brief performs the movement of the player
  * 
- * @param player player
+ * @param player Pointer to the player
  * @param direction direction(up, down, left, right)
  * @param grid pointer to the grid that has information about possible walls
  */
@@ -62,7 +62,7 @@ void move(Player * player, Direction direction, Grid *grid){
 /**
  * @brief performs an acceleration
  * 
- * @param player player
+ * @param player Pointer to the player
  * @param thrust 1 if player tries to thrust 0 otherwise
  * @return int mana used
  */
@@ -75,23 +75,30 @@ int accel(Player * player, int thrust){
     maxSpeed = player->speed_max;
     acceleration = 0.03; 
     manaUsed = 0;
-    if(thrust && player->mana >= 2){
-        maxSpeed = player->speed_verstappen;
-        /*acceleration value change when thrusting*/
+
+    /* If the player is currently trying to "boost" / "thrust" */
+    if (thrust && player->mana >= 2){
+        maxSpeed = player->speed_verstappen; /* When the Max is still not enough you need to go to the Verstappen like a champion :) */
         acceleration = 0.06;
         player->mana -= 2;
         manaUsed = 2;
     }
-    if(player->speed < maxSpeed){
+
+    if (player->speed < maxSpeed)
         player->speed += acceleration;
-        if(player->speed > maxSpeed)
-            player->speed = maxSpeed;
-    }
-    else
+
+        /* Can't really go beyond the speed limit, it's illegal */
+    if (player->speed > maxSpeed)
         player->speed = maxSpeed;
+
     return manaUsed;
 }
 
+/**
+ * @brief Resets the speed of the player
+ * 
+ * @param player Pointer to the player
+ */
 void resetSpeed(Player * player){
     assert(player);
     player->speed = 0.1;
@@ -100,7 +107,7 @@ void resetSpeed(Player * player){
 /**
  * @brief tries to use the invisibility ability
  * 
- * @param player player
+ * @param player Pointer to the player
  * @return int mana used
  */
 int useInvisibility(Player * player){

@@ -84,11 +84,41 @@ void redrawSubspaceGolem(Golem golem, Grid grid);
  */
 void redrawSubspaceEntity(int x, int y, int width, int height, Grid grid);
 
+/**
+ * @brief Draw the given entities
+ * 
+ * @param grid The grid
+ * @param player The player
+ * @param golems The array of golems
+ * @param relics The array of relics
+ * @param lenGolem The length of the said array
+ * @param lenRelics The length of the said array
+ */
 void drawEntities(Grid grid, Player player, Golem * golems, Relic * relics, int lenGolem, int lenRelics);
 
-void drawInfo(int timeElapsed, int mana, int collected, int invisible, int boost, int alert);
+/**
+ * @brief Draw information about the current game such as the time elapsed, the abilities currently used, remaining relics etc.
+ * 
+ * @param timeElapsed Time elapsed in ms
+ * @param mana Mana currently being held by the player
+ * @param remaining Remaining relics to be stolen
+ * @param invisible 1 if the invisiblity ability is active, or 0.
+ * @param boost 1 if the thursing / boosting ability is active, or 0.
+ * @param alert 1 one or more golem is(are) panicking, or 0.
+ */
+void drawInfo(int timeElapsed, int mana, int remaining, int invisible, int boost, int alert);
 
+/**
+ * @brief Draws a game over animation
+ * 
+ */
 void drawGameOver();
+
+/**
+ * @brief Draw a winning message animation
+ * 
+ */
+void drawWin();
 
 
 

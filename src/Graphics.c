@@ -349,6 +349,16 @@ void redrawSubspaceRelic(Relic relic, Grid grid) {
     redrawSubspaceEntity(x, y, width, height, grid);
 }
 
+/**
+ * @brief Draw the given entities
+ * 
+ * @param grid The grid
+ * @param player The player
+ * @param golems The array of golems
+ * @param relics The array of relics
+ * @param lenGolem The length of the said array
+ * @param lenRelics The length of the said array
+ */
 void drawEntities(Grid grid, Player player, Golem * golems, Relic * relics, int lenGolem, int lenRelics){
     int i;
 
@@ -370,7 +380,17 @@ void drawEntities(Grid grid, Player player, Golem * golems, Relic * relics, int 
     drawPlayer(player);
 }
 
-void drawInfo(int timeElapsed, int mana, int collected, int invisible, int boost, int alert){
+/**
+ * @brief Draw information about the current game such as the time elapsed, the abilities currently used, remaining relics etc.
+ * 
+ * @param timeElapsed Time elapsed in ms
+ * @param mana Mana currently being held by the player
+ * @param remaining Remaining relics to be stolen
+ * @param invisible 1 if the invisiblity ability is active, or 0.
+ * @param boost 1 if the thursing / boosting ability is active, or 0.
+ * @param alert 1 one or more golem is(are) panicking, or 0.
+ */
+void drawInfo(int timeElapsed, int mana, int remaining, int invisible, int boost, int alert){
     char strMana[9];
     char timeString[12];
     char strCollect[3];
@@ -384,7 +404,7 @@ void drawInfo(int timeElapsed, int mana, int collected, int invisible, int boost
                                                 microsecondsToCentiseconds(timeElapsed)
            );
     sprintf(strMana, "%d", mana);
-    sprintf(strCollect, "%d", collected);
+    sprintf(strCollect, "%d", remaining);
 
     MLV_draw_filled_rectangle(0, 900, 1200, 1000, MLV_COLOR_WHITE);
 
@@ -407,6 +427,10 @@ void drawInfo(int timeElapsed, int mana, int collected, int invisible, int boost
     MLV_actualise_window();
 }
 
+/**
+ * @brief Draws a game over animation
+ * 
+ */
 void drawGameOver(){
     MLV_Font * font;
     int positionX, positionY;
@@ -415,7 +439,7 @@ void drawGameOver(){
     int width;
     width = GAME_WINX;
     font = MLV_load_font("MGS1.ttf", 100);
-    MLV_draw_filled_rectangle(0, 0, 60 * 20, 45 * 20, MLV_COLOR_BLACK);
+    MLV_draw_filled_rectangle(0, 0, 60 * 20, 45 * 20, MLV_COLOR_GREY4);
     MLV_get_size_of_text_with_font(gameOver, &width_text, &height_text, font);
 	positionX = (width-width_text)/2, positionY = GAME_WINY / 2;
     MLV_draw_text_with_font(positionX, positionY, "G", font, MLV_COLOR_AQUAMARINE1);
@@ -442,5 +466,48 @@ void drawGameOver(){
     MLV_draw_text_with_font(positionX, positionY, "GAME OVER", font, MLV_COLOR_AQUAMARINE1);
     MLV_actualise_window();
     MLV_wait_milliseconds(1500);
+    MLV_free_font(font);
+}
+
+/**
+ * @brief Draw a winning message animation
+ * 
+ */
+void drawWin(){
+    MLV_Font * font;
+    int positionX, positionY;
+    int width_text, height_text; 
+    const char * success = "SUCCESS";
+    int width;
+    width = GAME_WINX;
+    font = MLV_load_font("MGS1.ttf", 100);
+    MLV_draw_filled_rectangle(0, 0, 60 * 20, 45 * 20, MLV_COLOR_GREY4);
+    MLV_get_size_of_text_with_font(success, &width_text, &height_text, font);
+    positionX = (width-width_text)/2, positionY = GAME_WINY / 2;
+    MLV_draw_text_with_font(positionX, positionY, "S", font, MLV_COLOR_AQUAMARINE1);
+    MLV_actualise_window();
+    MLV_wait_milliseconds(500);
+    MLV_draw_text_with_font(positionX, positionY, "SU", font, MLV_COLOR_AQUAMARINE1);
+    MLV_actualise_window();
+    MLV_wait_milliseconds(500);
+    MLV_draw_text_with_font(positionX, positionY, "SUC", font, MLV_COLOR_AQUAMARINE1);
+    MLV_actualise_window();
+    MLV_wait_milliseconds(500);
+    MLV_draw_text_with_font(positionX, positionY, "SUCC", font, MLV_COLOR_AQUAMARINE1);
+    MLV_actualise_window();
+    MLV_wait_milliseconds(500);
+    MLV_draw_text_with_font(positionX, positionY, "SUCCE", font, MLV_COLOR_AQUAMARINE1);
+    MLV_actualise_window();
+    MLV_wait_milliseconds(500);
+    MLV_draw_text_with_font(positionX, positionY, "SUCCES", font, MLV_COLOR_AQUAMARINE1);
+    MLV_actualise_window();
+    MLV_wait_milliseconds(500);
+    MLV_draw_text_with_font(positionX, positionY, "SUCCESS", font, MLV_COLOR_AQUAMARINE1);
+    MLV_actualise_window();
+    MLV_wait_milliseconds(1500);
+    MLV_free_font(font);
+    font = MLV_load_font("MGS2MENU.ttf", 20);
+    MLV_draw_filled_rectangle(0, 0, GAME_WINX, GAME_WINY, MLV_COLOR_WHITE);
+    MLV_actualise_window();
     MLV_free_font(font);
 }

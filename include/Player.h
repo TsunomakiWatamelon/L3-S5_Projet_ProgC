@@ -14,10 +14,10 @@
 #include "Entity.h"
 #include "Collision.h"
 
- /**
- * @brief init player
+/**
+ * @brief initalizes the player in game start conditions
  * 
- * @param player player
+ * @param player Pointer to the player
  */
 void init_Player(Player * player);
 
@@ -33,7 +33,7 @@ void move(Player * player, Direction direction, Grid *grid);
 /**
  * @brief performs an acceleration
  * 
- * @param player player
+ * @param player Pointer to the player
  * @param thrust 1 if player tries to thrust 0 otherwise
  * @return int mana used
  */
@@ -42,11 +42,16 @@ int accel(Player * player, int thrust);
 /**
  * @brief tries to use the invisibility ability
  * 
- * @param player player
+ * @param player Pointer to the player
  * @return int mana used
  */
 int useInvisibility(Player * player);
 
+/**
+ * @brief Resets the speed of the player
+ * 
+ * @param player Pointer to the player
+ */
 void resetSpeed(Player * player);
 
  #endif

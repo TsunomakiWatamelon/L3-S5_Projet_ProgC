@@ -30,6 +30,10 @@
 #define NB_GOLEM 5
 #define NB_RELIC 3
 
+/**
+ * @brief data structure using an array of pointer of squares to keep track of depleted squares
+ * 
+ */
 typedef struct {
     Square *depleted[2700];
     int size;

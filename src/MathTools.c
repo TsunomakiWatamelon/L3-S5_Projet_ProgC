@@ -133,15 +133,33 @@ int pointInArray(Point * array, Point check, int len){
     return 0;
 }
 
+/**
+ * @brief Get a random point
+ * 
+ * @param point The pointer for the random new point's data to be stored
+ * @param x_max x max value (should be higher or equal to min)
+ * @param x_min x min value (should be higher or equal to 0)
+ * @param y_max y max value (should be higher or equal to min)
+ * @param y_min y min value (should be higher or equal to 0)
+ */
 void getRandomPoint(Point * point, double x_max, double x_min, double y_max, double y_min){
     assert(point);
-    assert(x_min > 0);
-    assert(y_min > 0);
+    assert(x_min >= 0);
+    assert(x_max >= x_min);
+    assert(y_min >= 0);
+    assert(y_max >= y_min);
 
     point->x = randRange(x_min, x_max);
     point->y = randRange(y_min, y_max);
 }
 
+/**
+ * @brief Check if every points in the array are not "touching", as in they are not within a 1.0 distance of each other
+ * 
+ * @param array The array of Points
+ * @param len the length of the array
+ * @return int If they are not touching 1, otherwise 0
+ */
 int positionArrayNotTouching(Point * array, int len){
     int i, j;
 
