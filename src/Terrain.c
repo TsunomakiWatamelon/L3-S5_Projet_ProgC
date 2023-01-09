@@ -12,6 +12,8 @@
 #include "../include/Graphics.h"
 #include <stdio.h>
 
+void installWall(Grid *grid, int originX, int originY, int sizeX, int sizeY, int type);
+
 /**
  * @brief Initializes an empty grid
  * 
