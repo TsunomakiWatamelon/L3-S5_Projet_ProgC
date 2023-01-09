@@ -215,15 +215,3 @@ int microsecondsToCentiseconds(int nb_ms){
 int microsecondsToSeconds(int nb_ms){
     return goodModulo(nb_ms / 1000, 60);
 }
-
-/**
- * @brief Calculates elapsed time in ms between start and end
- * 
- * @param start start time
- * @param end end time
- * 
- * @return The elapsed time in ms
- */
-int elapsed_time_ms(const struct timespec *start, const struct timespec *end) {
-    return (end->tv_sec - start->tv_sec) * 1000 + (end->tv_nsec - start->tv_nsec) / 1000000;
-}

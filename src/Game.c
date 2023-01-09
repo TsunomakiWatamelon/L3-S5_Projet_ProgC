@@ -163,6 +163,18 @@ int golemPanicCooldown(Golem * golems){
     return stillPanic;
 }
 
+/**
+ * @brief Calculates elapsed time in ms between start and end
+ * 
+ * @param start start time
+ * @param end end time
+ * 
+ * @return The elapsed time in ms
+ */
+int elapsed_time_ms(const struct timespec *start, const struct timespec *end) {
+    return (end->tv_sec - start->tv_sec) * 1000 + (end->tv_nsec - start->tv_nsec) / 1000000;
+}
+
 void game(void){
     Grid grid;
     Player player;

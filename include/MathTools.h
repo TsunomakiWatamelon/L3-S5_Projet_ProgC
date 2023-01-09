@@ -163,14 +163,4 @@ int microsecondsToCentiseconds(int nb_ms);
  */
 int microsecondsToSeconds(int nb_ms);
 
-/**
- * @brief Calculates elapsed time in ms between start and end
- * 
- * @param start start time
- * @param end end time
- * 
- * @return The elapsed time in ms
- */
-int elapsed_time_ms(const struct timespec *start, const struct timespec *end);
-
 #endif

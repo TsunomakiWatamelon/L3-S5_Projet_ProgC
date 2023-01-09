@@ -210,10 +210,9 @@ void graphics(void){
     Grid grid;
     Player player;
     Golem golem;
-    Point a, b;
+    Point a;
 
     a.x = 2.4; a.y = 4.2;
-    b.x = 5.2; b.y = 7.6;
 
     srand(time(NULL));
     createWindow();
