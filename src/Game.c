@@ -82,12 +82,14 @@ int userIsThrusting(){
     return mgksCheck(MLV_KEYBOARD_LSHIFT) || mgksCheck(MLV_KEYBOARD_RSHIFT);
 }
 
-void userInvisible(Player * player){
+int userInvisible(Player * player){
     player->invisible = 0;
     if (mgksCheck(MLV_KEYBOARD_SPACE) && player->mana > 0) {
         player->mana--;
         player->invisible = 1;
+        return 1;
     }
+    return 0;
 }
 
 int patrolGolems(Grid * grid, Golem * golems, Player * player, Relic * relics){
@@ -115,7 +117,7 @@ void takeManaFromSquare(Grid * grid, DepletedSquares * dSquare, int x, int y){
     dSquare->size++;
 }
 
-void restoreMana(Grid * grid, DepletedSquares * dSquare, Player player){
+int restoreMana(Grid * grid, DepletedSquares * dSquare, Player player){
     int randint;
     assert(grid);
     assert(dSquare);
@@ -123,9 +125,8 @@ void restoreMana(Grid * grid, DepletedSquares * dSquare, Player player){
     if (dSquare->size > 0) {
         if (dSquare->size == 1){
             if (dSquare->depleted[0]->x == (int)player.location.x && dSquare->depleted[0]->y == (int)player.location.y)
-                return;
+                return 0;
             dSquare->depleted[0]->hasMana = 1;
-            return;
         }
         else {
             do {
@@ -135,7 +136,9 @@ void restoreMana(Grid * grid, DepletedSquares * dSquare, Player player){
             memmove(&(dSquare->depleted[randint]), &(dSquare->depleted[randint + 1]), sizeof(Square *) * (dSquare->size - randint - 1));
         }
         dSquare->size--;
+        return 1;
     }
+    return 0;
 }
 
 int stealRelic(Player player, Relic *relics){
@@ -143,7 +146,7 @@ int stealRelic(Player player, Relic *relics){
 
     res = 0;
     for (i = 0; i < NB_RELIC; i++){
-        if (pointDistance(relics[i].location, player.location) <= 1.0){
+        if (pointDistance(relics[i].location, player.location) <= 1.0 && !relics[i].taken){
             relics[i].taken = 1;
             res = 1;
         }
@@ -183,6 +186,7 @@ void game(void){
     Direction direction;
     DepletedSquares dSquare;
     int quit, directionActive, frameNumber, remainingRelics, alert;
+    int manaUsed;
     int timeElapsed;
     struct timespec end_time, new_time, start_time;
     time_t frametime, extratime;
@@ -195,36 +199,42 @@ void game(void){
     createWindow();
     drawTerrain(grid);
     clock_gettime(CLOCK_REALTIME, &start_time);
+    manaUsed = 0;
     while(!quit){
         frameNumber++;
         clock_gettime(CLOCK_REALTIME, &end_time);
 
-
-
         timeElapsed = elapsed_time_ms(&start_time, &end_time);
+        if (timeElapsed > 86399999)
+            timeElapsed = 86399999;
 
-        userInvisible(&player);
+        manaUsed += userInvisible(&player);
         if (grid.square[(int)player.location.y][(int)player.location.x].hasMana){
             takeManaFromSquare(&grid, &dSquare, (int)player.location.x, (int)player.location.y);
-            player.mana += 2;
+            player.mana += 1;
         }
         directionActive = getUserMove(directionActive, direction, &direction);
         if (directionActive){
+            /* Accelerating at each frame is too fast */
             if (!(frameNumber % 3))
-                accel(&player, userIsThrusting());
+                manaUsed += accel(&player, userIsThrusting());
             move(&player, direction, &grid);
         }
         else
             resetSpeed(&player);
 
         if (stealRelic(player, relics))
-            remainingRelics++;
+            remainingRelics--;
         if (patrolGolems(&grid, golems, &player, relics)){
+            drawGameOver();
             break;
         }
 
         if (!(frameNumber % 240)){
-            restoreMana(&grid, &dSquare, player);
+            if (manaUsed > 0){
+                if (restoreMana(&grid, &dSquare, player))
+                    manaUsed--;
+            }
             drawTerrain(grid);
         }
         if (!(frameNumber % 60)){

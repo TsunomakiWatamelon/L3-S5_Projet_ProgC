@@ -56,8 +56,10 @@ int moveGolem(Golem * golem, Grid * grid){
     if (!golem->panic)
         collided = isCollision(&(golem->location), *grid);
     
-    if (randRange(0.0, 1.0) <= (1.0 / 500.0))
+    if (randRange(0.0, 1.0) <= (1.0 / 500.0)){
         golem->direction = getRandomDirection(golem->direction);
+        golem->speed = randRange(0.3, 0.8);
+    }
 
     return collided;
 }

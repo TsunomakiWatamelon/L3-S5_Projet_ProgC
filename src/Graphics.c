@@ -402,6 +402,45 @@ void drawInfo(int timeElapsed, int mana, int collected, int invisible, int boost
     MLV_draw_text_with_font(930, 920, "BOOST", font, boost ? MLV_COLOR_BLACK : MLV_COLOR_GRAY75);
     MLV_draw_text_with_font(930, 960, "ALERT", font, alert ? MLV_COLOR_RED : MLV_COLOR_GRAY75);
 
+    MLV_free_font(font);
     
     MLV_actualise_window();
+}
+
+void drawGameOver(){
+    MLV_Font * font;
+    int positionX, positionY;
+    int width_text, height_text; 
+    const char * gameOver = "GAME OVER";
+    int width;
+    width = GAME_WINX;
+    font = MLV_load_font("MGS1.ttf", 100);
+    MLV_draw_filled_rectangle(0, 0, 60 * 20, 45 * 20, MLV_COLOR_BLACK);
+    MLV_get_size_of_text_with_font(gameOver, &width_text, &height_text, font);
+	positionX = (width-width_text)/2, positionY = GAME_WINY / 2;
+    MLV_draw_text_with_font(positionX, positionY, "G", font, MLV_COLOR_AQUAMARINE1);
+    MLV_actualise_window();
+    MLV_wait_milliseconds(500);
+    MLV_draw_text_with_font(positionX, positionY, "GA", font, MLV_COLOR_AQUAMARINE1);
+    MLV_actualise_window();
+    MLV_wait_milliseconds(500);
+    MLV_draw_text_with_font(positionX, positionY, "GAM", font, MLV_COLOR_AQUAMARINE1);
+    MLV_actualise_window();
+    MLV_wait_milliseconds(500);
+    MLV_draw_text_with_font(positionX, positionY, "GAME", font, MLV_COLOR_AQUAMARINE1);
+    MLV_actualise_window();
+    MLV_wait_milliseconds(500);
+    MLV_draw_text_with_font(positionX, positionY, "GAME O", font, MLV_COLOR_AQUAMARINE1);
+    MLV_actualise_window();
+    MLV_wait_milliseconds(500);
+    MLV_draw_text_with_font(positionX, positionY, "GAME OV", font, MLV_COLOR_AQUAMARINE1);
+    MLV_actualise_window();
+    MLV_wait_milliseconds(500);
+    MLV_draw_text_with_font(positionX, positionY, "GAME OVE", font, MLV_COLOR_AQUAMARINE1);
+    MLV_actualise_window();
+    MLV_wait_milliseconds(500);
+    MLV_draw_text_with_font(positionX, positionY, "GAME OVER", font, MLV_COLOR_AQUAMARINE1);
+    MLV_actualise_window();
+    MLV_wait_milliseconds(1500);
+    MLV_free_font(font);
 }

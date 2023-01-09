@@ -30,6 +30,8 @@ void initEmptyGrid(Grid *grid){
         for (j = 0; j < MAX_WIDTH; j++){
             grid->square[i][j].hasMana = 1;
             grid->square[i][j].isWall = 0;
+            grid->square[i][j].x = j;
+            grid->square[i][j].y = i;
         }
     }
 }

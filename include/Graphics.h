@@ -88,6 +88,8 @@ void drawEntities(Grid grid, Player player, Golem * golems, Relic * relics, int 
 
 void drawInfo(int timeElapsed, int mana, int collected, int invisible, int boost, int alert);
 
+void drawGameOver();
+
 
 
 #endif
