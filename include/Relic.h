@@ -31,4 +31,12 @@ int takeRelic(Relic *relic);
  */
 void setLocation(Relic *relic, Point location);
 
+/**
+ * @brief Initializes a relic and it's location
+ * 
+ * @param relic 
+ * @param location 
+ */
+void initRelic(Relic *relic, Point location);
+
 #endif

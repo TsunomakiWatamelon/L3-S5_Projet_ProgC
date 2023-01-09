@@ -36,3 +36,16 @@ void setLocation(Relic *relic, Point location){
 
     relic->location = location;
 }
+
+/**
+ * @brief Initializes a relic and it's location
+ * 
+ * @param relic 
+ * @param location 
+ */
+void initRelic(Relic *relic, Point location){
+    assert(relic);
+
+    relic->taken = 0;
+    setLocation(relic, location);
+}
