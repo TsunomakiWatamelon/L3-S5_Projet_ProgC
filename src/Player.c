@@ -21,6 +21,7 @@ void init_Player(Player * player){
     player->detected = 0;
     player->speed = 0.1;
     player->speed_max = 0.9;
+    player->speed_verstappen = 1.8;
     player->location.x = 2;
     player->location.y = 2;
     player->mana = 0;
@@ -40,10 +41,18 @@ void move(Player * player, Direction direction, Grid *grid){
     assert(player);
 
     switch (direction){
-        case up: player->location.y -= player->speed * V;
-        case down: player->location.y += player->speed * V;
-        case left: player->location.x -= player->speed * V;
-        case right: player->location.x -= player->speed * V;
+        case up:
+            player->location.y -= player->speed * V;
+            break;
+        case down:
+            player->location.y += player->speed * V;
+            break;
+        case left:
+            player->location.x -= player->speed * V;
+            break;
+        case right:
+            player->location.x += player->speed * V;
+            break;
     }
 
     /* Used here to just adjust the player's position if it collides */
@@ -58,7 +67,8 @@ void move(Player * player, Direction direction, Grid *grid){
  * @return int mana used
  */
 int accel(Player * player, int thrust){
-    int maxSpeed, acceleration, manaUsed;
+    double maxSpeed, acceleration;
+    int manaUsed;
 
     assert(player);
 
@@ -66,7 +76,7 @@ int accel(Player * player, int thrust){
     acceleration = 0.03; 
     manaUsed = 0;
     if(thrust && player->mana >= 2){
-        maxSpeed = 1.2;
+        maxSpeed = player->speed_verstappen;
         /*acceleration value change when thrusting*/
         acceleration = 0.06;
         player->mana -= 2;
@@ -77,8 +87,15 @@ int accel(Player * player, int thrust){
         if(player->speed > maxSpeed)
             player->speed = maxSpeed;
     }
+    else
+        player->speed = maxSpeed;
     return manaUsed;
- }
+}
+
+void resetSpeed(Player * player){
+    assert(player);
+    player->speed = 0.1;
+}
 
 /**
  * @brief tries to use the invisibility ability

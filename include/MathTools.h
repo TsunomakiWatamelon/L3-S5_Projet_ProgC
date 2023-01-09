@@ -11,10 +11,13 @@
 
 #ifndef __MathTools__
 #define __MathTools__
+
+#define _DEFAULT_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
 #include <math.h>
+#include <time.h>
 
 typedef struct {
     int x;
@@ -109,5 +112,65 @@ int pointEquals(Point a, Point b);
  * @return int 1 if it's value is present, 0 otherwise
  */
 int pointInArray(Point * array, Point check, int len);
+
+void getRandomPoint(Point * point, double x_max, double x_min, double y_max, double y_min);
+
+int positionArrayNotTouching(Point * array, int len);
+
+/**
+ * @brief Get the modulo between 0 and b-1 of a.
+ * 
+ * @param a Dividend
+ * @param b Divisor
+ * 
+ * @return Modulo between 0 and b-1 of a
+ */
+int goodModulo(int a, int b);
+
+/**
+ * @brief Convert a number of microseconds to the corresponding number of hours.
+ * 
+ * @param nb_ms Number of microseconds
+ * 
+ * @return Number of hours
+ */
+int microsecondsToHours(int nb_ms);
+
+/**
+ * @brief Convert a number of microseconds to the corresponding number of minutes.
+ * 
+ * @param nb_ms Number of microseconds
+ * 
+ * @return Number of minutes
+ */
+int microsecondsToMinutes(int nb_ms);
+
+/**
+ * @brief Convert a number of microseconds to the corresponding number of centiseconds.
+ * 
+ * @param nb_ms Number of microseconds
+ * 
+ * @return Number of centiseconds
+ */
+int microsecondsToCentiseconds(int nb_ms);
+
+/**
+ * @brief Convert a number of microseconds to the corresponding number of seconds.
+ * 
+ * @param nb_ms Number of microseconds
+ * 
+ * @return Number of seconds
+ */
+int microsecondsToSeconds(int nb_ms);
+
+/**
+ * @brief Calculates elapsed time in ms between start and end
+ * 
+ * @param start start time
+ * @param end end time
+ * 
+ * @return The elapsed time in ms
+ */
+int elapsed_time_ms(const struct timespec *start, const struct timespec *end);
 
 #endif

@@ -15,17 +15,14 @@
  * 
  */
 void createWindow(void){
-    MLV_create_window("L3 S5 Project - Stealth Game", "Stealth Game", WINX, WINY);
+    MLV_create_window("L3 S5 Project - Stealth Game", "Stealth Game", GAME_WINX, GAME_WINY);
 }
 
 /**
  * @brief Draw an entity (the type should describe which one)
  * 
- * type = 0 : player
- * otherwise : golem
- * 
  * @param position 
- * @param type 
+ * @param color
  */
 static void drawEntity(Point position, MLV_Color color){
     
@@ -80,12 +77,6 @@ void drawGolems(Golem *golems, int arraySize){
     assert(arraySize >= 0);
     assert(golems);
 
-    /*
-        Two separate loop because we don't want the detection radius of a golem to overwrite a part of another golem
-    */
-    for (i = 0; i < arraySize; i++){
-        drawDetectionRadius(golems[i]);
-    }
     for (i = 0; i < arraySize; i++){
         drawGolem(golems[i]);
     }
@@ -104,13 +95,34 @@ void drawPlayer(Player player){
 }
 
 /**
- * @brief Draws the player
+ * @brief Draws the relic
  * 
- * @param player the player
+ * @param player the relic
  */
 void drawRelic(Relic relic){
     if (!relic.taken)
-        drawEntity(relic.location, MLV_COLOR_GREEN1);
+        drawEntity(relic.location, MLV_COLOR_MAGENTA1);
+}
+
+/**
+ * @brief Draw the relics
+ * 
+ * @param golems the array of relics
+ * @param arraySize the size of the relics array
+ */
+void drawRelics(Relic *relics, int arraySize){
+    int i;
+
+    assert(arraySize >= 0);
+    assert(relics);
+
+    /*
+        Two separate loop because we don't want the detection radius of a golem to overwrite a part of another golem
+    */
+
+    for (i = 0; i < arraySize; i++){
+        drawRelic(relics[i]);
+    }
 }
 
 /**
@@ -133,10 +145,10 @@ void drawGridSubspace(int x, int y, int width, int height, MLV_Color color) {
     assert(y + height <= MAX_HEIGHT);
 
     for (i = x; i <= x + width; i++) {
-        MLV_draw_line(i * 20, y, i * 20, y + height * 20, color);
+        MLV_draw_line(i * 20, y * 20, i * 20, (y + height) * 20, color);
     }
     for (i = y; i <= y + height; i++) {
-        MLV_draw_line(x, i * 20, x + width * 20, i * 20, color);
+        MLV_draw_line(x * 20, i * 20, x * 20 + width * 20, i * 20, color);
     }
 }
 
@@ -222,7 +234,7 @@ void drawMana(Grid grid){
  * 
  */
 void wipeSubspace(int x, int y, int width, int height){
-    MLV_draw_filled_rectangle(x, y, width * 20, height * 20, MLV_COLOR_GRAY0);
+    MLV_draw_filled_rectangle(x * 20, y * 20, width * 20, height * 20, MLV_COLOR_GRAY60);
 }
 
 /**
@@ -265,7 +277,7 @@ void redrawSubspace(Grid grid, int x, int y, int width, int height){
     wipeSubspace(x, y, width, height);
     drawManaSubspace(grid, x, y, width, height);
     drawWallsSubspace(grid, x, y, width, height);
-    drawGridSubspace(x, y, width + 1, height + 1, MLV_COLOR_BLACK);
+    drawGridSubspace(x, y, width, height, MLV_COLOR_BLACK);
 }
 
 /**
@@ -280,8 +292,6 @@ void redrawSubspaceEntity(int x, int y, int width, int height, Grid grid) {
     assert(x < MAX_WIDTH);
     assert(0 <= y);
     assert(y < MAX_HEIGHT);
-    assert(x + width <= MAX_WIDTH);
-    assert(y + height <= MAX_HEIGHT);
 
     x = clamp(x - width / 2, 0, MAX_WIDTH - width);
     y = clamp(y - height / 2, 0, MAX_HEIGHT - height);
@@ -299,7 +309,7 @@ void redrawSubspaceEntity(int x, int y, int width, int height, Grid grid) {
 void redrawSubspacePlayer(Player player, Grid grid) {
     int width, height, x, y;
 
-    width = height = 3;
+    width = height = 10;
 
     x = roundToInt(player.location.x);
     y = roundToInt(player.location.y);
@@ -315,10 +325,83 @@ void redrawSubspacePlayer(Player player, Grid grid) {
 void redrawSubspaceGolem(Golem golem, Grid grid) {
     int width, height, x, y;
 
-    width = golem.panic ? 7 : 5;
+    width = golem.panic ? 16 : 14;
     height = width;
     
     x = roundToInt(golem.location.x);
     y = roundToInt(golem.location.y);
     redrawSubspaceEntity(x, y, width, height, grid);
+}
+
+/**
+ * Redraws the area surrounding a relic on the game field.
+ *
+ * @param player the relic whose surrounding area should be redrawn
+ * @param grid the grid containing information about the walls and mana
+ */
+void redrawSubspaceRelic(Relic relic, Grid grid) {
+    int width, height, x, y;
+
+    width = height = 3;
+
+    x = roundToInt(relic.location.x);
+    y = roundToInt(relic.location.y);
+    redrawSubspaceEntity(x, y, width, height, grid);
+}
+
+void drawEntities(Grid grid, Player player, Golem * golems, Relic * relics, int lenGolem, int lenRelics){
+    int i;
+
+    redrawSubspacePlayer(player, grid);
+
+    for (i = 0; i < lenGolem; i++){
+        redrawSubspaceGolem(golems[i], grid);
+    }
+    for (i = 0; i < lenRelics; i++){
+        redrawSubspaceRelic(relics[i], grid);
+    }
+
+    for (i = 0; i < lenGolem; i++){
+        drawDetectionRadius(golems[i]);
+    }
+
+    drawRelics(relics, lenRelics);
+    drawGolems(golems, lenGolem);
+    drawPlayer(player);
+}
+
+void drawInfo(int timeElapsed, int mana, int collected, int invisible, int boost, int alert){
+    char strMana[9];
+    char timeString[12];
+    char strCollect[3];
+    MLV_Font * font;
+
+    assert(timeElapsed >= 0);
+
+    sprintf(timeString, "%02d:%02d:%02d:%02d",  microsecondsToHours(timeElapsed),
+                                                microsecondsToMinutes(timeElapsed),
+                                                microsecondsToSeconds(timeElapsed),
+                                                microsecondsToCentiseconds(timeElapsed)
+           );
+    sprintf(strMana, "%d", mana);
+    sprintf(strCollect, "%d", collected);
+
+    MLV_draw_filled_rectangle(0, 900, 1200, 1000, MLV_COLOR_WHITE);
+
+    font = MLV_load_font("MGS2MENU.ttf", 20);
+
+    MLV_draw_text_with_font(10, 920, "TIME :", font, MLV_COLOR_BLACK);
+    MLV_draw_text_with_font(170, 920, timeString, font, MLV_COLOR_BLACK);
+    MLV_draw_text_with_font(10, 960, "MANA :", font, MLV_COLOR_BLACK);
+    MLV_draw_text_with_font(170, 960, strMana, font, MLV_COLOR_BLACK);
+
+    MLV_draw_text_with_font(530, 920, "INVISIBLE", font, invisible ? MLV_COLOR_BLACK : MLV_COLOR_GRAY75);
+    MLV_draw_text_with_font(530, 960, "LEFT :", font, MLV_COLOR_BLACK);
+    MLV_draw_text_with_font(690, 960, strCollect, font, MLV_COLOR_BLACK);
+
+    MLV_draw_text_with_font(930, 920, "BOOST", font, boost ? MLV_COLOR_BLACK : MLV_COLOR_GRAY75);
+    MLV_draw_text_with_font(930, 960, "ALERT", font, alert ? MLV_COLOR_RED : MLV_COLOR_GRAY75);
+
+    
+    MLV_actualise_window();
 }

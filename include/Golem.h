@@ -38,6 +38,18 @@ void initGolem(Golem * golem, Point location);
  */
 int moveGolem(Golem * golem, Grid * grid);
 
+/**
+ * @brief Checks if the entities are in the line of sight of each other
+ * 
+ * They are in each other's line of sight if the line drawn between the two does not cross a wall
+ * 
+ * @param entity1 the entity1's point
+ * @param entity2 the entity2's point
+ * @param grid the grid which has information about possible walls
+ * @return int 1 if the player is it's line of sight, 0 otherwise
+ */
+int inLineOfSight(Point entity1, Point entity2, Grid *grid);
+
 
 /**
  * @brief Makes a golem patrol and detect the player if he is in it's detection range.

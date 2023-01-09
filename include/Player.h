@@ -47,5 +47,7 @@ int accel(Player * player, int thrust);
  */
 int useInvisibility(Player * player);
 
+void resetSpeed(Player * player);
+
  #endif
 

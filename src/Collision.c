@@ -108,7 +108,7 @@ static void getCoordinateC(Point *center, Coordinate *target, Direction d){
     else {
         target->x += 1;
     }
-} 
+}
 
 /**
  * @brief Tests if the entity described by the given Point is colliding with the adjacent
@@ -160,7 +160,9 @@ static int isCollisionA_aux(Point *center, Direction d) {
 static int isCollisionA(Point* center, Grid grid){
     int collided;
     Coordinate targetA_up, targetA_down, targetA_left, targetA_right;
+    Coordinate currentSquare;
 
+    currentSquare.x = (int)center->x; currentSquare.y = (int)center->y;
     getCoordinate(center, &targetA_down, down);
     getCoordinate(center, &targetA_up, up);
     getCoordinate(center, &targetA_left, left);
@@ -168,8 +170,11 @@ static int isCollisionA(Point* center, Grid grid){
 
     collided = 0;
 
+    
+    if (isLimit(currentSquare, grid))
+        collided = 1;
     if (isLimit(targetA_up, grid)){
-        collided = isCollisionA_aux(center, up);
+        collided = (collided || isCollisionA_aux(center, up));
     }
     if (isLimit(targetA_down, grid)){
         collided = (collided || isCollisionA_aux(center, down));

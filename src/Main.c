@@ -12,6 +12,6 @@
 #include "../include/Main.h"
 
 int main(void){
-    test();
+    game();
     return 0;
 }

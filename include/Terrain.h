@@ -22,6 +22,8 @@
 typedef struct square {
     int isWall;
     int hasMana;
+    int x;
+    int y;
 } Square;
 
 typedef struct grid {

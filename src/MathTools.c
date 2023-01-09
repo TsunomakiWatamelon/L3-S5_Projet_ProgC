@@ -19,9 +19,8 @@
  * @return the generated value
  */
 double randRange(double min, double max){
-    assert(min > 0);
     assert(max >= min);
-    return min + (rand() / RAND_MAX) * (max - min);
+    return min + drand48() * (max - min);
 }
 
 /**
@@ -132,4 +131,99 @@ int pointInArray(Point * array, Point check, int len){
             return 1;
     }
     return 0;
+}
+
+void getRandomPoint(Point * point, double x_max, double x_min, double y_max, double y_min){
+    assert(point);
+    assert(x_min > 0);
+    assert(y_min > 0);
+
+    point->x = randRange(x_min, x_max);
+    point->y = randRange(y_min, y_max);
+}
+
+int positionArrayNotTouching(Point * array, int len){
+    int i, j;
+
+    assert(len >= 0);
+    assert(array);
+
+    for (i = 0; i < len; i++){
+        for (j = i + 1; j < len; j++){
+            if (distance(array[i].x, array[i].y, array[j].x, array[j].y) <= 1.0)
+                return 0;
+        }
+    }
+    return 1;
+}
+
+/**
+ * @brief Get the modulo between 0 and b-1 of a.
+ * 
+ * @param a Dividend
+ * @param b Divisor
+ * 
+ * @return Modulo between 0 and b-1 of a
+ */
+int goodModulo(int a, int b){
+    assert(b > 0);
+    if (a % b >= 0) return a % b;
+    else return (a % b) + b;
+}
+
+/**
+ * @brief Convert a number of microseconds to the corresponding number of hours.
+ * 
+ * @param nb_ms Number of microseconds
+ * 
+ * @return Number of hours
+ */
+int microsecondsToHours(int nb_ms){
+    return goodModulo(nb_ms / (1000 * 60 * 60), 24);
+}
+
+
+/**
+ * @brief Convert a number of microseconds to the corresponding number of minutes.
+ * 
+ * @param nb_ms Number of microseconds
+ * 
+ * @return Number of minutes
+ */
+int microsecondsToMinutes(int nb_ms){
+    return goodModulo(nb_ms / (1000 * 60), 60);
+}
+
+/**
+ * @brief Convert a number of microseconds to the corresponding number of centiseconds.
+ * 
+ * @param nb_ms Number of microseconds
+ * 
+ * @return Number of centiseconds
+ */
+int microsecondsToCentiseconds(int nb_ms){
+    return goodModulo(nb_ms / 10, 100);
+}
+
+/**
+ * @brief Convert a number of microseconds to the corresponding number of seconds.
+ * 
+ * @param nb_ms Number of microseconds
+ * 
+ * @return Number of seconds
+ */
+int microsecondsToSeconds(int nb_ms){
+    return goodModulo(nb_ms / 1000, 60);
+}
+
+/**
+ * @brief Calculates elapsed time in ms between start and end
+ * 
+ * @param start start time
+ * @param end end time
+ * 
+ * @return The elapsed time in ms
+ */
+int elapsed_time_ms(const struct timespec *start, const struct timespec *end) {
+    return (end->tv_sec - start->tv_sec) * 1000 + (end->tv_nsec - start->tv_nsec) / 1000000;
 }

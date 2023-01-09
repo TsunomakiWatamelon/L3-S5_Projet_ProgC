@@ -12,9 +12,13 @@
 #define __graphics__
 
 #include <MLV/MLV_all.h>
+#include <stdio.h>
 #include "Entity.h"
 #include "assert.h"
 #include "Terrain.h"
+
+#define GAME_WINX 1200
+#define GAME_WINY 1000
 
 /**
  * @brief Creates the window
@@ -71,7 +75,19 @@ void redrawSubspacePlayer(Player player, Grid grid);
  */
 void redrawSubspaceGolem(Golem golem, Grid grid);
 
-#define WINX 1200
-#define WINY 900
+/**
+ * Redraws the area surrounding an entity on the game field.
+ *
+ * @param x the x-coordinate of the center of the surrounding area
+ * @param y the y-coordinate of the center of the surrounding area
+ * @param grid the grid containing information about the walls and mana
+ */
+void redrawSubspaceEntity(int x, int y, int width, int height, Grid grid);
+
+void drawEntities(Grid grid, Player player, Golem * golems, Relic * relics, int lenGolem, int lenRelics);
+
+void drawInfo(int timeElapsed, int mana, int collected, int invisible, int boost, int alert);
+
+
 
 #endif

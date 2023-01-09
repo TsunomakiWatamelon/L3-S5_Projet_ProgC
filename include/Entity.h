@@ -4,7 +4,7 @@
 
 #include "MathTools.h"
 #include "Terrain.h"
-#define V 0.05
+#define V 0.016
 #define DETECT_RADIUS 4
 #define PANIC_RADIUS 6
 
@@ -27,6 +27,7 @@ typedef struct {
     int invisible;
     double speed;
     double speed_max;
+    double speed_verstappen;
     Point location;
  } Player;
 
