@@ -381,6 +381,21 @@ void drawEntities(Grid grid, Player player, Golem * golems, Relic * relics, int 
 }
 
 /**
+ * @brief Get the string equivalent (in format HH : mm : ss : cc) of the time given in ms
+ * 
+ * @param timeString The resulting string (to be edited)
+ * @param timeElapsed The time value in ms
+ */
+static void getTimeString(char timeString[12], int timeElapsed){
+    assert(timeString);
+    sprintf(timeString, "%02d:%02d:%02d:%02d",  microsecondsToHours(timeElapsed),
+                                                microsecondsToMinutes(timeElapsed),
+                                                microsecondsToSeconds(timeElapsed),
+                                                microsecondsToCentiseconds(timeElapsed)
+           );
+}
+
+/**
  * @brief Draw information about the current game such as the time elapsed, the abilities currently used, remaining relics etc.
  * 
  * @param timeElapsed Time elapsed in ms
@@ -398,17 +413,13 @@ void drawInfo(int timeElapsed, int mana, int remaining, int invisible, int boost
 
     assert(timeElapsed >= 0);
 
-    sprintf(timeString, "%02d:%02d:%02d:%02d",  microsecondsToHours(timeElapsed),
-                                                microsecondsToMinutes(timeElapsed),
-                                                microsecondsToSeconds(timeElapsed),
-                                                microsecondsToCentiseconds(timeElapsed)
-           );
+    getTimeString(timeString, timeElapsed);
     sprintf(manaString, "%d", mana);
     sprintf(strCollect, "%d", remaining);
 
     MLV_draw_filled_rectangle(0, 900, 1200, 1000, MLV_COLOR_WHITE);
 
-    font = MLV_load_font("MGS2MENU.ttf", 20);
+    font = MLV_load_font("./ressource/MGS2MENU.ttf", 20);
 
     MLV_draw_text_with_font(10, 920, "TIME :", font, MLV_COLOR_BLACK);
     MLV_draw_text_with_font(170, 920, timeString, font, MLV_COLOR_BLACK);
@@ -438,7 +449,7 @@ void drawGameOver(){
     const char * gameOver = "GAME OVER";
     int width;
     width = GAME_WINX;
-    font = MLV_load_font("MGS1.ttf", 100);
+    font = MLV_load_font("./ressource/MGS1.ttf", 100);
     MLV_draw_filled_rectangle(0, 0, 60 * 20, 45 * 20, MLV_COLOR_GREY4);
     MLV_get_size_of_text_with_font(gameOver, &width_text, &height_text, font);
 	positionX = (width-width_text)/2, positionY = GAME_WINY / 2;
@@ -485,15 +496,11 @@ void drawWin(int timeElapsed, int manaTotal){
     const char * success = "SUCCESS";
     int width;
     width = GAME_WINX;
-    font = MLV_load_font("MGS1.ttf", 100);
-    font2 = MLV_load_font("MGS2MENU.ttf", 20);
+    font = MLV_load_font("./ressource/MGS1.ttf", 100);
+    font2 = MLV_load_font("./ressource/MGS2MENU.ttf", 20);
     MLV_draw_filled_rectangle(0, 0, 60 * 20, 45 * 20, MLV_COLOR_GREY4);
 
-    sprintf(timeString, "%02d:%02d:%02d:%02d",  microsecondsToHours(timeElapsed),
-                                                microsecondsToMinutes(timeElapsed),
-                                                microsecondsToSeconds(timeElapsed),
-                                                microsecondsToCentiseconds(timeElapsed)
-           );
+    getTimeString(timeString, timeElapsed);
     sprintf(manaString, "%d", manaTotal);
     MLV_draw_text_with_font(40, 220, "TIME :", font2, MLV_COLOR_WHITE);
     MLV_draw_text_with_font(210, 220, timeString, font2, MLV_COLOR_WHITE);
@@ -544,7 +551,7 @@ int askSaveScore(){
     MLV_Font * font;
 
     width = GAME_WINX;
-    font = MLV_load_font("MGS2MENU.ttf", 20);
+    font = MLV_load_font("./ressource/MGS2MENU.ttf", 20);
     MLV_draw_filled_rectangle(0, 0, 1200, 1000, MLV_COLOR_BLACK);
 
     MLV_get_size_of_text_with_font(msg, &width_text, &height_text, font);
@@ -552,7 +559,7 @@ int askSaveScore(){
     MLV_draw_text_with_font(positionX, 300, msg, font, MLV_COLOR_WHITE);
 
     MLV_free_font(font);
-    font = MLV_load_font("MGS2MENU.ttf", 20);
+    font = MLV_load_font("./ressource/MGS2MENU.ttf", 20);
 
     MLV_draw_filled_rectangle(450, 450, 100, 100, MLV_COLOR_WHITE);
     MLV_draw_filled_rectangle(650, 450, 100, 100, MLV_COLOR_WHITE);
@@ -592,7 +599,7 @@ void askName(char name[11]){
     char *text;
 
     MLV_draw_filled_rectangle(0, 0, 1200, 1000, MLV_COLOR_BLACK);
-    font = MLV_load_font("MGS2MENU.ttf", 17);
+    font = MLV_load_font("./ressource/MGS2MENU.ttf", 17);
 
     MLV_wait_input_box_with_font(
 		450, 450,
@@ -627,17 +634,13 @@ void drawLeaderboard(Leaderboard time, Leaderboard mana){
     MLV_Font * font;
 
     MLV_draw_filled_rectangle(0, 0, 1200, 1000, MLV_COLOR_BLACK);
-    font = MLV_load_font("DS-DIGI.ttf", 20);
+    font = MLV_load_font("./ressource/DS-DIGI.ttf", 20);
     
     /* Time leader board */
     MLV_draw_text_with_font(10, 10, "Time Leaderboard Top 10 :", font, MLV_COLOR_WHITE);
     for (i = 0; i < time.size; i++){
         sprintf(manaString, "%d", time.scores[i].manaUsed);
-        sprintf(timeString, "%02d:%02d:%02d:%02d",  microsecondsToHours(time.scores[i].timeElapsed),
-                                                    microsecondsToMinutes(time.scores[i].timeElapsed),
-                                                    microsecondsToSeconds(time.scores[i].timeElapsed),
-                                                    microsecondsToCentiseconds(time.scores[i].timeElapsed)
-               );
+        getTimeString(timeString, time.scores[i].timeElapsed);
         MLV_draw_text_with_font(10, 50 + i * 30, "Name : ", font, MLV_COLOR_WHITE);
         MLV_draw_text_with_font(60, 50 + i * 30, time.scores[i].name, font, MLV_COLOR_WHITE);
         MLV_draw_text_with_font(200, 50 + i * 30, timeString, font, MLV_COLOR_WHITE);
@@ -647,11 +650,7 @@ void drawLeaderboard(Leaderboard time, Leaderboard mana){
     MLV_draw_text_with_font(610, 10, "Mana Usage Leaderboard Top 10 :", font, MLV_COLOR_WHITE);
     for (i = 0; i < mana.size; i++){
         sprintf(manaString, "%d", mana.scores[i].manaUsed);
-        sprintf(timeString, "%02d:%02d:%02d:%02d",  microsecondsToHours(mana.scores[i].timeElapsed),
-                                                    microsecondsToMinutes(mana.scores[i].timeElapsed),
-                                                    microsecondsToSeconds(mana.scores[i].timeElapsed),
-                                                    microsecondsToCentiseconds(mana.scores[i].timeElapsed)
-               );
+        getTimeString(timeString, mana.scores[i].timeElapsed);
         MLV_draw_text_with_font(610, 50 + i * 30, "Name : ", font, MLV_COLOR_WHITE);
         MLV_draw_text_with_font(660, 50 + i * 30, mana.scores[i].name, font, MLV_COLOR_WHITE);
         MLV_draw_text_with_font(800, 50 + i * 30, timeString, font, MLV_COLOR_WHITE);

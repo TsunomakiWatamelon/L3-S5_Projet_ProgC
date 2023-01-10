@@ -399,21 +399,19 @@ void game(int skip){
 
     lead_time.size = 0, lead_mana.size = 0;
 
-    readLeaderboardFromBinaryFile("./leaderboardTime", &lead_time);
-    readLeaderboardFromBinaryFile("./leaderboardMana", &lead_mana);
+    readLeaderboardFromBinaryFile("./ressource/leaderboardTime", &lead_time);
+    readLeaderboardFromBinaryFile("./ressource/eaderboardMana", &lead_mana);
 
     if (result)
         if (askSaveScore()){
             askName(name);
-            readLeaderboardFromBinaryFile("./leaderboardTime", &lead_time);
-            readLeaderboardFromBinaryFile("./leaderboardMana", &lead_mana);
 
             /* Adds only to the top 10 if the score qualifie for it */
             addScoreMana(&lead_mana, name, totalUsed, timeElapsed);
             addScoreTime(&lead_time, name, totalUsed, timeElapsed);
             
-            writeLeaderboardToBinaryFile("./leaderboardTime", &lead_time);
-            writeLeaderboardToBinaryFile("./leaderboardMana", &lead_mana);
+            writeLeaderboardToBinaryFile("./ressource/leaderboardTime", &lead_time);
+            writeLeaderboardToBinaryFile("./ressource/leaderboardMana", &lead_mana);
         }
 
     drawLeaderboard(lead_time, lead_mana);
