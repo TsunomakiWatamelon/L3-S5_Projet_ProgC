@@ -27,7 +27,7 @@
  * @param sizeY vertical size of the current subroom
  * @param type tells the function if the wall should be vertical or not (1 yes, 0 no)
  */
-void installWall(Grid *grid, int originX, int originY, int sizeX, int sizeY, int type);
+static void installWall(Grid *grid, int originX, int originY, int sizeX, int sizeY, int type);
 
 /**
  * @brief Initializes an empty grid

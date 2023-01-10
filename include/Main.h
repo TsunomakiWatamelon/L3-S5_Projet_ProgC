@@ -16,7 +16,9 @@
 #include <MLV/MLV_all.h>
 #include <stdlib.h>
 #include <time.h>
+#include <getopt.h>
 #include "../include/Terrain.h"
 #include "../include/Graphics.h"
+#include "../include/Game.h"
 
 #endif

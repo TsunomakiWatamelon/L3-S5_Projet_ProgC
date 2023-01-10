@@ -41,6 +41,12 @@ typedef struct {
     int size;
 } DepletedSquares;
 
-void game(void);
+/**
+ * @brief Main game algortithm.
+ * 
+ * @param skip is equal to 1 if the users wants to skip the game and go straight to the leaderboards
+ * 
+ */
+void game(int skip);
 
 #endif

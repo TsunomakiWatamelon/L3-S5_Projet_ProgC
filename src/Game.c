@@ -284,8 +284,10 @@ static int elapsed_time_ms(const struct timespec *start, const struct timespec *
 /**
  * @brief Main game algortithm.
  * 
+ * @param skip is equal to 1 if the users wants to skip the game and go straight to the leaderboards
+ * 
  */
-void game(void){
+void game(int skip){
     /*** Varaiable declarations ***/
 
     Grid grid; /* The grid */
@@ -306,6 +308,7 @@ void game(void){
     directionActive = 0; direction = right; frameNumber = 0;
     remainingRelics = NB_RELIC; alert = 0;
     totalUsed = manaUsed = 0;
+    result = 0;
 
     srand(time(NULL));
     srand48(time(NULL)); /* For drand48 */
@@ -315,7 +318,7 @@ void game(void){
     drawTerrain(grid);
     clock_gettime(CLOCK_REALTIME, &start_time);
 
-    while(1){
+    while(!skip){
         frameNumber++;
         clock_gettime(CLOCK_REALTIME, &end_time);
 
