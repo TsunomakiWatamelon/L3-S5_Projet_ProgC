@@ -1,10 +1,9 @@
 /**
- * @file Move.h
+ * @file Golem.h
  * @author HERVE NGUYEN & GABRIEL RADONIAINA
- * @brief Header file for Golem module
+ * @brief Header file for the Golem module
  * @version 0.1
  * @date 2022-11-07
- * 
  * 
  */
 

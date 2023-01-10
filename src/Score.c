@@ -1,7 +1,7 @@
 /**
  * @file Score.c
  * @author HERVE NGUYEN & GABRIEL RADONIAINA
- * @brief 
+ * @brief Score module, deals with saving/loading leaderboard files and manipulating leaderboards
  * @version 0.1
  * @date 2023-01-09
  * 

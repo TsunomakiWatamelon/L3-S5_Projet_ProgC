@@ -1,0 +1,89 @@
+\hypertarget{_relic_8c}{}\doxysection{src/\+Relic.c File Reference}
+\label{_relic_8c}\index{src/Relic.c@{src/Relic.c}}
+
+
+\mbox{\hyperlink{struct_relic}{Relic}} module, contains functions centered around the simple \char`\"{}behavior\char`\"{} of a relic.  
+
+
+{\ttfamily \#include \char`\"{}../include/\+Relic.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_relic_8c_a64ffb776c0ec528a907951f186bda846}{take\+Relic}} (\mbox{\hyperlink{struct_relic}{Relic}} $\ast$relic)
+\begin{DoxyCompactList}\small\item\em Takes the relic, if it has not been taken already. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_relic_8c_afd3570bf071455fb23149701be553f7f}{set\+Location}} (\mbox{\hyperlink{struct_relic}{Relic}} $\ast$relic, \mbox{\hyperlink{struct_point}{Point}} location)
+\begin{DoxyCompactList}\small\item\em Set the location of a given relic. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_relic_8c_a4a150e887c2ad7c2edd5f433d732800f}{init\+Relic}} (\mbox{\hyperlink{struct_relic}{Relic}} $\ast$relic, \mbox{\hyperlink{struct_point}{Point}} location)
+\begin{DoxyCompactList}\small\item\em Initializes a relic and it\textquotesingle{}s location. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{struct_relic}{Relic}} module, contains functions centered around the simple \char`\"{}behavior\char`\"{} of a relic. 
+
+\begin{DoxyAuthor}{Author}
+HERVE NGUYEN \& GABRIEL RADONIAINA 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/01-\/07
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_relic_8c_a4a150e887c2ad7c2edd5f433d732800f}\label{_relic_8c_a4a150e887c2ad7c2edd5f433d732800f}} 
+\index{Relic.c@{Relic.c}!initRelic@{initRelic}}
+\index{initRelic@{initRelic}!Relic.c@{Relic.c}}
+\doxysubsubsection{\texorpdfstring{initRelic()}{initRelic()}}
+{\footnotesize\ttfamily void init\+Relic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_relic}{Relic}} $\ast$}]{relic,  }\item[{\mbox{\hyperlink{struct_point}{Point}}}]{location }\end{DoxyParamCaption})}
+
+
+
+Initializes a relic and it\textquotesingle{}s location. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em relic} & \\
+\hline
+{\em location} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_relic_8c_afd3570bf071455fb23149701be553f7f}\label{_relic_8c_afd3570bf071455fb23149701be553f7f}} 
+\index{Relic.c@{Relic.c}!setLocation@{setLocation}}
+\index{setLocation@{setLocation}!Relic.c@{Relic.c}}
+\doxysubsubsection{\texorpdfstring{setLocation()}{setLocation()}}
+{\footnotesize\ttfamily void set\+Location (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_relic}{Relic}} $\ast$}]{relic,  }\item[{\mbox{\hyperlink{struct_point}{Point}}}]{location }\end{DoxyParamCaption})}
+
+
+
+Set the location of a given relic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em relic} & the given relic \\
+\hline
+{\em location} & the new location \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_relic_8c_a64ffb776c0ec528a907951f186bda846}\label{_relic_8c_a64ffb776c0ec528a907951f186bda846}} 
+\index{Relic.c@{Relic.c}!takeRelic@{takeRelic}}
+\index{takeRelic@{takeRelic}!Relic.c@{Relic.c}}
+\doxysubsubsection{\texorpdfstring{takeRelic()}{takeRelic()}}
+{\footnotesize\ttfamily int take\+Relic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_relic}{Relic}} $\ast$}]{relic }\end{DoxyParamCaption})}
+
+
+
+Takes the relic, if it has not been taken already. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em relic} & pointer to the relic \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if the relic has been taken by calling the function, 0 if it was already taken 
+\end{DoxyReturn}

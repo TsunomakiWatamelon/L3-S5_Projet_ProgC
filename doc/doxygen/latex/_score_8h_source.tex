@@ -1,0 +1,37 @@
+\hypertarget{_score_8h_source}{}\doxysection{Score.\+h}
+\label{_score_8h_source}\index{include/Score.h@{include/Score.h}}
+\mbox{\hyperlink{_score_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ \_\_score\_\_}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ \_\_score\_\_}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ ARRAY\_MAX\ 10}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{char}\ name[11];}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ manaUsed;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ timeElapsed;}
+\DoxyCodeLine{00029\ \}\ \mbox{\hyperlink{struct_score}{Score}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{struct_score}{Score}}\ scores[ARRAY\_MAX];}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ size;}
+\DoxyCodeLine{00038\ \}\ \mbox{\hyperlink{struct_leaderboard}{Leaderboard}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_score_8h_adc79ea14c2445050f05dbe77829516a4}{writeLeaderboardToBinaryFile}}(\textcolor{keywordtype}{char}*\ filepath,\ \mbox{\hyperlink{struct_leaderboard}{Leaderboard}}\ *\ leaderboard);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_score_8h_a222b3f6eaa28249d3226d0950da11baf}{readLeaderboardFromBinaryFile}}(\textcolor{keywordtype}{char}\ *\ filepath,\ \mbox{\hyperlink{struct_leaderboard}{Leaderboard}}\ *\ leaderboard);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_score_8h_a5d021c64cc3918d81fce63247d29fa2e}{addScoreTime}}(\mbox{\hyperlink{struct_leaderboard}{Leaderboard}}*\ leaderboard,\ \textcolor{keywordtype}{char}\ name[11],\ \textcolor{keywordtype}{int}\ manaUsed,\ \textcolor{keywordtype}{int}\ timeElapsed);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_score_8h_a15cbf7a332805405d868b152151976df}{addScoreMana}}(\mbox{\hyperlink{struct_leaderboard}{Leaderboard}}*\ leaderboard,\ \textcolor{keywordtype}{char}\ name[11],\ \textcolor{keywordtype}{int}\ manaUsed,\ \textcolor{keywordtype}{int}\ timeElapsed);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,7 +1,7 @@
 /**
  * @file Main.c
  * @author HERVE NGUYEN & GABRIEL RADONIAINA
- * @brief Source file for the Main (Main Game Algorithm)
+ * @brief Main "module", entry door for the program. Deals with arguments and launches the game or do other behaviors accordingly.
  * @version 0.1
  * @date 2023-01-07
  * 

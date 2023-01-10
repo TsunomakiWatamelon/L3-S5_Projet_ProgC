@@ -1,0 +1,173 @@
+\hypertarget{_player_8h}{}\doxysection{include/\+Player.h File Reference}
+\label{_player_8h}\index{include/Player.h@{include/Player.h}}
+
+
+Header file for the \mbox{\hyperlink{struct_player}{Player}} module.  
+
+
+{\ttfamily \#include \char`\"{}Entity.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Collision.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_player_8h_aab7f929905977c9d146dd39aea5325dd}{init\+\_\+\+Player}} (\mbox{\hyperlink{struct_player}{Player}} $\ast$player)
+\begin{DoxyCompactList}\small\item\em initalizes the player in game start conditions \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_player_8h_a00743a83210aa6d7f8862884ad29a763}{move}} (\mbox{\hyperlink{struct_player}{Player}} $\ast$player, \mbox{\hyperlink{_entity_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} direction, \mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} $\ast$\mbox{\hyperlink{structgrid}{grid}})
+\begin{DoxyCompactList}\small\item\em performs the movement of the player \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_player_8h_a5b1d9bb6c31f285cef69a49f842c162a}{accel}} (\mbox{\hyperlink{struct_player}{Player}} $\ast$player, int thrust)
+\begin{DoxyCompactList}\small\item\em performs an acceleration \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_player_8h_adb6a0637d29aacc038d358d5ef1e7f12}{use\+Invisibility}} (\mbox{\hyperlink{struct_player}{Player}} $\ast$player)
+\begin{DoxyCompactList}\small\item\em tries to use the invisibility ability \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_player_8h_abae5813adb82933e18bee6dafdd11e58}{reset\+Speed}} (\mbox{\hyperlink{struct_player}{Player}} $\ast$player)
+\begin{DoxyCompactList}\small\item\em Resets the speed of the player. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the \mbox{\hyperlink{struct_player}{Player}} module. 
+
+\begin{DoxyAuthor}{Author}
+HERVE NGUYEN \& GABRIEL RADONIAINA 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2022-\/11-\/07 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_player_8h_a5b1d9bb6c31f285cef69a49f842c162a}\label{_player_8h_a5b1d9bb6c31f285cef69a49f842c162a}} 
+\index{Player.h@{Player.h}!accel@{accel}}
+\index{accel@{accel}!Player.h@{Player.h}}
+\doxysubsubsection{\texorpdfstring{accel()}{accel()}}
+{\footnotesize\ttfamily int accel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{player,  }\item[{int}]{thrust }\end{DoxyParamCaption})}
+
+
+
+performs an acceleration 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the player \\
+\hline
+{\em thrust} & 1 if player tries to thrust 0 otherwise \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int mana used
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the player \\
+\hline
+{\em thrust} & 1 if player tries to thrust 0 otherwise \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int mana used 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_player_8h_aab7f929905977c9d146dd39aea5325dd}\label{_player_8h_aab7f929905977c9d146dd39aea5325dd}} 
+\index{Player.h@{Player.h}!init\_Player@{init\_Player}}
+\index{init\_Player@{init\_Player}!Player.h@{Player.h}}
+\doxysubsubsection{\texorpdfstring{init\_Player()}{init\_Player()}}
+{\footnotesize\ttfamily void init\+\_\+\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{player }\end{DoxyParamCaption})}
+
+
+
+initalizes the player in game start conditions 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the player\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the player \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_player_8h_a00743a83210aa6d7f8862884ad29a763}\label{_player_8h_a00743a83210aa6d7f8862884ad29a763}} 
+\index{Player.h@{Player.h}!move@{move}}
+\index{move@{move}!Player.h@{Player.h}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{player,  }\item[{\mbox{\hyperlink{_entity_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}}]{direction,  }\item[{\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} $\ast$}]{grid }\end{DoxyParamCaption})}
+
+
+
+performs the movement of the player 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & player \\
+\hline
+{\em direction} & direction(up, down, left, right) \\
+\hline
+{\em grid} & pointer to the grid that has information about possible walls\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the player \\
+\hline
+{\em direction} & direction(up, down, left, right) \\
+\hline
+{\em grid} & pointer to the grid that has information about possible walls \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_player_8h_abae5813adb82933e18bee6dafdd11e58}\label{_player_8h_abae5813adb82933e18bee6dafdd11e58}} 
+\index{Player.h@{Player.h}!resetSpeed@{resetSpeed}}
+\index{resetSpeed@{resetSpeed}!Player.h@{Player.h}}
+\doxysubsubsection{\texorpdfstring{resetSpeed()}{resetSpeed()}}
+{\footnotesize\ttfamily void reset\+Speed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{player }\end{DoxyParamCaption})}
+
+
+
+Resets the speed of the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the player\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the player \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_player_8h_adb6a0637d29aacc038d358d5ef1e7f12}\label{_player_8h_adb6a0637d29aacc038d358d5ef1e7f12}} 
+\index{Player.h@{Player.h}!useInvisibility@{useInvisibility}}
+\index{useInvisibility@{useInvisibility}!Player.h@{Player.h}}
+\doxysubsubsection{\texorpdfstring{useInvisibility()}{useInvisibility()}}
+{\footnotesize\ttfamily int use\+Invisibility (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{player }\end{DoxyParamCaption})}
+
+
+
+tries to use the invisibility ability 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the player \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int mana used
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Pointer to the player \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int mana used 
+\end{DoxyReturn}

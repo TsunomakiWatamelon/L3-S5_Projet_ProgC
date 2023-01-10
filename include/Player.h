@@ -1,7 +1,7 @@
 /**
- * @file Move.h
+ * @file Player.h
  * @author HERVE NGUYEN & GABRIEL RADONIAINA
- * @brief Header file for Move module
+ * @brief Header file for the Player module
  * @version 0.1
  * @date 2022-11-07
  * 

@@ -1,7 +1,13 @@
 /**
  * @file Game.c
  * @author HERVE NGUYEN & GABRIEL RADONIAINA
- * @brief 
+ * @brief Game module.
+ * 
+ * Contains the main game algorithm and functions manipulating game elements which uses more "outside" element
+ * than the typical function of a primitive module can use.
+ * 
+ * The reason is just to limit circular inclusions.
+ * 
  * @version 0.1
  * @date 2023-01-08
  * 

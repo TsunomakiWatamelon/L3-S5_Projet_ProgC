@@ -19,6 +19,10 @@
 #define MAX_WIDTH 60
 #define MIN_SIDE 9
 
+/**
+ * @brief Represents one "square" in the grid
+ * 
+ */
 typedef struct square {
     int isWall;
     int hasMana;
@@ -26,6 +30,10 @@ typedef struct square {
     int y;
 } Square;
 
+/**
+ * @brief Represents the "grid", which is the playing field for the player. It contains an 2D array of squares that can have mana, be a wall, etc.
+ * 
+ */
 typedef struct grid {
     Square square[MAX_HEIGHT][MAX_WIDTH];
 } Grid;

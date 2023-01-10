@@ -1,7 +1,7 @@
 /**
  * @file Relic.c
  * @author HERVE NGUYEN & GABRIEL RADONIAINA
- * @brief Source file for the Relic module
+ * @brief Relic module, contains functions centered around the simple "behavior" of a relic
  * @version 0.1
  * @date 2023-01-07
  * 

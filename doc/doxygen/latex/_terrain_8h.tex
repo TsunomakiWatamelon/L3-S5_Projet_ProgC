@@ -1,0 +1,130 @@
+\hypertarget{_terrain_8h}{}\doxysection{include/\+Terrain.h File Reference}
+\label{_terrain_8h}\index{include/Terrain.h@{include/Terrain.h}}
+
+
+Header file for the Terrain module.  
+
+
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsquare}{square}}
+\begin{DoxyCompactList}\small\item\em Represents one \char`\"{}square\char`\"{} in the grid. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structgrid}{grid}}
+\begin{DoxyCompactList}\small\item\em Represents the \char`\"{}grid\char`\"{}, which is the playing field for the player. It contains an 2D array of squares that can have mana, be a wall, etc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_terrain_8h_a9059fa76eb5e8e86f870405d63e72c4c}\label{_terrain_8h_a9059fa76eb5e8e86f870405d63e72c4c}} 
+\#define {\bfseries MAX\+\_\+\+HEIGHT}~45
+\item 
+\mbox{\Hypertarget{_terrain_8h_a0e9d4003787634607af9e97e14b9668b}\label{_terrain_8h_a0e9d4003787634607af9e97e14b9668b}} 
+\#define {\bfseries MAX\+\_\+\+WIDTH}~60
+\item 
+\mbox{\Hypertarget{_terrain_8h_a0d31e48b3a90b7260545cac93397b05b}\label{_terrain_8h_a0d31e48b3a90b7260545cac93397b05b}} 
+\#define {\bfseries MIN\+\_\+\+SIDE}~9
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structsquare}{square}} \mbox{\hyperlink{_terrain_8h_ab2687f210fc889bf7ec09e81a4a36238}{Square}}
+\begin{DoxyCompactList}\small\item\em Represents one \char`\"{}square\char`\"{} in the grid. \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{structgrid}{grid}} \mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}}
+\begin{DoxyCompactList}\small\item\em Represents the \char`\"{}grid\char`\"{}, which is the playing field for the player. It contains an 2D array of squares that can have mana, be a wall, etc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_terrain_8h_a2b054c36e5ac3b2d11c054f79d86ff0b}{init\+Empty\+Grid}} (\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} $\ast$\mbox{\hyperlink{structgrid}{grid}})
+\begin{DoxyCompactList}\small\item\em Initializes an empty grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_terrain_8h_ac9dbc883be444d4ecc100cd0515d1cd0}{initialize\+Terrain}} (\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} $\ast$\mbox{\hyperlink{structgrid}{grid}})
+\begin{DoxyCompactList}\small\item\em Initializes a grid with empty squares and generates walls in it and the borders. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the Terrain module. 
+
+\begin{DoxyAuthor}{Author}
+HERVE NGUYEN \& GABRIEL RADONIAINA 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2022-\/11-\/12 
+\end{DoxyDate}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}\label{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}} 
+\index{Terrain.h@{Terrain.h}!Grid@{Grid}}
+\index{Grid@{Grid}!Terrain.h@{Terrain.h}}
+\doxysubsubsection{\texorpdfstring{Grid}{Grid}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structgrid}{grid}} \mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}}}
+
+
+
+Represents the \char`\"{}grid\char`\"{}, which is the playing field for the player. It contains an 2D array of squares that can have mana, be a wall, etc. 
+
+\mbox{\Hypertarget{_terrain_8h_ab2687f210fc889bf7ec09e81a4a36238}\label{_terrain_8h_ab2687f210fc889bf7ec09e81a4a36238}} 
+\index{Terrain.h@{Terrain.h}!Square@{Square}}
+\index{Square@{Square}!Terrain.h@{Terrain.h}}
+\doxysubsubsection{\texorpdfstring{Square}{Square}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structsquare}{square}} \mbox{\hyperlink{_terrain_8h_ab2687f210fc889bf7ec09e81a4a36238}{Square}}}
+
+
+
+Represents one \char`\"{}square\char`\"{} in the grid. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_terrain_8h_a2b054c36e5ac3b2d11c054f79d86ff0b}\label{_terrain_8h_a2b054c36e5ac3b2d11c054f79d86ff0b}} 
+\index{Terrain.h@{Terrain.h}!initEmptyGrid@{initEmptyGrid}}
+\index{initEmptyGrid@{initEmptyGrid}!Terrain.h@{Terrain.h}}
+\doxysubsubsection{\texorpdfstring{initEmptyGrid()}{initEmptyGrid()}}
+{\footnotesize\ttfamily void init\+Empty\+Grid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} $\ast$}]{grid }\end{DoxyParamCaption})}
+
+
+
+Initializes an empty grid. 
+
+The grid will have no wall and should have mana on all it\textquotesingle{}s squares.
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & Pointer to the Grid to initialize\\
+\hline
+\end{DoxyParams}
+
+
+The grid will have no wall and should have mana on all it\textquotesingle{}s squares.
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & Pointer to the Grid to initialize \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_terrain_8h_ac9dbc883be444d4ecc100cd0515d1cd0}\label{_terrain_8h_ac9dbc883be444d4ecc100cd0515d1cd0}} 
+\index{Terrain.h@{Terrain.h}!initializeTerrain@{initializeTerrain}}
+\index{initializeTerrain@{initializeTerrain}!Terrain.h@{Terrain.h}}
+\doxysubsubsection{\texorpdfstring{initializeTerrain()}{initializeTerrain()}}
+{\footnotesize\ttfamily void initialize\+Terrain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} $\ast$}]{grid }\end{DoxyParamCaption})}
+
+
+
+Initializes a grid with empty squares and generates walls in it and the borders. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & Pointer to a Grid object to initialize and generate walls in.\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & Pointer to a Grid object to initialize and generate walls in. \\
+\hline
+\end{DoxyParams}

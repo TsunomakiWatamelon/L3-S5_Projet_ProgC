@@ -1,7 +1,7 @@
 /**
  * @file MathTools.c
  * @author HERVE NGUYEN & GABRIEL RADONIAINA
- * @brief Source file for the MathTools module
+ * @brief MathTools module, contains multiple "tool" function that are used by other modules. Usually manipulate basic data without context.
  * @version 0.1
  * @date 2023-01-07
  * 

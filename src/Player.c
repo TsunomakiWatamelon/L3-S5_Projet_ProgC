@@ -2,7 +2,7 @@
 /**
  * @file Player.c
  * @author HERVE NGUYEN & GABRIEL RADONIAINA
- * @brief Header file for Move module
+ * @brief Player module, contains functions centered around the behavior of a player
  * @version 0.1
  * @date 2022-11-07
  * 

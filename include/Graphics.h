@@ -1,7 +1,7 @@
 /**
  * @file Graphics.h
  * @author HERVE NGUYEN & GABRIEL RADONIAINA
- * @brief Header file for the graphics module
+ * @brief Header file for the Graphics module
  * @version 0.1
  * @date 2023-01-06
  * 

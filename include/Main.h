@@ -1,7 +1,7 @@
 /**
  * @file Main.h
  * @author HERVE NGUYEN & GABRIEL RADONIAINA
- * @brief 
+ * @brief Header file for the Main module
  * @version 0.1
  * @date 2023-01-07
  * 

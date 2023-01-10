@@ -1,0 +1,96 @@
+\hypertarget{_entity_8h}{}\doxysection{include/\+Entity.h File Reference}
+\label{_entity_8h}\index{include/Entity.h@{include/Entity.h}}
+
+
+Header file for common data structure between the player, golems and relics.  
+
+
+{\ttfamily \#include \char`\"{}Math\+Tools.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Terrain.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_golem}{Golem}}
+\begin{DoxyCompactList}\small\item\em Represents the golem and contains informations decribiting it. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_player}{Player}}
+\begin{DoxyCompactList}\small\item\em Represents the player and contains informations decribiting it. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_relic}{Relic}}
+\begin{DoxyCompactList}\small\item\em Represents a relic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_entity_8h_af40a326b23c68a27cebe60f16634a2cb}{V}}~0.\+016
+\begin{DoxyCompactList}\small\item\em Reference speed for the golem and the player, their speed is linked to this value. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_entity_8h_a3366304d001fa75aab76b7acf1550143}{DETECT\+\_\+\+RADIUS}}~4
+\begin{DoxyCompactList}\small\item\em Radius of detection for a normal golem. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_entity_8h_aa1aa06486af9f11baff5ff2f4df1da6d}{PANIC\+\_\+\+RADIUS}}~6
+\begin{DoxyCompactList}\small\item\em Radius of detection for a panicking golem. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_entity_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} \{ {\bfseries up}
+, {\bfseries down}
+, {\bfseries left}
+, {\bfseries right}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum that represents one of the 4 directions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for common data structure between the player, golems and relics. 
+
+\begin{DoxyAuthor}{Author}
+HERVE NGUYEN \& GABRIEL RADONIAINA 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/01-\/10 
+\end{DoxyDate}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_entity_8h_a3366304d001fa75aab76b7acf1550143}\label{_entity_8h_a3366304d001fa75aab76b7acf1550143}} 
+\index{Entity.h@{Entity.h}!DETECT\_RADIUS@{DETECT\_RADIUS}}
+\index{DETECT\_RADIUS@{DETECT\_RADIUS}!Entity.h@{Entity.h}}
+\doxysubsubsection{\texorpdfstring{DETECT\_RADIUS}{DETECT\_RADIUS}}
+{\footnotesize\ttfamily \#define DETECT\+\_\+\+RADIUS~4}
+
+
+
+Radius of detection for a normal golem. 
+
+\mbox{\Hypertarget{_entity_8h_aa1aa06486af9f11baff5ff2f4df1da6d}\label{_entity_8h_aa1aa06486af9f11baff5ff2f4df1da6d}} 
+\index{Entity.h@{Entity.h}!PANIC\_RADIUS@{PANIC\_RADIUS}}
+\index{PANIC\_RADIUS@{PANIC\_RADIUS}!Entity.h@{Entity.h}}
+\doxysubsubsection{\texorpdfstring{PANIC\_RADIUS}{PANIC\_RADIUS}}
+{\footnotesize\ttfamily \#define PANIC\+\_\+\+RADIUS~6}
+
+
+
+Radius of detection for a panicking golem. 
+
+\mbox{\Hypertarget{_entity_8h_af40a326b23c68a27cebe60f16634a2cb}\label{_entity_8h_af40a326b23c68a27cebe60f16634a2cb}} 
+\index{Entity.h@{Entity.h}!V@{V}}
+\index{V@{V}!Entity.h@{Entity.h}}
+\doxysubsubsection{\texorpdfstring{V}{V}}
+{\footnotesize\ttfamily \#define V~0.\+016}
+
+
+
+Reference speed for the golem and the player, their speed is linked to this value. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_entity_8h_a224b9163917ac32fc95a60d8c1eec3aa}\label{_entity_8h_a224b9163917ac32fc95a60d8c1eec3aa}} 
+\index{Entity.h@{Entity.h}!Direction@{Direction}}
+\index{Direction@{Direction}!Entity.h@{Entity.h}}
+\doxysubsubsection{\texorpdfstring{Direction}{Direction}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_entity_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}}
+
+
+
+Enum that represents one of the 4 directions. 
+

@@ -1,0 +1,570 @@
+\hypertarget{_math_tools_8h}{}\doxysection{include/\+Math\+Tools.h File Reference}
+\label{_math_tools_8h}\index{include/MathTools.h@{include/MathTools.h}}
+
+
+Header file for the Math\+Tools module.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_coordinate}{Coordinate}}
+\begin{DoxyCompactList}\small\item\em Represents a point but only with integer. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_point}{Point}}
+\begin{DoxyCompactList}\small\item\em Represents a point with doubles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{_math_tools_8h_a69275e8136f4c180bfa1bfbaf0764ff2}{rand\+Range}} (double min, double max)
+\begin{DoxyCompactList}\small\item\em Generates a random value within a given range. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_math_tools_8h_a5c244d8525867e9e318dcbaaa28a3666}{get\+Probability}} (double probability)
+\begin{DoxyCompactList}\small\item\em Returns a boolean indicating whether an event occurs with a given probability. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_math_tools_8h_aab19049c681a3359645705bc0c646109}{get\+Random\+Direction}} (int direction)
+\begin{DoxyCompactList}\small\item\em Returns a random direction different from a given direction. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_math_tools_8h_a21ec44720e2351c93d6fb9b759fcbcde}{round\+To\+Int}} (double value)
+\begin{DoxyCompactList}\small\item\em Rounds a double value to the nearest integer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_math_tools_8h_a8cf840ede9d2e18740eb99e0c06ba7f3}{clamp}} (int value, int min, int max)
+\begin{DoxyCompactList}\small\item\em Clamps a value to a given range. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{_math_tools_8h_a7d653a23bc3022afd9b32e419abbbc2d}{distance}} (double x1, double y1, double x2, double y2)
+\begin{DoxyCompactList}\small\item\em Calculates the euclidian distance between two points represented by the couple (x1, y1) and (x2, y2) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{_math_tools_8h_adcff26bf855316d434d097dd784a2108}{point\+Distance}} (\mbox{\hyperlink{struct_point}{Point}} a, \mbox{\hyperlink{struct_point}{Point}} b)
+\begin{DoxyCompactList}\small\item\em Calculates the euclidian distance between two points. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_math_tools_8h_a8f8d84ae7265ecc2744ccff4d6ee0b71}{point\+Equals}} (\mbox{\hyperlink{struct_point}{Point}} a, \mbox{\hyperlink{struct_point}{Point}} b)
+\begin{DoxyCompactList}\small\item\em Compares two points. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_math_tools_8h_a1648c916d219dfae88649be3f34012ee}{point\+In\+Array}} (\mbox{\hyperlink{struct_point}{Point}} $\ast$array, \mbox{\hyperlink{struct_point}{Point}} check, int len)
+\begin{DoxyCompactList}\small\item\em Checks if a point\textquotesingle{}s value is in the given array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_math_tools_8h_a555f00603a31cb3221f76fc78f5df0d1}{get\+Random\+Point}} (\mbox{\hyperlink{struct_point}{Point}} $\ast$point, double x\+\_\+max, double x\+\_\+min, double y\+\_\+max, double y\+\_\+min)
+\begin{DoxyCompactList}\small\item\em Get a random point. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_math_tools_8h_a7f6dad26ccc8be16b09b515eb51fe412}{position\+Array\+Not\+Touching}} (\mbox{\hyperlink{struct_point}{Point}} $\ast$array, int len)
+\begin{DoxyCompactList}\small\item\em Check if every points in the array are not \char`\"{}touching\char`\"{}, as in they are not within a 1.\+0 distance of each other. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_math_tools_8h_a755d26f1fc5248cc128863ccd5f5916e}{good\+Modulo}} (int a, int b)
+\begin{DoxyCompactList}\small\item\em Get the modulo between 0 and b-\/1 of a. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_math_tools_8h_aa3cdf5cc7c0b7bee2cef2169d20a54cd}{microseconds\+To\+Hours}} (int nb\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Convert a number of microseconds to the corresponding number of hours. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_math_tools_8h_a398e1805d3edf0094f8bbf3cfdeb4eb4}{microseconds\+To\+Minutes}} (int nb\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Convert a number of microseconds to the corresponding number of minutes. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_math_tools_8h_a59eac85eb038df6feeff0902d3fe64f1}{microseconds\+To\+Centiseconds}} (int nb\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Convert a number of microseconds to the corresponding number of centiseconds. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_math_tools_8h_abcf8c2f48f7725f83bdb0ace13adefd7}{microseconds\+To\+Seconds}} (int nb\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Convert a number of microseconds to the corresponding number of seconds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the Math\+Tools module. 
+
+\begin{DoxyAuthor}{Author}
+HERVE NGUYEN \& GABRIEL RADONIAINA 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/01-\/06
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_math_tools_8h_a8cf840ede9d2e18740eb99e0c06ba7f3}\label{_math_tools_8h_a8cf840ede9d2e18740eb99e0c06ba7f3}} 
+\index{MathTools.h@{MathTools.h}!clamp@{clamp}}
+\index{clamp@{clamp}!MathTools.h@{MathTools.h}}
+\doxysubsubsection{\texorpdfstring{clamp()}{clamp()}}
+{\footnotesize\ttfamily int clamp (\begin{DoxyParamCaption}\item[{int}]{value,  }\item[{int}]{min,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+
+Clamps a value to a given range. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to clamp \\
+\hline
+{\em min} & the minimum allowed value \\
+\hline
+{\em max} & the maximum allowed value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int the clamped value
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to clamp \\
+\hline
+{\em min} & the minimum allowed value \\
+\hline
+{\em max} & the maximum allowed value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int the clamped value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_math_tools_8h_a7d653a23bc3022afd9b32e419abbbc2d}\label{_math_tools_8h_a7d653a23bc3022afd9b32e419abbbc2d}} 
+\index{MathTools.h@{MathTools.h}!distance@{distance}}
+\index{distance@{distance}!MathTools.h@{MathTools.h}}
+\doxysubsubsection{\texorpdfstring{distance()}{distance()}}
+{\footnotesize\ttfamily double distance (\begin{DoxyParamCaption}\item[{double}]{x1,  }\item[{double}]{y1,  }\item[{double}]{x2,  }\item[{double}]{y2 }\end{DoxyParamCaption})}
+
+
+
+Calculates the euclidian distance between two points represented by the couple (x1, y1) and (x2, y2) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & the x-\/coordinate of the first point \\
+\hline
+{\em y1} & the y-\/coordinate of the first point \\
+\hline
+{\em x2} & the x-\/coordinate of the second point \\
+\hline
+{\em y2} & the y-\/coordinate of the second point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double the distance
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & the x-\/coordinate of the first point \\
+\hline
+{\em y1} & the y-\/coordinate of the first point \\
+\hline
+{\em x2} & the x-\/coordinate of the second point \\
+\hline
+{\em y2} & the y-\/coordinate of the second point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double the distance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_math_tools_8h_a5c244d8525867e9e318dcbaaa28a3666}\label{_math_tools_8h_a5c244d8525867e9e318dcbaaa28a3666}} 
+\index{MathTools.h@{MathTools.h}!getProbability@{getProbability}}
+\index{getProbability@{getProbability}!MathTools.h@{MathTools.h}}
+\doxysubsubsection{\texorpdfstring{getProbability()}{getProbability()}}
+{\footnotesize\ttfamily int get\+Probability (\begin{DoxyParamCaption}\item[{double}]{probability }\end{DoxyParamCaption})}
+
+
+
+Returns a boolean indicating whether an event occurs with a given probability. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em probability} & the probability of the event occurring, between 0 and 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the event occurs, 0 otherwise
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em probability} & the probability of the event occurring, between 0 and 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the event occurs, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_math_tools_8h_aab19049c681a3359645705bc0c646109}\label{_math_tools_8h_aab19049c681a3359645705bc0c646109}} 
+\index{MathTools.h@{MathTools.h}!getRandomDirection@{getRandomDirection}}
+\index{getRandomDirection@{getRandomDirection}!MathTools.h@{MathTools.h}}
+\doxysubsubsection{\texorpdfstring{getRandomDirection()}{getRandomDirection()}}
+{\footnotesize\ttfamily int get\+Random\+Direction (\begin{DoxyParamCaption}\item[{int}]{direction }\end{DoxyParamCaption})}
+
+
+
+Returns a random direction different from a given direction. 
+
+direction integers must be between 0 and 3.
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & the current direction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the new random direction
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & the current direction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the new random direction 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_math_tools_8h_a555f00603a31cb3221f76fc78f5df0d1}\label{_math_tools_8h_a555f00603a31cb3221f76fc78f5df0d1}} 
+\index{MathTools.h@{MathTools.h}!getRandomPoint@{getRandomPoint}}
+\index{getRandomPoint@{getRandomPoint}!MathTools.h@{MathTools.h}}
+\doxysubsubsection{\texorpdfstring{getRandomPoint()}{getRandomPoint()}}
+{\footnotesize\ttfamily void get\+Random\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_point}{Point}} $\ast$}]{point,  }\item[{double}]{x\+\_\+max,  }\item[{double}]{x\+\_\+min,  }\item[{double}]{y\+\_\+max,  }\item[{double}]{y\+\_\+min }\end{DoxyParamCaption})}
+
+
+
+Get a random point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The pointer for the random new point\textquotesingle{}s data to be stored \\
+\hline
+{\em x\+\_\+max} & x max value (should be higher or equal to min) \\
+\hline
+{\em x\+\_\+min} & x min value (should be higher or equal to 0) \\
+\hline
+{\em y\+\_\+max} & y max value (should be higher or equal to min) \\
+\hline
+{\em y\+\_\+min} & y min value (should be higher or equal to 0)\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & The pointer for the random new point\textquotesingle{}s data to be stored \\
+\hline
+{\em x\+\_\+max} & x max value (should be higher or equal to min) \\
+\hline
+{\em x\+\_\+min} & x min value (should be higher or equal to 0) \\
+\hline
+{\em y\+\_\+max} & y max value (should be higher or equal to min) \\
+\hline
+{\em y\+\_\+min} & y min value (should be higher or equal to 0) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_math_tools_8h_a755d26f1fc5248cc128863ccd5f5916e}\label{_math_tools_8h_a755d26f1fc5248cc128863ccd5f5916e}} 
+\index{MathTools.h@{MathTools.h}!goodModulo@{goodModulo}}
+\index{goodModulo@{goodModulo}!MathTools.h@{MathTools.h}}
+\doxysubsubsection{\texorpdfstring{goodModulo()}{goodModulo()}}
+{\footnotesize\ttfamily int good\+Modulo (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})}
+
+
+
+Get the modulo between 0 and b-\/1 of a. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Dividend \\
+\hline
+{\em b} & Divisor\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Modulo between 0 and b-\/1 of a
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Dividend \\
+\hline
+{\em b} & Divisor\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Modulo between 0 and b-\/1 of a 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_math_tools_8h_a59eac85eb038df6feeff0902d3fe64f1}\label{_math_tools_8h_a59eac85eb038df6feeff0902d3fe64f1}} 
+\index{MathTools.h@{MathTools.h}!microsecondsToCentiseconds@{microsecondsToCentiseconds}}
+\index{microsecondsToCentiseconds@{microsecondsToCentiseconds}!MathTools.h@{MathTools.h}}
+\doxysubsubsection{\texorpdfstring{microsecondsToCentiseconds()}{microsecondsToCentiseconds()}}
+{\footnotesize\ttfamily int microseconds\+To\+Centiseconds (\begin{DoxyParamCaption}\item[{int}]{nb\+\_\+ms }\end{DoxyParamCaption})}
+
+
+
+Convert a number of microseconds to the corresponding number of centiseconds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+\_\+ms} & Number of microseconds\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of centiseconds
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+\_\+ms} & Number of microseconds\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of centiseconds 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_math_tools_8h_aa3cdf5cc7c0b7bee2cef2169d20a54cd}\label{_math_tools_8h_aa3cdf5cc7c0b7bee2cef2169d20a54cd}} 
+\index{MathTools.h@{MathTools.h}!microsecondsToHours@{microsecondsToHours}}
+\index{microsecondsToHours@{microsecondsToHours}!MathTools.h@{MathTools.h}}
+\doxysubsubsection{\texorpdfstring{microsecondsToHours()}{microsecondsToHours()}}
+{\footnotesize\ttfamily int microseconds\+To\+Hours (\begin{DoxyParamCaption}\item[{int}]{nb\+\_\+ms }\end{DoxyParamCaption})}
+
+
+
+Convert a number of microseconds to the corresponding number of hours. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+\_\+ms} & Number of microseconds\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of hours
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+\_\+ms} & Number of microseconds\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of hours 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_math_tools_8h_a398e1805d3edf0094f8bbf3cfdeb4eb4}\label{_math_tools_8h_a398e1805d3edf0094f8bbf3cfdeb4eb4}} 
+\index{MathTools.h@{MathTools.h}!microsecondsToMinutes@{microsecondsToMinutes}}
+\index{microsecondsToMinutes@{microsecondsToMinutes}!MathTools.h@{MathTools.h}}
+\doxysubsubsection{\texorpdfstring{microsecondsToMinutes()}{microsecondsToMinutes()}}
+{\footnotesize\ttfamily int microseconds\+To\+Minutes (\begin{DoxyParamCaption}\item[{int}]{nb\+\_\+ms }\end{DoxyParamCaption})}
+
+
+
+Convert a number of microseconds to the corresponding number of minutes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+\_\+ms} & Number of microseconds\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of minutes
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+\_\+ms} & Number of microseconds\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of minutes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_math_tools_8h_abcf8c2f48f7725f83bdb0ace13adefd7}\label{_math_tools_8h_abcf8c2f48f7725f83bdb0ace13adefd7}} 
+\index{MathTools.h@{MathTools.h}!microsecondsToSeconds@{microsecondsToSeconds}}
+\index{microsecondsToSeconds@{microsecondsToSeconds}!MathTools.h@{MathTools.h}}
+\doxysubsubsection{\texorpdfstring{microsecondsToSeconds()}{microsecondsToSeconds()}}
+{\footnotesize\ttfamily int microseconds\+To\+Seconds (\begin{DoxyParamCaption}\item[{int}]{nb\+\_\+ms }\end{DoxyParamCaption})}
+
+
+
+Convert a number of microseconds to the corresponding number of seconds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+\_\+ms} & Number of microseconds\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of seconds
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em nb\+\_\+ms} & Number of microseconds\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of seconds 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_math_tools_8h_adcff26bf855316d434d097dd784a2108}\label{_math_tools_8h_adcff26bf855316d434d097dd784a2108}} 
+\index{MathTools.h@{MathTools.h}!pointDistance@{pointDistance}}
+\index{pointDistance@{pointDistance}!MathTools.h@{MathTools.h}}
+\doxysubsubsection{\texorpdfstring{pointDistance()}{pointDistance()}}
+{\footnotesize\ttfamily double point\+Distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_point}{Point}}}]{a,  }\item[{\mbox{\hyperlink{struct_point}{Point}}}]{b }\end{DoxyParamCaption})}
+
+
+
+Calculates the euclidian distance between two points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the irst point \\
+\hline
+{\em b} & the second point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double the distance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_math_tools_8h_a8f8d84ae7265ecc2744ccff4d6ee0b71}\label{_math_tools_8h_a8f8d84ae7265ecc2744ccff4d6ee0b71}} 
+\index{MathTools.h@{MathTools.h}!pointEquals@{pointEquals}}
+\index{pointEquals@{pointEquals}!MathTools.h@{MathTools.h}}
+\doxysubsubsection{\texorpdfstring{pointEquals()}{pointEquals()}}
+{\footnotesize\ttfamily int point\+Equals (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_point}{Point}}}]{a,  }\item[{\mbox{\hyperlink{struct_point}{Point}}}]{b }\end{DoxyParamCaption})}
+
+
+
+Compares two points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & first point \\
+\hline
+{\em b} & second point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if their values are equal, 0 otherwise
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & first point \\
+\hline
+{\em b} & second point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if their values are equal, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_math_tools_8h_a1648c916d219dfae88649be3f34012ee}\label{_math_tools_8h_a1648c916d219dfae88649be3f34012ee}} 
+\index{MathTools.h@{MathTools.h}!pointInArray@{pointInArray}}
+\index{pointInArray@{pointInArray}!MathTools.h@{MathTools.h}}
+\doxysubsubsection{\texorpdfstring{pointInArray()}{pointInArray()}}
+{\footnotesize\ttfamily int point\+In\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_point}{Point}} $\ast$}]{array,  }\item[{\mbox{\hyperlink{struct_point}{Point}}}]{check,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+
+
+Checks if a point\textquotesingle{}s value is in the given array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & the array of points \\
+\hline
+{\em check} & the point to be searched in the array \\
+\hline
+{\em len} & the length of the array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if it\textquotesingle{}s value is present, 0 otherwise
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & the array of points \\
+\hline
+{\em check} & the point to be searched in the array \\
+\hline
+{\em len} & the length of the array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if it\textquotesingle{}s value is present, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_math_tools_8h_a7f6dad26ccc8be16b09b515eb51fe412}\label{_math_tools_8h_a7f6dad26ccc8be16b09b515eb51fe412}} 
+\index{MathTools.h@{MathTools.h}!positionArrayNotTouching@{positionArrayNotTouching}}
+\index{positionArrayNotTouching@{positionArrayNotTouching}!MathTools.h@{MathTools.h}}
+\doxysubsubsection{\texorpdfstring{positionArrayNotTouching()}{positionArrayNotTouching()}}
+{\footnotesize\ttfamily int position\+Array\+Not\+Touching (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_point}{Point}} $\ast$}]{array,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+
+
+Check if every points in the array are not \char`\"{}touching\char`\"{}, as in they are not within a 1.\+0 distance of each other. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & The array of Points \\
+\hline
+{\em len} & the length of the array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int If they are not touching 1, otherwise 0
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & The array of Points \\
+\hline
+{\em len} & the length of the array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int If they are not touching 1, otherwise 0 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_math_tools_8h_a69275e8136f4c180bfa1bfbaf0764ff2}\label{_math_tools_8h_a69275e8136f4c180bfa1bfbaf0764ff2}} 
+\index{MathTools.h@{MathTools.h}!randRange@{randRange}}
+\index{randRange@{randRange}!MathTools.h@{MathTools.h}}
+\doxysubsubsection{\texorpdfstring{randRange()}{randRange()}}
+{\footnotesize\ttfamily double rand\+Range (\begin{DoxyParamCaption}\item[{double}]{min,  }\item[{double}]{max }\end{DoxyParamCaption})}
+
+
+
+Generates a random value within a given range. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em min} & the minimum value \\
+\hline
+{\em max} & the maximum value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the generated value
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em min} & the minimum value \\
+\hline
+{\em max} & the maximum value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the generated value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_math_tools_8h_a21ec44720e2351c93d6fb9b759fcbcde}\label{_math_tools_8h_a21ec44720e2351c93d6fb9b759fcbcde}} 
+\index{MathTools.h@{MathTools.h}!roundToInt@{roundToInt}}
+\index{roundToInt@{roundToInt}!MathTools.h@{MathTools.h}}
+\doxysubsubsection{\texorpdfstring{roundToInt()}{roundToInt()}}
+{\footnotesize\ttfamily int round\+To\+Int (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})}
+
+
+
+Rounds a double value to the nearest integer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to round \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the rounded value
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to round \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the rounded value 
+\end{DoxyReturn}

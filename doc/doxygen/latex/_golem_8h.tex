@@ -1,0 +1,225 @@
+\hypertarget{_golem_8h}{}\doxysection{include/\+Golem.h File Reference}
+\label{_golem_8h}\index{include/Golem.h@{include/Golem.h}}
+
+
+Header file for the \mbox{\hyperlink{struct_golem}{Golem}} module.  
+
+
+{\ttfamily \#include \char`\"{}Entity.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Collision.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Math\+Tools.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_golem_8h_af09af820b3ede6ca97122bc5d94aa0a4}{init\+Golem}} (\mbox{\hyperlink{struct_golem}{Golem}} $\ast$golem, \mbox{\hyperlink{struct_point}{Point}} location)
+\begin{DoxyCompactList}\small\item\em Initializes the golem at the given position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_golem_8h_a9e39f0c7af3454119b38c9025e26f91a}{move\+Golem}} (\mbox{\hyperlink{struct_golem}{Golem}} $\ast$golem, \mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} $\ast$\mbox{\hyperlink{structgrid}{grid}})
+\begin{DoxyCompactList}\small\item\em Moves the golem and check if it is colliding with a wall. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_golem_8h_ac225294c5eec0ce65eb3bf6586a2d830}{in\+Line\+Of\+Sight}} (\mbox{\hyperlink{struct_point}{Point}} entity1, \mbox{\hyperlink{struct_point}{Point}} entity2, \mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} $\ast$\mbox{\hyperlink{structgrid}{grid}})
+\begin{DoxyCompactList}\small\item\em Checks if the entities are in the line of sight of each other. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_golem_8h_a43c00f19c3980000dc377161dc8e759c}{patrol\+Golem}} (\mbox{\hyperlink{struct_golem}{Golem}} $\ast$golem, \mbox{\hyperlink{struct_player}{Player}} $\ast$player, \mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} $\ast$\mbox{\hyperlink{structgrid}{grid}})
+\begin{DoxyCompactList}\small\item\em Makes a golem patrol and detect the player if he is in it\textquotesingle{}s detection range. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_golem_8h_a661a316f7c99f3d9bbdf72b67f219db4}{relic\+Checking}} (\mbox{\hyperlink{struct_golem}{Golem}} $\ast$golem, \mbox{\hyperlink{struct_relic}{Relic}} $\ast$relic, \mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} $\ast$\mbox{\hyperlink{structgrid}{grid}}, int array\+Size)
+\begin{DoxyCompactList}\small\item\em For a given golem, makes him check every relic (in the array). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the \mbox{\hyperlink{struct_golem}{Golem}} module. 
+
+\begin{DoxyAuthor}{Author}
+HERVE NGUYEN \& GABRIEL RADONIAINA 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2022-\/11-\/07 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_golem_8h_af09af820b3ede6ca97122bc5d94aa0a4}\label{_golem_8h_af09af820b3ede6ca97122bc5d94aa0a4}} 
+\index{Golem.h@{Golem.h}!initGolem@{initGolem}}
+\index{initGolem@{initGolem}!Golem.h@{Golem.h}}
+\doxysubsubsection{\texorpdfstring{initGolem()}{initGolem()}}
+{\footnotesize\ttfamily void init\+Golem (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_golem}{Golem}} $\ast$}]{golem,  }\item[{\mbox{\hyperlink{struct_point}{Point}}}]{location }\end{DoxyParamCaption})}
+
+
+
+Initializes the golem at the given position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em golem} & the golem\textquotesingle{}s pointer \\
+\hline
+{\em location} & the location that the golem will be set\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em golem} & the golem\textquotesingle{}s pointer \\
+\hline
+{\em location} & the location that the golem will be set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_golem_8h_ac225294c5eec0ce65eb3bf6586a2d830}\label{_golem_8h_ac225294c5eec0ce65eb3bf6586a2d830}} 
+\index{Golem.h@{Golem.h}!inLineOfSight@{inLineOfSight}}
+\index{inLineOfSight@{inLineOfSight}!Golem.h@{Golem.h}}
+\doxysubsubsection{\texorpdfstring{inLineOfSight()}{inLineOfSight()}}
+{\footnotesize\ttfamily int in\+Line\+Of\+Sight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_point}{Point}}}]{entity1,  }\item[{\mbox{\hyperlink{struct_point}{Point}}}]{entity2,  }\item[{\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} $\ast$}]{grid }\end{DoxyParamCaption})}
+
+
+
+Checks if the entities are in the line of sight of each other. 
+
+They are in each other\textquotesingle{}s line of sight if the line drawn between the two does not cross a wall
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity1} & the entity1\textquotesingle{}s point \\
+\hline
+{\em entity2} & the entity2\textquotesingle{}s point \\
+\hline
+{\em grid} & the grid which has information about possible walls \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if the player is it\textquotesingle{}s line of sight, 0 otherwise
+\end{DoxyReturn}
+
+
+They are in each other\textquotesingle{}s line of sight if the line drawn between the two does not cross a wall
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity1} & the entity1\textquotesingle{}s point \\
+\hline
+{\em entity2} & the entity2\textquotesingle{}s point \\
+\hline
+{\em grid} & the grid which has information about possible walls \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if the player is it\textquotesingle{}s line of sight, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_golem_8h_a9e39f0c7af3454119b38c9025e26f91a}\label{_golem_8h_a9e39f0c7af3454119b38c9025e26f91a}} 
+\index{Golem.h@{Golem.h}!moveGolem@{moveGolem}}
+\index{moveGolem@{moveGolem}!Golem.h@{Golem.h}}
+\doxysubsubsection{\texorpdfstring{moveGolem()}{moveGolem()}}
+{\footnotesize\ttfamily int move\+Golem (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_golem}{Golem}} $\ast$}]{golem,  }\item[{\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} $\ast$}]{grid }\end{DoxyParamCaption})}
+
+
+
+Moves the golem and check if it is colliding with a wall. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em golem} & the golem\textquotesingle{}s pointer \\
+\hline
+{\em grid} & the grid\textquotesingle{}s pointer that has information about possible walls \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if it has collided with a wall, 0 otherwise
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em golem} & the golem\textquotesingle{}s pointer \\
+\hline
+{\em grid} & the grid\textquotesingle{}s pointer that has information about possible walls \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if it has collided with a wall, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_golem_8h_a43c00f19c3980000dc377161dc8e759c}\label{_golem_8h_a43c00f19c3980000dc377161dc8e759c}} 
+\index{Golem.h@{Golem.h}!patrolGolem@{patrolGolem}}
+\index{patrolGolem@{patrolGolem}!Golem.h@{Golem.h}}
+\doxysubsubsection{\texorpdfstring{patrolGolem()}{patrolGolem()}}
+{\footnotesize\ttfamily int patrol\+Golem (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_golem}{Golem}} $\ast$}]{golem,  }\item[{\mbox{\hyperlink{struct_player}{Player}} $\ast$}]{player,  }\item[{\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} $\ast$}]{grid }\end{DoxyParamCaption})}
+
+
+
+Makes a golem patrol and detect the player if he is in it\textquotesingle{}s detection range. 
+
+Depending on the situation and randomly, the golem can alter it\textquotesingle{}s course in direction or speed or even both.
+
+
+\begin{DoxyParams}{Parameters}
+{\em golem} & pointe the golem \\
+\hline
+{\em player} & pointer to the player \\
+\hline
+{\em grid} & pointer to the grid \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if the player was detected, 0 otherwise
+\end{DoxyReturn}
+
+
+Depending on the situation and randomly, the golem can alter it\textquotesingle{}s course in direction or speed or even both.
+
+
+\begin{DoxyParams}{Parameters}
+{\em golem} & pointer the golem \\
+\hline
+{\em player} & pointer to the player \\
+\hline
+{\em grid} & pointer to the grid \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if the player was detected, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_golem_8h_a661a316f7c99f3d9bbdf72b67f219db4}\label{_golem_8h_a661a316f7c99f3d9bbdf72b67f219db4}} 
+\index{Golem.h@{Golem.h}!relicChecking@{relicChecking}}
+\index{relicChecking@{relicChecking}!Golem.h@{Golem.h}}
+\doxysubsubsection{\texorpdfstring{relicChecking()}{relicChecking()}}
+{\footnotesize\ttfamily int relic\+Checking (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_golem}{Golem}} $\ast$}]{golem,  }\item[{\mbox{\hyperlink{struct_relic}{Relic}} $\ast$}]{relic,  }\item[{\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} $\ast$}]{grid,  }\item[{int}]{array\+Size }\end{DoxyParamCaption})}
+
+
+
+For a given golem, makes him check every relic (in the array). 
+
+If for a specific relic, the golem finds out for the first time that it has been stolen. The function will return 1. Here, the function will return 1 on the first detection of theft (to not have simultaneous multiple detection which would makes the game easier)
+
+
+\begin{DoxyParams}{Parameters}
+{\em golem} & pointer to the golem \\
+\hline
+{\em relic} & array of relic to be checked \\
+\hline
+{\em grid} & pointer to the grid \\
+\hline
+{\em array\+Size} & size of the array of relic \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if a relic is discovered to be stolen, 0 otherwise
+\end{DoxyReturn}
+
+
+If for a specific relic, the golem finds out for the first time that it has been stolen. The function will return 1. Here, the function will return 1 on the first detection of theft (to not have simultaneous multiple detection which would makes the game easier)
+
+
+\begin{DoxyParams}{Parameters}
+{\em golem} & pointer to the golem \\
+\hline
+{\em relic} & array of relic to be checked \\
+\hline
+{\em grid} & pointer to the grid \\
+\hline
+{\em array\+Size} & size of the array of relic \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if a relic is discovered to be stolen, 0 otherwise 
+\end{DoxyReturn}

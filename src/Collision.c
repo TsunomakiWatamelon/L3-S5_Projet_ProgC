@@ -1,7 +1,7 @@
 /**
  * @file Collision.c
  * @author HERVE NGUYEN & GABRIEL RADONIAINA
- * @brief Source file for the Collision module
+ * @brief Collision module, deals with collisions between hypothetical circular entities of diameter of 1.0
  * @version 0.1
  * @date 2022-12-15
  * 

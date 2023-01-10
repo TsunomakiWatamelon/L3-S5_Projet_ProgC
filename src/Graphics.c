@@ -1,7 +1,7 @@
 /**
  * @file Graphics.c
  * @author HERVE NGUYEN & GABRIEL RADONIAINA
- * @brief 
+ * @brief Graphics module, mainly deals with the graphical interface. (The Game module can have function that use libMLV function, but it is for input purposes)
  * @version 0.1
  * @date 2023-01-06
  * 

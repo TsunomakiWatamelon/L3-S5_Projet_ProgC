@@ -1,0 +1,120 @@
+\hypertarget{_score_8c}{}\doxysection{src/\+Score.c File Reference}
+\label{_score_8c}\index{src/Score.c@{src/Score.c}}
+
+
+\mbox{\hyperlink{struct_score}{Score}} module, deals with saving/loading leaderboard files and manipulating leaderboards.  
+
+
+{\ttfamily \#include \char`\"{}../include/\+Score.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_score_8c_adc79ea14c2445050f05dbe77829516a4}{write\+Leaderboard\+To\+Binary\+File}} (char $\ast$filepath, \mbox{\hyperlink{struct_leaderboard}{Leaderboard}} $\ast$leaderboard)
+\begin{DoxyCompactList}\small\item\em Write the content of a leaderboard into a binary file at the specified file path. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_score_8c_a222b3f6eaa28249d3226d0950da11baf}{read\+Leaderboard\+From\+Binary\+File}} (char $\ast$filepath, \mbox{\hyperlink{struct_leaderboard}{Leaderboard}} $\ast$leaderboard)
+\begin{DoxyCompactList}\small\item\em Reads the content of a leaderboard from a binary file at the specifed file path. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_score_8c_a5d021c64cc3918d81fce63247d29fa2e}{add\+Score\+Time}} (\mbox{\hyperlink{struct_leaderboard}{Leaderboard}} $\ast$leaderboard, char name\mbox{[}11\mbox{]}, int mana\+Used, int time\+Elapsed)
+\begin{DoxyCompactList}\small\item\em Add the value of a score into the leaderboard if they are good enough (time\+Elapsed centered) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_score_8c_a15cbf7a332805405d868b152151976df}{add\+Score\+Mana}} (\mbox{\hyperlink{struct_leaderboard}{Leaderboard}} $\ast$leaderboard, char name\mbox{[}11\mbox{]}, int mana\+Used, int time\+Elapsed)
+\begin{DoxyCompactList}\small\item\em Add the value of a score into the leaderboard if they are good enough (mana\+Used centered) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{struct_score}{Score}} module, deals with saving/loading leaderboard files and manipulating leaderboards. 
+
+\begin{DoxyAuthor}{Author}
+HERVE NGUYEN \& GABRIEL RADONIAINA 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/01-\/09
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_score_8c_a15cbf7a332805405d868b152151976df}\label{_score_8c_a15cbf7a332805405d868b152151976df}} 
+\index{Score.c@{Score.c}!addScoreMana@{addScoreMana}}
+\index{addScoreMana@{addScoreMana}!Score.c@{Score.c}}
+\doxysubsubsection{\texorpdfstring{addScoreMana()}{addScoreMana()}}
+{\footnotesize\ttfamily void add\+Score\+Mana (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_leaderboard}{Leaderboard}} $\ast$}]{leaderboard,  }\item[{char}]{name\mbox{[}11\mbox{]},  }\item[{int}]{mana\+Used,  }\item[{int}]{time\+Elapsed }\end{DoxyParamCaption})}
+
+
+
+Add the value of a score into the leaderboard if they are good enough (mana\+Used centered) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em leaderboard} & pointer to the leaderboard \\
+\hline
+{\em name} & name \\
+\hline
+{\em mana\+Used} & mana\+Used \\
+\hline
+{\em time\+Elapsed} & time\+Elapsed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_score_8c_a5d021c64cc3918d81fce63247d29fa2e}\label{_score_8c_a5d021c64cc3918d81fce63247d29fa2e}} 
+\index{Score.c@{Score.c}!addScoreTime@{addScoreTime}}
+\index{addScoreTime@{addScoreTime}!Score.c@{Score.c}}
+\doxysubsubsection{\texorpdfstring{addScoreTime()}{addScoreTime()}}
+{\footnotesize\ttfamily void add\+Score\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_leaderboard}{Leaderboard}} $\ast$}]{leaderboard,  }\item[{char}]{name\mbox{[}11\mbox{]},  }\item[{int}]{mana\+Used,  }\item[{int}]{time\+Elapsed }\end{DoxyParamCaption})}
+
+
+
+Add the value of a score into the leaderboard if they are good enough (time\+Elapsed centered) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em leaderboard} & pointer to the leaderboard \\
+\hline
+{\em name} & name \\
+\hline
+{\em mana\+Used} & mana\+Used \\
+\hline
+{\em time\+Elapsed} & time\+Elapsed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_score_8c_a222b3f6eaa28249d3226d0950da11baf}\label{_score_8c_a222b3f6eaa28249d3226d0950da11baf}} 
+\index{Score.c@{Score.c}!readLeaderboardFromBinaryFile@{readLeaderboardFromBinaryFile}}
+\index{readLeaderboardFromBinaryFile@{readLeaderboardFromBinaryFile}!Score.c@{Score.c}}
+\doxysubsubsection{\texorpdfstring{readLeaderboardFromBinaryFile()}{readLeaderboardFromBinaryFile()}}
+{\footnotesize\ttfamily int read\+Leaderboard\+From\+Binary\+File (\begin{DoxyParamCaption}\item[{char $\ast$}]{filepath,  }\item[{\mbox{\hyperlink{struct_leaderboard}{Leaderboard}} $\ast$}]{leaderboard }\end{DoxyParamCaption})}
+
+
+
+Reads the content of a leaderboard from a binary file at the specifed file path. 
+
+Saves the data at the address given in the arguments for the leaderboard
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & the filepath \\
+\hline
+{\em leaderboard} & the pointer to the leaderboard \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 0 if it couldn\textquotesingle{}t read the file, 1 if it read successfully 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_score_8c_adc79ea14c2445050f05dbe77829516a4}\label{_score_8c_adc79ea14c2445050f05dbe77829516a4}} 
+\index{Score.c@{Score.c}!writeLeaderboardToBinaryFile@{writeLeaderboardToBinaryFile}}
+\index{writeLeaderboardToBinaryFile@{writeLeaderboardToBinaryFile}!Score.c@{Score.c}}
+\doxysubsubsection{\texorpdfstring{writeLeaderboardToBinaryFile()}{writeLeaderboardToBinaryFile()}}
+{\footnotesize\ttfamily void write\+Leaderboard\+To\+Binary\+File (\begin{DoxyParamCaption}\item[{char $\ast$}]{filepath,  }\item[{\mbox{\hyperlink{struct_leaderboard}{Leaderboard}} $\ast$}]{leaderboard }\end{DoxyParamCaption})}
+
+
+
+Write the content of a leaderboard into a binary file at the specified file path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & the filepath \\
+\hline
+{\em leaderboard} & the pointer to the leaderboard \\
+\hline
+\end{DoxyParams}

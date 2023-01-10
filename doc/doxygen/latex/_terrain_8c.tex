@@ -1,0 +1,83 @@
+\hypertarget{_terrain_8c}{}\doxysection{src/\+Terrain.c File Reference}
+\label{_terrain_8c}\index{src/Terrain.c@{src/Terrain.c}}
+
+
+Terrain module, functions that generates randomly a playing field with walls.  
+
+
+{\ttfamily \#include \char`\"{}../include/\+Terrain.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../include/\+Graphics.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_terrain_8c_a2b054c36e5ac3b2d11c054f79d86ff0b}{init\+Empty\+Grid}} (\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} $\ast$\mbox{\hyperlink{structgrid}{grid}})
+\begin{DoxyCompactList}\small\item\em Initializes an empty grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_terrain_8c_a06cf63348481f0c76bd6188b55449d8d}{generate\+Grid\+Borders}} (\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} $\ast$\mbox{\hyperlink{structgrid}{grid}})
+\begin{DoxyCompactList}\small\item\em Generates the borders on the given grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_terrain_8c_ac9dbc883be444d4ecc100cd0515d1cd0}{initialize\+Terrain}} (\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} $\ast$\mbox{\hyperlink{structgrid}{grid}})
+\begin{DoxyCompactList}\small\item\em Initializes a grid with empty squares and generates walls in it and the borders. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Terrain module, functions that generates randomly a playing field with walls. 
+
+\begin{DoxyAuthor}{Author}
+HERVE NGUYEN \& GABRIEL RADONIAINA 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2022-\/11-\/12 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_terrain_8c_a06cf63348481f0c76bd6188b55449d8d}\label{_terrain_8c_a06cf63348481f0c76bd6188b55449d8d}} 
+\index{Terrain.c@{Terrain.c}!generateGridBorders@{generateGridBorders}}
+\index{generateGridBorders@{generateGridBorders}!Terrain.c@{Terrain.c}}
+\doxysubsubsection{\texorpdfstring{generateGridBorders()}{generateGridBorders()}}
+{\footnotesize\ttfamily void generate\+Grid\+Borders (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} $\ast$}]{grid }\end{DoxyParamCaption})}
+
+
+
+Generates the borders on the given grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & Pointer to the Grid generate the borders \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_terrain_8c_a2b054c36e5ac3b2d11c054f79d86ff0b}\label{_terrain_8c_a2b054c36e5ac3b2d11c054f79d86ff0b}} 
+\index{Terrain.c@{Terrain.c}!initEmptyGrid@{initEmptyGrid}}
+\index{initEmptyGrid@{initEmptyGrid}!Terrain.c@{Terrain.c}}
+\doxysubsubsection{\texorpdfstring{initEmptyGrid()}{initEmptyGrid()}}
+{\footnotesize\ttfamily void init\+Empty\+Grid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} $\ast$}]{grid }\end{DoxyParamCaption})}
+
+
+
+Initializes an empty grid. 
+
+The grid will have no wall and should have mana on all it\textquotesingle{}s squares.
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & Pointer to the Grid to initialize \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_terrain_8c_ac9dbc883be444d4ecc100cd0515d1cd0}\label{_terrain_8c_ac9dbc883be444d4ecc100cd0515d1cd0}} 
+\index{Terrain.c@{Terrain.c}!initializeTerrain@{initializeTerrain}}
+\index{initializeTerrain@{initializeTerrain}!Terrain.c@{Terrain.c}}
+\doxysubsubsection{\texorpdfstring{initializeTerrain()}{initializeTerrain()}}
+{\footnotesize\ttfamily void initialize\+Terrain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} $\ast$}]{grid }\end{DoxyParamCaption})}
+
+
+
+Initializes a grid with empty squares and generates walls in it and the borders. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & Pointer to a Grid object to initialize and generate walls in. \\
+\hline
+\end{DoxyParams}

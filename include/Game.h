@@ -1,7 +1,7 @@
 /**
  * @file Game.h
  * @author HERVE NGUYEN & GABRIEL RADONIAINA
- * @brief 
+ * @brief Header file for the Game module
  * @version 0.1
  * @date 2023-01-08
  * 

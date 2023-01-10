@@ -1,0 +1,84 @@
+\hypertarget{_game_8h}{}\doxysection{include/\+Game.h File Reference}
+\label{_game_8h}\index{include/Game.h@{include/Game.h}}
+
+
+Header file for the Game module.  
+
+
+{\ttfamily \#include \char`\"{}Entity.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Collision.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Terrain.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Graphics.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Player.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Golem.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Relic.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Math\+Tools.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Score.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_depleted_squares}{Depleted\+Squares}}
+\begin{DoxyCompactList}\small\item\em data structure using an array of pointer of squares to keep track of depleted squares \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_game_8h_a3024ccd4a9af5109d24e6c57565d74a1}\label{_game_8h_a3024ccd4a9af5109d24e6c57565d74a1}} 
+\#define {\bfseries \+\_\+\+POSIX\+\_\+\+C\+\_\+\+SOURCE}~199309L
+\item 
+\mbox{\Hypertarget{_game_8h_ac9f96c9721bb03b92010dc8119dd48de}\label{_game_8h_ac9f96c9721bb03b92010dc8119dd48de}} 
+\#define {\bfseries NB\+\_\+\+GOLEM}~5
+\item 
+\mbox{\Hypertarget{_game_8h_aca01143866add6425d72298f409c4b94}\label{_game_8h_aca01143866add6425d72298f409c4b94}} 
+\#define {\bfseries NB\+\_\+\+RELIC}~3
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_game_8h_abbd8517c1e19e393f3aa035afaac65d6}{game}} (int skip)
+\begin{DoxyCompactList}\small\item\em Main game algortithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the Game module. 
+
+\begin{DoxyAuthor}{Author}
+HERVE NGUYEN \& GABRIEL RADONIAINA 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/01-\/08
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_game_8h_abbd8517c1e19e393f3aa035afaac65d6}\label{_game_8h_abbd8517c1e19e393f3aa035afaac65d6}} 
+\index{Game.h@{Game.h}!game@{game}}
+\index{game@{game}!Game.h@{Game.h}}
+\doxysubsubsection{\texorpdfstring{game()}{game()}}
+{\footnotesize\ttfamily void game (\begin{DoxyParamCaption}\item[{int}]{skip }\end{DoxyParamCaption})}
+
+
+
+Main game algortithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em skip} & is equal to 1 if the users wants to skip the game and go straight to the leaderboards\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em skip} & is equal to 1 if the users wants to skip the game and go straight to the leaderboards \\
+\hline
+\end{DoxyParams}

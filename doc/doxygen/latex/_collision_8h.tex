@@ -1,0 +1,116 @@
+\hypertarget{_collision_8h}{}\doxysection{include/\+Collision.h File Reference}
+\label{_collision_8h}\index{include/Collision.h@{include/Collision.h}}
+
+
+Header file for the Collision module.  
+
+
+{\ttfamily \#include \char`\"{}Entity.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Terrain.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Math\+Tools.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_collision_8h_ae38532c9eaa8d590d992e00875697cfb}{is\+Collision}} (\mbox{\hyperlink{struct_point}{Point}} $\ast$center, \mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} \mbox{\hyperlink{structgrid}{grid}})
+\begin{DoxyCompactList}\small\item\em Checks if the supposed entity of radius 1 described by the point is colliding any walls. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_collision_8h_aeb392679024ffe8b8c08d337e812b031}{will\+Collide}} (\mbox{\hyperlink{struct_point}{Point}} center, \mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} \mbox{\hyperlink{structgrid}{grid}}, \mbox{\hyperlink{_entity_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} d, double \mbox{\hyperlink{_math_tools_8h_a7d653a23bc3022afd9b32e419abbbc2d}{distance}})
+\begin{DoxyCompactList}\small\item\em Checks if the given entity will collide into a wall if going toward a certain direction for a certain unit of space. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the Collision module. 
+
+\begin{DoxyAuthor}{Author}
+HERVE NGUYEN \& GABRIEL RADONIAINA 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2022-\/12-\/15 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_collision_8h_ae38532c9eaa8d590d992e00875697cfb}\label{_collision_8h_ae38532c9eaa8d590d992e00875697cfb}} 
+\index{Collision.h@{Collision.h}!isCollision@{isCollision}}
+\index{isCollision@{isCollision}!Collision.h@{Collision.h}}
+\doxysubsubsection{\texorpdfstring{isCollision()}{isCollision()}}
+{\footnotesize\ttfamily int is\+Collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_point}{Point}} $\ast$}]{center,  }\item[{\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}}}]{grid }\end{DoxyParamCaption})}
+
+
+
+Checks if the supposed entity of radius 1 described by the point is colliding any walls. 
+
+The entity\textquotesingle{}s position will be adjusted if there is a collision, so that it\textquotesingle{}s boundaries won\textquotesingle{}t be crossing beyond the walls.
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & \\
+\hline
+{\em grid} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if there is a collision, 0 otherwise
+\end{DoxyReturn}
+
+
+The entity\textquotesingle{}s position will be adjusted if there is a collision, so that it\textquotesingle{}s boundaries won\textquotesingle{}t be crossing beyond the walls.
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & \\
+\hline
+{\em grid} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if there is a collision, 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_collision_8h_aeb392679024ffe8b8c08d337e812b031}\label{_collision_8h_aeb392679024ffe8b8c08d337e812b031}} 
+\index{Collision.h@{Collision.h}!willCollide@{willCollide}}
+\index{willCollide@{willCollide}!Collision.h@{Collision.h}}
+\doxysubsubsection{\texorpdfstring{willCollide()}{willCollide()}}
+{\footnotesize\ttfamily int will\+Collide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_point}{Point}}}]{center,  }\item[{\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}}}]{grid,  }\item[{\mbox{\hyperlink{_entity_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}}]{d,  }\item[{double}]{distance }\end{DoxyParamCaption})}
+
+
+
+Checks if the given entity will collide into a wall if going toward a certain direction for a certain unit of space. 
+
+Returns 1 if it WILL be in collision with a wall, 0 otherwise
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & the center position of the entity \\
+\hline
+{\em grid} & the grid (have info about the possible existing walls) \\
+\hline
+{\em d} & the direction of the move \\
+\hline
+{\em distance} & the unit of distance to anticipate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if it WILL be in collision with a wall, 0 otherwise
+\end{DoxyReturn}
+
+
+Returns 1 if it WILL be in collision with a wall, 0 otherwise
+
+
+\begin{DoxyParams}{Parameters}
+{\em center} & the center position of the entity \\
+\hline
+{\em grid} & the grid (have info about the possible existing walls) \\
+\hline
+{\em d} & the direction of the move \\
+\hline
+{\em distance} & the unit of distance to anticipate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 1 if it WILL be in collision with a wall, 0 otherwise 
+\end{DoxyReturn}

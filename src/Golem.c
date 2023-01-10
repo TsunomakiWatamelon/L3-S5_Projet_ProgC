@@ -1,7 +1,7 @@
 /**
  * @file Move.c
  * @author HERVE NGUYEN & GABRIEL RADONIAINA
- * @brief Source file for Move module
+ * @brief Golem module, has functions relating to the behavior of golems
  * @version 0.1
  * @date 2022-11-07
  * 

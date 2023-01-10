@@ -1,7 +1,7 @@
 /**
  * @file Score.h
  * @author HERVE NGUYEN & GABRIEL RADONIAINA
- * @brief 
+ * @brief Header file for the Terrain module
  * @version 0.1
  * @date 2023-01-10
  * 
@@ -18,12 +18,20 @@
 
 #define ARRAY_MAX 10
 
+/**
+ * @brief Data structure used to store information about a score and pass them to other functions
+ * 
+ */
 typedef struct {
     char name[11];
     int manaUsed;
     int timeElapsed;
 } Score;
 
+/**
+ * @brief Represents a leaderboard, holds up to 10 scores
+ * 
+ */
 typedef struct {
     Score scores[ARRAY_MAX];
     int size;

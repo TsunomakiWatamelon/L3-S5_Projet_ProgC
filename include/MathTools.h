@@ -19,11 +19,19 @@
 #include <math.h>
 #include <time.h>
 
+/**
+ * @brief Represents a point but only  with integer
+ * 
+ */
 typedef struct {
     int x;
     int y;
 } Coordinate;
 
+/**
+ * @brief Represents a point with doubles
+ * 
+ */
 typedef struct {
    double x;
    double y;

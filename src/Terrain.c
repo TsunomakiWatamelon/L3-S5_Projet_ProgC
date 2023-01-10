@@ -1,7 +1,7 @@
 /**
  * @file Terrain.c
  * @author HERVE NGUYEN & GABRIEL RADONIAINA
- * @brief Source file for the Terrain module
+ * @brief Terrain module, functions that generates randomly a playing field with walls.
  * @version 0.1
  * @date 2022-11-12
  * 

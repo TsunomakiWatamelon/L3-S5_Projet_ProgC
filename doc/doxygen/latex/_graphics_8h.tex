@@ -1,0 +1,427 @@
+\hypertarget{_graphics_8h}{}\doxysection{include/\+Graphics.h File Reference}
+\label{_graphics_8h}\index{include/Graphics.h@{include/Graphics.h}}
+
+
+Header file for the Graphics module.  
+
+
+{\ttfamily \#include $<$MLV/\+MLV\+\_\+all.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Entity.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}assert.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Terrain.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Score.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_graphics_8h_a89c51dcef5c57ff9c484e72ae12b2d23}\label{_graphics_8h_a89c51dcef5c57ff9c484e72ae12b2d23}} 
+\#define {\bfseries GAME\+\_\+\+WINX}~1200
+\item 
+\mbox{\Hypertarget{_graphics_8h_ad515f899e62ea67509d10d2f3bc42796}\label{_graphics_8h_ad515f899e62ea67509d10d2f3bc42796}} 
+\#define {\bfseries GAME\+\_\+\+WINY}~1000
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_graphics_8h_a0140181914f115aca034ddd2b227e3c4}{create\+Window}} (void)
+\begin{DoxyCompactList}\small\item\em Creates the window. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_graphics_8h_aa075b3dfc5c809ee6c6a772745ab4de4}{draw\+Terrain}} (\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} \mbox{\hyperlink{structgrid}{grid}})
+\begin{DoxyCompactList}\small\item\em Draws the terrain by wiping all previous drawings, drawing the squares containing mana, the walls, and the grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_graphics_8h_affeb5f943df4059904d4697168b2c77c}{redraw\+Subspace}} (\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} \mbox{\hyperlink{structgrid}{grid}}, int x, int y, int width, int height)
+\begin{DoxyCompactList}\small\item\em Redraw a certain subspace by wiping all previous drawings, drawing the squares containing mana, the walls, and the grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_graphics_8h_a914debadcd07addea03e9f699832dfdb}{draw\+Player}} (\mbox{\hyperlink{struct_player}{Player}} player)
+\begin{DoxyCompactList}\small\item\em Draws the player. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_graphics_8h_a7fd08f08210c89b3985eb683b5f6153e}{draw\+Golems}} (\mbox{\hyperlink{struct_golem}{Golem}} $\ast$golems, int array\+Size)
+\begin{DoxyCompactList}\small\item\em Draw the golems and their detection radii. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_graphics_8h_a92e51deb90aea96b43519684771e11dd}{redraw\+Subspace\+Player}} (\mbox{\hyperlink{struct_player}{Player}} player, \mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} \mbox{\hyperlink{structgrid}{grid}})
+\item 
+void \mbox{\hyperlink{_graphics_8h_ab64d8eff8699ad573385f8e645f2ddda}{redraw\+Subspace\+Golem}} (\mbox{\hyperlink{struct_golem}{Golem}} golem, \mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} \mbox{\hyperlink{structgrid}{grid}})
+\item 
+void \mbox{\hyperlink{_graphics_8h_a87305e2b6e16d28976aff902ceb59f75}{redraw\+Subspace\+Entity}} (int x, int y, int width, int height, \mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} \mbox{\hyperlink{structgrid}{grid}})
+\item 
+void \mbox{\hyperlink{_graphics_8h_ade253e23a817f1ebbb9fb929453a67ad}{draw\+Entities}} (\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}} \mbox{\hyperlink{structgrid}{grid}}, \mbox{\hyperlink{struct_player}{Player}} player, \mbox{\hyperlink{struct_golem}{Golem}} $\ast$golems, \mbox{\hyperlink{struct_relic}{Relic}} $\ast$relics, int len\+Golem, int len\+Relics)
+\begin{DoxyCompactList}\small\item\em Draw the given entities. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_graphics_8h_a8229ebc5100a6d00c958f850ff5725c6}{draw\+Info}} (int time\+Elapsed, int mana, int remaining, int invisible, int boost, int alert)
+\begin{DoxyCompactList}\small\item\em Draw information about the current game such as the time elapsed, the abilities currently used, remaining relics etc. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_graphics_8h_aeb2c7e9c7d14c9eccb7e624bd9611ef8}{draw\+Game\+Over}} ()
+\begin{DoxyCompactList}\small\item\em Draws a game over animation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_graphics_8h_aaf9f305b34511eb92bbe4293354ac763}{draw\+Win}} (int time\+Elapsed, int mana\+Total)
+\begin{DoxyCompactList}\small\item\em Draw a winning message animation. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_graphics_8h_a626e3f2582c58a716fe65a09e50a9e57}{ask\+Save\+Score}} ()
+\begin{DoxyCompactList}\small\item\em Asks if the user wants to save his score. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_graphics_8h_a06f03e447c7a94ea28d06d2fb8077f15}{ask\+Name}} (char name\mbox{[}11\mbox{]})
+\begin{DoxyCompactList}\small\item\em Asks the user to input his name (8 characters max are counted) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_graphics_8h_a7283ad1a9cc983df766598fb22d6b394}{draw\+Leaderboard}} (\mbox{\hyperlink{struct_leaderboard}{Leaderboard}} time, \mbox{\hyperlink{struct_leaderboard}{Leaderboard}} mana)
+\begin{DoxyCompactList}\small\item\em From two leaderboard (time centered and mana centered) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the Graphics module. 
+
+\begin{DoxyAuthor}{Author}
+HERVE NGUYEN \& GABRIEL RADONIAINA 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/01-\/06 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_graphics_8h_a06f03e447c7a94ea28d06d2fb8077f15}\label{_graphics_8h_a06f03e447c7a94ea28d06d2fb8077f15}} 
+\index{Graphics.h@{Graphics.h}!askName@{askName}}
+\index{askName@{askName}!Graphics.h@{Graphics.h}}
+\doxysubsubsection{\texorpdfstring{askName()}{askName()}}
+{\footnotesize\ttfamily void ask\+Name (\begin{DoxyParamCaption}\item[{char}]{name\mbox{[}11\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Asks the user to input his name (8 characters max are counted) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name that will be stored\\
+\hline
+\end{DoxyParams}
+Asks the user to input his name (8 characters max are counted)
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name that will be stored \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_graphics_8h_a626e3f2582c58a716fe65a09e50a9e57}\label{_graphics_8h_a626e3f2582c58a716fe65a09e50a9e57}} 
+\index{Graphics.h@{Graphics.h}!askSaveScore@{askSaveScore}}
+\index{askSaveScore@{askSaveScore}!Graphics.h@{Graphics.h}}
+\doxysubsubsection{\texorpdfstring{askSaveScore()}{askSaveScore()}}
+{\footnotesize\ttfamily int ask\+Save\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Asks if the user wants to save his score. 
+
+\begin{DoxyReturn}{Returns}
+int 1 if yes 0 otherwise
+\end{DoxyReturn}
+
+
+\begin{DoxyReturn}{Returns}
+int 1 if yes 0 otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_graphics_8h_a0140181914f115aca034ddd2b227e3c4}\label{_graphics_8h_a0140181914f115aca034ddd2b227e3c4}} 
+\index{Graphics.h@{Graphics.h}!createWindow@{createWindow}}
+\index{createWindow@{createWindow}!Graphics.h@{Graphics.h}}
+\doxysubsubsection{\texorpdfstring{createWindow()}{createWindow()}}
+{\footnotesize\ttfamily void create\+Window (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Creates the window. 
+
+\mbox{\Hypertarget{_graphics_8h_ade253e23a817f1ebbb9fb929453a67ad}\label{_graphics_8h_ade253e23a817f1ebbb9fb929453a67ad}} 
+\index{Graphics.h@{Graphics.h}!drawEntities@{drawEntities}}
+\index{drawEntities@{drawEntities}!Graphics.h@{Graphics.h}}
+\doxysubsubsection{\texorpdfstring{drawEntities()}{drawEntities()}}
+{\footnotesize\ttfamily void draw\+Entities (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}}}]{grid,  }\item[{\mbox{\hyperlink{struct_player}{Player}}}]{player,  }\item[{\mbox{\hyperlink{struct_golem}{Golem}} $\ast$}]{golems,  }\item[{\mbox{\hyperlink{struct_relic}{Relic}} $\ast$}]{relics,  }\item[{int}]{len\+Golem,  }\item[{int}]{len\+Relics }\end{DoxyParamCaption})}
+
+
+
+Draw the given entities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & The grid \\
+\hline
+{\em player} & The player \\
+\hline
+{\em golems} & The array of golems \\
+\hline
+{\em relics} & The array of relics \\
+\hline
+{\em len\+Golem} & The length of the said array \\
+\hline
+{\em len\+Relics} & The length of the said array\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & The grid \\
+\hline
+{\em player} & The player \\
+\hline
+{\em golems} & The array of golems \\
+\hline
+{\em relics} & The array of relics \\
+\hline
+{\em len\+Golem} & The length of the said array \\
+\hline
+{\em len\+Relics} & The length of the said array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_graphics_8h_aeb2c7e9c7d14c9eccb7e624bd9611ef8}\label{_graphics_8h_aeb2c7e9c7d14c9eccb7e624bd9611ef8}} 
+\index{Graphics.h@{Graphics.h}!drawGameOver@{drawGameOver}}
+\index{drawGameOver@{drawGameOver}!Graphics.h@{Graphics.h}}
+\doxysubsubsection{\texorpdfstring{drawGameOver()}{drawGameOver()}}
+{\footnotesize\ttfamily void draw\+Game\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws a game over animation. 
+
+\mbox{\Hypertarget{_graphics_8h_a7fd08f08210c89b3985eb683b5f6153e}\label{_graphics_8h_a7fd08f08210c89b3985eb683b5f6153e}} 
+\index{Graphics.h@{Graphics.h}!drawGolems@{drawGolems}}
+\index{drawGolems@{drawGolems}!Graphics.h@{Graphics.h}}
+\doxysubsubsection{\texorpdfstring{drawGolems()}{drawGolems()}}
+{\footnotesize\ttfamily void draw\+Golems (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_golem}{Golem}} $\ast$}]{golems,  }\item[{int}]{array\+Size }\end{DoxyParamCaption})}
+
+
+
+Draw the golems and their detection radii. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em golems} & the array of golems \\
+\hline
+{\em array\+Size} & the size of the golems array\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em golems} & the array of golems \\
+\hline
+{\em array\+Size} & the size of the golems array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_graphics_8h_a8229ebc5100a6d00c958f850ff5725c6}\label{_graphics_8h_a8229ebc5100a6d00c958f850ff5725c6}} 
+\index{Graphics.h@{Graphics.h}!drawInfo@{drawInfo}}
+\index{drawInfo@{drawInfo}!Graphics.h@{Graphics.h}}
+\doxysubsubsection{\texorpdfstring{drawInfo()}{drawInfo()}}
+{\footnotesize\ttfamily void draw\+Info (\begin{DoxyParamCaption}\item[{int}]{time\+Elapsed,  }\item[{int}]{mana,  }\item[{int}]{remaining,  }\item[{int}]{invisible,  }\item[{int}]{boost,  }\item[{int}]{alert }\end{DoxyParamCaption})}
+
+
+
+Draw information about the current game such as the time elapsed, the abilities currently used, remaining relics etc. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time\+Elapsed} & Time elapsed in ms \\
+\hline
+{\em mana} & Mana currently being held by the player \\
+\hline
+{\em remaining} & Remaining relics to be stolen \\
+\hline
+{\em invisible} & 1 if the invisiblity ability is active, or 0. \\
+\hline
+{\em boost} & 1 if the thursing / boosting ability is active, or 0. \\
+\hline
+{\em alert} & 1 one or more golem is(are) panicking, or 0.\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em time\+Elapsed} & Time elapsed in ms \\
+\hline
+{\em mana} & Mana currently being held by the player \\
+\hline
+{\em remaining} & Remaining relics to be stolen \\
+\hline
+{\em invisible} & 1 if the invisiblity ability is active, or 0. \\
+\hline
+{\em boost} & 1 if the thursing / boosting ability is active, or 0. \\
+\hline
+{\em alert} & 1 one or more golem is(are) panicking, or 0. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_graphics_8h_a7283ad1a9cc983df766598fb22d6b394}\label{_graphics_8h_a7283ad1a9cc983df766598fb22d6b394}} 
+\index{Graphics.h@{Graphics.h}!drawLeaderboard@{drawLeaderboard}}
+\index{drawLeaderboard@{drawLeaderboard}!Graphics.h@{Graphics.h}}
+\doxysubsubsection{\texorpdfstring{drawLeaderboard()}{drawLeaderboard()}}
+{\footnotesize\ttfamily void draw\+Leaderboard (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_leaderboard}{Leaderboard}}}]{time,  }\item[{\mbox{\hyperlink{struct_leaderboard}{Leaderboard}}}]{mana }\end{DoxyParamCaption})}
+
+
+
+From two leaderboard (time centered and mana centered) 
+
+Draws the corresponding two leaderboard
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & Time \mbox{\hyperlink{struct_leaderboard}{Leaderboard}} \\
+\hline
+{\em mana} & Mana \mbox{\hyperlink{struct_leaderboard}{Leaderboard}}\\
+\hline
+\end{DoxyParams}
+
+
+Draws the corresponding two leaderboard
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & Time \mbox{\hyperlink{struct_leaderboard}{Leaderboard}} \\
+\hline
+{\em mana} & Mana \mbox{\hyperlink{struct_leaderboard}{Leaderboard}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_graphics_8h_a914debadcd07addea03e9f699832dfdb}\label{_graphics_8h_a914debadcd07addea03e9f699832dfdb}} 
+\index{Graphics.h@{Graphics.h}!drawPlayer@{drawPlayer}}
+\index{drawPlayer@{drawPlayer}!Graphics.h@{Graphics.h}}
+\doxysubsubsection{\texorpdfstring{drawPlayer()}{drawPlayer()}}
+{\footnotesize\ttfamily void draw\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}}}]{player }\end{DoxyParamCaption})}
+
+
+
+Draws the player. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & the player\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & the player \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_graphics_8h_aa075b3dfc5c809ee6c6a772745ab4de4}\label{_graphics_8h_aa075b3dfc5c809ee6c6a772745ab4de4}} 
+\index{Graphics.h@{Graphics.h}!drawTerrain@{drawTerrain}}
+\index{drawTerrain@{drawTerrain}!Graphics.h@{Graphics.h}}
+\doxysubsubsection{\texorpdfstring{drawTerrain()}{drawTerrain()}}
+{\footnotesize\ttfamily void draw\+Terrain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}}}]{grid }\end{DoxyParamCaption})}
+
+
+
+Draws the terrain by wiping all previous drawings, drawing the squares containing mana, the walls, and the grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & the grid containing information about the squares with mana and the walls\\
+\hline
+\end{DoxyParams}
+Draws the terrain by wiping all previous drawings, drawing the squares containing mana, the walls, and the grid.
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & the grid containing information about the squares with mana and the walls \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_graphics_8h_aaf9f305b34511eb92bbe4293354ac763}\label{_graphics_8h_aaf9f305b34511eb92bbe4293354ac763}} 
+\index{Graphics.h@{Graphics.h}!drawWin@{drawWin}}
+\index{drawWin@{drawWin}!Graphics.h@{Graphics.h}}
+\doxysubsubsection{\texorpdfstring{drawWin()}{drawWin()}}
+{\footnotesize\ttfamily void draw\+Win (\begin{DoxyParamCaption}\item[{int}]{time\+Elapsed,  }\item[{int}]{mana\+Total }\end{DoxyParamCaption})}
+
+
+
+Draw a winning message animation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em time\+Elapse} & time elapsed from the start of the game (in ms) \\
+\hline
+{\em mana\+Total} & total mana used by the player\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em time\+Elapse} & time elapsed from the start of the game (in ms) \\
+\hline
+{\em mana\+Total} & total mana used by the player \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_graphics_8h_affeb5f943df4059904d4697168b2c77c}\label{_graphics_8h_affeb5f943df4059904d4697168b2c77c}} 
+\index{Graphics.h@{Graphics.h}!redrawSubspace@{redrawSubspace}}
+\index{redrawSubspace@{redrawSubspace}!Graphics.h@{Graphics.h}}
+\doxysubsubsection{\texorpdfstring{redrawSubspace()}{redrawSubspace()}}
+{\footnotesize\ttfamily void redraw\+Subspace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}}}]{grid,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+Redraw a certain subspace by wiping all previous drawings, drawing the squares containing mana, the walls, and the grid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & the grid containing information about the squares with mana and the walls \\
+\hline
+{\em x} & x coordinate of the top left corner of the subspace \\
+\hline
+{\em y} & y coordinate of the top left corner of the subspace \\
+\hline
+{\em width} & width of the subspace (in squares, not pixels) \\
+\hline
+{\em height} & height of the subspace (in squares, not pixels)\\
+\hline
+\end{DoxyParams}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em grid} & the grid containing information about the squares with mana and the walls \\
+\hline
+{\em x} & x coordinate of the top left corner of the subspace \\
+\hline
+{\em y} & y coordinate of the top left corner of the subspace \\
+\hline
+{\em width} & width of the subspace (in squares, not pixels) \\
+\hline
+{\em height} & height of the subspace (in squares, not pixels) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_graphics_8h_a87305e2b6e16d28976aff902ceb59f75}\label{_graphics_8h_a87305e2b6e16d28976aff902ceb59f75}} 
+\index{Graphics.h@{Graphics.h}!redrawSubspaceEntity@{redrawSubspaceEntity}}
+\index{redrawSubspaceEntity@{redrawSubspaceEntity}!Graphics.h@{Graphics.h}}
+\doxysubsubsection{\texorpdfstring{redrawSubspaceEntity()}{redrawSubspaceEntity()}}
+{\footnotesize\ttfamily void redraw\+Subspace\+Entity (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}}}]{grid }\end{DoxyParamCaption})}
+
+Redraws the area surrounding an entity on the game field.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the x-\/coordinate of the center of the surrounding area \\
+\hline
+{\em y} & the y-\/coordinate of the center of the surrounding area \\
+\hline
+{\em grid} & the grid containing information about the walls and mana \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_graphics_8h_ab64d8eff8699ad573385f8e645f2ddda}\label{_graphics_8h_ab64d8eff8699ad573385f8e645f2ddda}} 
+\index{Graphics.h@{Graphics.h}!redrawSubspaceGolem@{redrawSubspaceGolem}}
+\index{redrawSubspaceGolem@{redrawSubspaceGolem}!Graphics.h@{Graphics.h}}
+\doxysubsubsection{\texorpdfstring{redrawSubspaceGolem()}{redrawSubspaceGolem()}}
+{\footnotesize\ttfamily void redraw\+Subspace\+Golem (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_golem}{Golem}}}]{golem,  }\item[{\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}}}]{grid }\end{DoxyParamCaption})}
+
+Redraws the area surrounding a golem on the game field.
+
+
+\begin{DoxyParams}{Parameters}
+{\em golem} & the golem whose surrounding area should be redrawn \\
+\hline
+{\em grid} & the grid containing information about the walls and mana \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_graphics_8h_a92e51deb90aea96b43519684771e11dd}\label{_graphics_8h_a92e51deb90aea96b43519684771e11dd}} 
+\index{Graphics.h@{Graphics.h}!redrawSubspacePlayer@{redrawSubspacePlayer}}
+\index{redrawSubspacePlayer@{redrawSubspacePlayer}!Graphics.h@{Graphics.h}}
+\doxysubsubsection{\texorpdfstring{redrawSubspacePlayer()}{redrawSubspacePlayer()}}
+{\footnotesize\ttfamily void redraw\+Subspace\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_player}{Player}}}]{player,  }\item[{\mbox{\hyperlink{_terrain_8h_ad5043a7ed9de69e0d488c567fc9d2ab3}{Grid}}}]{grid }\end{DoxyParamCaption})}
+
+Redraws the area surrounding a player on the game field.
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & the player whose surrounding area should be redrawn \\
+\hline
+{\em grid} & the grid containing information about the walls and mana \\
+\hline
+\end{DoxyParams}
