@@ -308,7 +308,7 @@ void game(int skip){
     directionActive = 0; direction = right; frameNumber = 0;
     remainingRelics = NB_RELIC; alert = 0;
     totalUsed = manaUsed = 0;
-    result = 0;
+    result = 0; boost = 0;
 
     srand(time(NULL));
     srand48(time(NULL)); /* For drand48 */
