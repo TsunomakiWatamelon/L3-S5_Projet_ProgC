@@ -19,6 +19,8 @@
 #include <math.h>
 #include <time.h>
 
+#define drand48() ((double)rand()/RAND_MAX)
+
 /**
  * @brief Represents a point but only  with integer
  * 

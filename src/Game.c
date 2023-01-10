@@ -317,7 +317,6 @@ void game(int skip){
     result = 0; boost = 0;
 
     srand(time(NULL));
-    srand48(time(NULL)); /* For drand48 */
 
     initGame(&grid, &player, golems, relics);
     createWindow();
