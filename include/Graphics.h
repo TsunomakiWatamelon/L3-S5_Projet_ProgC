@@ -1,6 +1,6 @@
 /**
  * @file Graphics.h
- * @author Herve Nguyen (herve.nguyen@edu.univ-eiffel.fr)
+ * @author HERVE NGUYEN & GABRIEL RADONIAINA
  * @brief Header file for the graphics module
  * @version 0.1
  * @date 2023-01-06
@@ -138,6 +138,14 @@ int askSaveScore();
  */
 void askName(char name[11]);
 
+/**
+ * @brief From two leaderboard (time centered and mana centered)
+ * 
+ * Draws the corresponding two leaderboard
+ * 
+ * @param time Time Leaderboard
+ * @param mana Mana Leaderboard
+ */
 void drawLeaderboard(Leaderboard time, Leaderboard mana);
 
 #endif

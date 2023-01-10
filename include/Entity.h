@@ -1,3 +1,12 @@
+/**
+ * @file Entity.h
+ * @author HERVE NGUYEN & GABRIEL RADONIAINA
+ * @brief Header file for the Entity module
+ * @version 0.1
+ * @date 2023-01-10
+ * 
+ * 
+ */
 
 #ifndef __Entity__
 #define __Entity__

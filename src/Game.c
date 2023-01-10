@@ -1,6 +1,6 @@
 /**
  * @file Game.c
- * @author HERVE NGUYEN (herve.nguyen@edu.univ-eiffel.fr)
+ * @author HERVE NGUYEN & GABRIEL RADONIAINA
  * @brief 
  * @version 0.1
  * @date 2023-01-08
@@ -240,7 +240,7 @@ static int stealRelic(Player player, Relic *relics){
     res = 0;
     for (i = 0; i < NB_RELIC; i++){
         /* Both entities have a diameter of 1.0 */
-        if (pointDistance(relics[i].location, player.location) <= 1.0 && !relics[i].taken){
+        if (!relics[i].taken && pointDistance(relics[i].location, player.location) <= 1.0){
             relics[i].taken = 1;
             res = 1;
             break;
@@ -354,7 +354,7 @@ void game(void){
         if (stealRelic(player, relics))
             remainingRelics--;
         /* If all relics are stolen then proceed to the win page */
-        if (remainingRelics == 0){
+        if (!remainingRelics){
             drawWin(timeElapsed, totalUsed);
             result = 1;
             break;
@@ -396,17 +396,23 @@ void game(void){
 
     lead_time.size = 0, lead_mana.size = 0;
 
+    readLeaderboardFromBinaryFile("./leaderboardTime", &lead_time);
+    readLeaderboardFromBinaryFile("./leaderboardMana", &lead_mana);
+
     if (result)
         if (askSaveScore()){
             askName(name);
             readLeaderboardFromBinaryFile("./leaderboardTime", &lead_time);
             readLeaderboardFromBinaryFile("./leaderboardMana", &lead_mana);
+
+            /* Adds only to the top 10 if the score qualifie for it */
             addScoreMana(&lead_mana, name, totalUsed, timeElapsed);
             addScoreTime(&lead_time, name, totalUsed, timeElapsed);
-            printf("size %d %d\n", lead_mana.size, lead_time.size);
-            drawLeaderboard(lead_time, lead_mana);
-            return;
+            
+            writeLeaderboardToBinaryFile("./leaderboardTime", &lead_time);
+            writeLeaderboardToBinaryFile("./leaderboardMana", &lead_mana);
         }
-    writeLeaderboardToBinaryFile("./leaderboardTime", &lead_time);
-    writeLeaderboardToBinaryFile("./leaderboardMana", &lead_mana);
+
+    drawLeaderboard(lead_time, lead_mana);
+
 }

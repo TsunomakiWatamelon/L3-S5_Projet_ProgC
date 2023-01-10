@@ -1,6 +1,6 @@
 /**
  * @file Relic.h
- * @author HERVE NGUYEN (herve.nguyen@edu.univ-eiffel.fr)
+ * @author HERVE NGUYEN & GABRIEL RADONIAINA
  * @brief Header file for the Relic module
  * @version 0.1
  * @date 2023-01-07

@@ -1,6 +1,6 @@
 /**
  * @file Collision.h
- * @author Herve Nguyen (herve.nguyen@edu.univ-eiffel.fr)
+ * @author HERVE NGUYEN & GABRIEL RADONIAINA
  * @brief Header file for the Collision module
  * @version 0.1
  * @date 2022-12-15
@@ -8,8 +8,9 @@
  * 
  */
 
-#ifndef collision
-#define collision
+#ifndef __collision__
+#define __collision__
+
 #include "Entity.h"
 #include "Terrain.h"
 #include "MathTools.h"

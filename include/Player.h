@@ -1,6 +1,6 @@
 /**
  * @file Move.h
- * @author Gabiel Radoniaina (radoniaina@edu.univ-eiffel.fr)
+ * @author HERVE NGUYEN & GABRIEL RADONIAINA
  * @brief Header file for Move module
  * @version 0.1
  * @date 2022-11-07

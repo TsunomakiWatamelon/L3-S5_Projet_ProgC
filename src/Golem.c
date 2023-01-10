@@ -1,6 +1,6 @@
 /**
  * @file Move.c
- * @author Gabiel Radoniaina (radoniaina@edu.univ-eiffel.fr)
+ * @author HERVE NGUYEN & GABRIEL RADONIAINA
  * @brief Source file for Move module
  * @version 0.1
  * @date 2022-11-07

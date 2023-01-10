@@ -1,6 +1,6 @@
 /**
  * @file Terrain.c
- * @author Herve Nguyen (herve.nguyen@edu.univ-eiffel.fr)
+ * @author HERVE NGUYEN & GABRIEL RADONIAINA
  * @brief Source file for the Terrain module
  * @version 0.1
  * @date 2022-11-12
@@ -12,6 +12,21 @@
 #include "../include/Graphics.h"
 #include <stdio.h>
 
+/* To avoid implicit declaration, it's a static function */
+/**
+ * @brief Subfunction that creates a wall in the given subroom
+ * 
+ * Recursive function that follows a certain algorithm (see project subject in french)
+ * 
+ * The wall is vertical or horizontal depending on the value of the integer : vertical
+ * 
+ * @param square Pointer to a two-dimensional array of square, represents the Grid
+ * @param originX x coordinate of the upper left square of the current subroom
+ * @param originY y coordinate of the upper left square of the current subroom
+ * @param sizeX horizontal size of the current subroom
+ * @param sizeY vertical size of the current subroom
+ * @param type tells the function if the wall should be vertical or not (1 yes, 0 no)
+ */
 void installWall(Grid *grid, int originX, int originY, int sizeX, int sizeY, int type);
 
 /**
@@ -43,7 +58,7 @@ void initEmptyGrid(Grid *grid){
  * 
  * @param square Pointer to the square to set as a wall
  */
-void squarePutWall(Square *square){
+static void squarePutWall(Square *square){
     assert(square != NULL);
 
 
@@ -80,7 +95,7 @@ void generateGridBorders(Grid *grid){
  * @param sizeX horizontal size of the current subroom
  * @param sizeY vertical size of the current subroom
  */
-void generateWallSubroom(Grid *grid, int originX, int originY, int sizeX, int sizeY){
+static void generateWallSubroom(Grid *grid, int originX, int originY, int sizeX, int sizeY){
     int random;
     /*
     fprintf(stderr, "generateWallSubroom : oX %d oY %d sX %d sY %d\n", originX, originY, sizeX, sizeY);
@@ -135,7 +150,7 @@ void generateWallSubroom(Grid *grid, int originX, int originY, int sizeX, int si
  * @param sizeY vertical size of the current subroom
  * @param type tells the function if the wall should be vertical or not (1 yes, 0 no)
  */
-void installWall(Grid *grid, int originX, int originY, int sizeX, int sizeY, int type){
+static void installWall(Grid *grid, int originX, int originY, int sizeX, int sizeY, int type){
     int wallIndex, randomOpening, offset, i;
     int nmod, mod;
     int loop;
@@ -196,9 +211,11 @@ void installWall(Grid *grid, int originX, int originY, int sizeX, int sizeY, int
 /**
  * @brief Generates walls the grid using a recursive function.
  * 
+ * Explicitly ignores the squares at the edges since they will be walls.
+ * 
  * @param grid Pointer to a Grid object representing the grid to generate walls in.
  */
-void generateWallGrid(Grid *grid){
+static void generateWallGrid(Grid *grid){
     generateWallSubroom(grid, 1, 1, MAX_WIDTH - 2, MAX_HEIGHT - 2);
 }
 

@@ -1,6 +1,6 @@
 /**
  * @file Game.h
- * @author HERVE NGUYEN (herve.nguyen@edu.univ-eiffel.fr)
+ * @author HERVE NGUYEN & GABRIEL RADONIAINA
  * @brief 
  * @version 0.1
  * @date 2023-01-08

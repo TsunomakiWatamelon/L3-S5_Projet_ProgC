@@ -1,6 +1,6 @@
 /**
  * @file Terrain.h
- * @author Herve Nguyen (herve.nguyen@edu.univ-eiffel.fr)
+ * @author HERVE NGUYEN & GABRIEL RADONIAINA
  * @brief Header file for the Terrain module
  * @version 0.1
  * @date 2022-11-12
@@ -8,8 +8,8 @@
  * 
  */
 
-#ifndef terrain
-#define terrain
+#ifndef __terrain__
+#define __terrain__
 
 #include <assert.h>
 #include <stdlib.h>
@@ -38,15 +38,6 @@ typedef struct grid {
  * @param grid Pointer to the Grid to initialize
  */
 void initEmptyGrid(Grid *grid);
-
-/**
- * @brief Sets the given square as a wall
- * 
- * The square will have no mana.
- * 
- * @param square Pointer to the square to set as a wall
- */
-void squarePutWall(Square *square);
 
 /**
  * @brief Initializes a grid with empty squares and generates walls in it and the borders.

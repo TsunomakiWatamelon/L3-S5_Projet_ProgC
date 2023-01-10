@@ -1,6 +1,6 @@
 /**
  * @file Collision.c
- * @author Herve Nguyen (herve.nguyen@edu.univ-eiffel.fr)
+ * @author HERVE NGUYEN & GABRIEL RADONIAINA
  * @brief Source file for the Collision module
  * @version 0.1
  * @date 2022-12-15

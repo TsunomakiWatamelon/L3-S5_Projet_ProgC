@@ -1,6 +1,6 @@
 /**
  * @file Graphics.c
- * @author Herve Nguyen (herve.nguyen@edu.univ-eiffel.fr)
+ * @author HERVE NGUYEN & GABRIEL RADONIAINA
  * @brief 
  * @version 0.1
  * @date 2023-01-06
@@ -391,7 +391,7 @@ void drawEntities(Grid grid, Player player, Golem * golems, Relic * relics, int 
  * @param alert 1 one or more golem is(are) panicking, or 0.
  */
 void drawInfo(int timeElapsed, int mana, int remaining, int invisible, int boost, int alert){
-    char strMana[9];
+    char manaString[9];
     char timeString[12];
     char strCollect[3];
     MLV_Font * font;
@@ -403,7 +403,7 @@ void drawInfo(int timeElapsed, int mana, int remaining, int invisible, int boost
                                                 microsecondsToSeconds(timeElapsed),
                                                 microsecondsToCentiseconds(timeElapsed)
            );
-    sprintf(strMana, "%d", mana);
+    sprintf(manaString, "%d", mana);
     sprintf(strCollect, "%d", remaining);
 
     MLV_draw_filled_rectangle(0, 900, 1200, 1000, MLV_COLOR_WHITE);
@@ -413,7 +413,7 @@ void drawInfo(int timeElapsed, int mana, int remaining, int invisible, int boost
     MLV_draw_text_with_font(10, 920, "TIME :", font, MLV_COLOR_BLACK);
     MLV_draw_text_with_font(170, 920, timeString, font, MLV_COLOR_BLACK);
     MLV_draw_text_with_font(10, 960, "MANA :", font, MLV_COLOR_BLACK);
-    MLV_draw_text_with_font(170, 960, strMana, font, MLV_COLOR_BLACK);
+    MLV_draw_text_with_font(170, 960, manaString, font, MLV_COLOR_BLACK);
 
     MLV_draw_text_with_font(530, 920, "INVISIBLE", font, invisible ? MLV_COLOR_BLACK : MLV_COLOR_GRAY75);
     MLV_draw_text_with_font(530, 960, "LEFT :", font, MLV_COLOR_BLACK);
@@ -481,7 +481,7 @@ void drawWin(int timeElapsed, int manaTotal){
     int positionX, positionY;
     int width_text, height_text; 
     char timeString[12];
-    char strMana[9];
+    char manaString[9];
     const char * success = "SUCCESS";
     int width;
     width = GAME_WINX;
@@ -494,11 +494,11 @@ void drawWin(int timeElapsed, int manaTotal){
                                                 microsecondsToSeconds(timeElapsed),
                                                 microsecondsToCentiseconds(timeElapsed)
            );
-    sprintf(strMana, "%d", manaTotal);
+    sprintf(manaString, "%d", manaTotal);
     MLV_draw_text_with_font(40, 220, "TIME :", font2, MLV_COLOR_WHITE);
     MLV_draw_text_with_font(210, 220, timeString, font2, MLV_COLOR_WHITE);
     MLV_draw_text_with_font(580, 220, "MANA USED :", font2, MLV_COLOR_WHITE);
-    MLV_draw_text_with_font(880, 220, strMana, font2, MLV_COLOR_WHITE);
+    MLV_draw_text_with_font(880, 220, manaString, font2, MLV_COLOR_WHITE);
 
     MLV_get_size_of_text_with_font(success, &width_text, &height_text, font);
     positionX = (width-width_text)/2, positionY = GAME_WINY / 2;
@@ -612,9 +612,17 @@ void askName(char name[11]){
     }
 }
 
+/**
+ * @brief From two leaderboard (time centered and mana centered)
+ * 
+ * Draws the corresponding two leaderboard
+ * 
+ * @param time Time Leaderboard
+ * @param mana Mana Leaderboard
+ */
 void drawLeaderboard(Leaderboard time, Leaderboard mana){
     char timeString[12];
-    char strMana[9];
+    char manaString[9];
     int i;
     MLV_Font * font;
 
@@ -622,21 +630,33 @@ void drawLeaderboard(Leaderboard time, Leaderboard mana){
     font = MLV_load_font("DS-DIGI.ttf", 20);
     
     /* Time leader board */
-    MLV_draw_text_with_font(10, 10, "Time Leaderboard :", font, MLV_COLOR_WHITE);
-    printf("hamilton %d", time.size);
+    MLV_draw_text_with_font(10, 10, "Time Leaderboard Top 10 :", font, MLV_COLOR_WHITE);
     for (i = 0; i < time.size; i++){
-        printf("hamilton");
+        sprintf(manaString, "%d", time.scores[i].manaUsed);
         sprintf(timeString, "%02d:%02d:%02d:%02d",  microsecondsToHours(time.scores[i].timeElapsed),
                                                     microsecondsToMinutes(time.scores[i].timeElapsed),
                                                     microsecondsToSeconds(time.scores[i].timeElapsed),
                                                     microsecondsToCentiseconds(time.scores[i].timeElapsed)
                );
-        /* sprintf(strMana, "%d", time.scores[i].manaUsed); */
-        MLV_draw_text_with_font(10, 50, "Name : ", font, MLV_COLOR_WHITE);
-        MLV_draw_text_with_font(60, 50, time.scores[i].name, font, MLV_COLOR_WHITE);
-        MLV_draw_text_with_font(200, 50, timeString, font, MLV_COLOR_WHITE);
+        MLV_draw_text_with_font(10, 50 + i * 30, "Name : ", font, MLV_COLOR_WHITE);
+        MLV_draw_text_with_font(60, 50 + i * 30, time.scores[i].name, font, MLV_COLOR_WHITE);
+        MLV_draw_text_with_font(200, 50 + i * 30, timeString, font, MLV_COLOR_WHITE);
+        MLV_draw_text_with_font(400, 50 + i * 30, manaString, font, MLV_COLOR_WHITE);
+        
+    }
+    MLV_draw_text_with_font(610, 10, "Mana Usage Leaderboard Top 10 :", font, MLV_COLOR_WHITE);
+    for (i = 0; i < mana.size; i++){
+        sprintf(manaString, "%d", mana.scores[i].manaUsed);
+        sprintf(timeString, "%02d:%02d:%02d:%02d",  microsecondsToHours(mana.scores[i].timeElapsed),
+                                                    microsecondsToMinutes(mana.scores[i].timeElapsed),
+                                                    microsecondsToSeconds(mana.scores[i].timeElapsed),
+                                                    microsecondsToCentiseconds(mana.scores[i].timeElapsed)
+               );
+        MLV_draw_text_with_font(610, 50 + i * 30, "Name : ", font, MLV_COLOR_WHITE);
+        MLV_draw_text_with_font(660, 50 + i * 30, mana.scores[i].name, font, MLV_COLOR_WHITE);
+        MLV_draw_text_with_font(800, 50 + i * 30, timeString, font, MLV_COLOR_WHITE);
+        MLV_draw_text_with_font(1000, 50 + i * 30, manaString, font, MLV_COLOR_WHITE);
     }
     MLV_actualise_window();
     MLV_wait_keyboard_or_mouse(NULL, NULL, NULL, NULL, NULL);
 }
-    

@@ -1,6 +1,6 @@
 /**
  * @file Score.c
- * @author HERVE NGUYEN (herve.nguyen@edu.univ-eiffel.fr)
+ * @author HERVE NGUYEN & GABRIEL RADONIAINA
  * @brief 
  * @version 0.1
  * @date 2023-01-09
@@ -52,7 +52,6 @@ int readLeaderboardFromBinaryFile(char * filepath, Leaderboard * leaderboard) {
     }
     
     while (fread(&score, sizeof(Score), 1, file) == 1) {
-        printf("Username: %s Mana Used: %d Time: %d ms\n", score.name, score.manaUsed, score.timeElapsed);
         memcpy(&(leaderboard->scores[leaderboard->size]), &score, sizeof(Score));
         leaderboard->size = leaderboard->size + 1;
         if (leaderboard->size == ARRAY_MAX)
