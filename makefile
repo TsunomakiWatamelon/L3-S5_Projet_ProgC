@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -ansi -pedantic
+CFLAGS = -Wall -ansi -pedantic -Ofast
 LFLAGS = -lMLV -lm
 OBJ = obj/Terrain.o obj/Collision.o obj/Golem.o obj/Relic.o obj/Graphics.o obj/Player.o obj/MathTools.o obj/Main.o obj/Game.o obj/Score.o
 
