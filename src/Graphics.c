@@ -444,25 +444,25 @@ void drawGameOver(){
 	positionX = (width-width_text)/2, positionY = GAME_WINY / 2;
     MLV_draw_text_with_font(positionX, positionY, "G", font, MLV_COLOR_AQUAMARINE1);
     MLV_actualise_window();
-    MLV_wait_milliseconds(500);
+    MLV_wait_milliseconds(300);
     MLV_draw_text_with_font(positionX, positionY, "GA", font, MLV_COLOR_AQUAMARINE1);
     MLV_actualise_window();
-    MLV_wait_milliseconds(500);
+    MLV_wait_milliseconds(300);
     MLV_draw_text_with_font(positionX, positionY, "GAM", font, MLV_COLOR_AQUAMARINE1);
     MLV_actualise_window();
-    MLV_wait_milliseconds(500);
+    MLV_wait_milliseconds(300);
     MLV_draw_text_with_font(positionX, positionY, "GAME", font, MLV_COLOR_AQUAMARINE1);
     MLV_actualise_window();
-    MLV_wait_milliseconds(500);
+    MLV_wait_milliseconds(300);
     MLV_draw_text_with_font(positionX, positionY, "GAME O", font, MLV_COLOR_AQUAMARINE1);
     MLV_actualise_window();
-    MLV_wait_milliseconds(500);
+    MLV_wait_milliseconds(300);
     MLV_draw_text_with_font(positionX, positionY, "GAME OV", font, MLV_COLOR_AQUAMARINE1);
     MLV_actualise_window();
-    MLV_wait_milliseconds(500);
+    MLV_wait_milliseconds(300);
     MLV_draw_text_with_font(positionX, positionY, "GAME OVE", font, MLV_COLOR_AQUAMARINE1);
     MLV_actualise_window();
-    MLV_wait_milliseconds(500);
+    MLV_wait_milliseconds(300);
     MLV_draw_text_with_font(positionX, positionY, "GAME OVER", font, MLV_COLOR_AQUAMARINE1);
     MLV_actualise_window();
     MLV_wait_milliseconds(1500);
@@ -472,42 +472,171 @@ void drawGameOver(){
 /**
  * @brief Draw a winning message animation
  * 
+ * @param timeElapse time elapsed from the start of the game (in ms)
+ * @param manaTotal total mana used by the player
+ * 
  */
-void drawWin(){
-    MLV_Font * font;
+void drawWin(int timeElapsed, int manaTotal){
+    MLV_Font * font, * font2;
     int positionX, positionY;
     int width_text, height_text; 
+    char timeString[12];
+    char strMana[9];
     const char * success = "SUCCESS";
     int width;
     width = GAME_WINX;
     font = MLV_load_font("MGS1.ttf", 100);
+    font2 = MLV_load_font("MGS2MENU.ttf", 20);
     MLV_draw_filled_rectangle(0, 0, 60 * 20, 45 * 20, MLV_COLOR_GREY4);
+
+    sprintf(timeString, "%02d:%02d:%02d:%02d",  microsecondsToHours(timeElapsed),
+                                                microsecondsToMinutes(timeElapsed),
+                                                microsecondsToSeconds(timeElapsed),
+                                                microsecondsToCentiseconds(timeElapsed)
+           );
+    sprintf(strMana, "%d", manaTotal);
+    MLV_draw_text_with_font(40, 220, "TIME :", font2, MLV_COLOR_WHITE);
+    MLV_draw_text_with_font(210, 220, timeString, font2, MLV_COLOR_WHITE);
+    MLV_draw_text_with_font(580, 220, "MANA USED :", font2, MLV_COLOR_WHITE);
+    MLV_draw_text_with_font(880, 220, strMana, font2, MLV_COLOR_WHITE);
+
     MLV_get_size_of_text_with_font(success, &width_text, &height_text, font);
     positionX = (width-width_text)/2, positionY = GAME_WINY / 2;
     MLV_draw_text_with_font(positionX, positionY, "S", font, MLV_COLOR_AQUAMARINE1);
     MLV_actualise_window();
-    MLV_wait_milliseconds(500);
+    MLV_wait_milliseconds(300);
     MLV_draw_text_with_font(positionX, positionY, "SU", font, MLV_COLOR_AQUAMARINE1);
     MLV_actualise_window();
-    MLV_wait_milliseconds(500);
+    MLV_wait_milliseconds(300);
     MLV_draw_text_with_font(positionX, positionY, "SUC", font, MLV_COLOR_AQUAMARINE1);
     MLV_actualise_window();
-    MLV_wait_milliseconds(500);
+    MLV_wait_milliseconds(300);
     MLV_draw_text_with_font(positionX, positionY, "SUCC", font, MLV_COLOR_AQUAMARINE1);
     MLV_actualise_window();
-    MLV_wait_milliseconds(500);
+    MLV_wait_milliseconds(300);
     MLV_draw_text_with_font(positionX, positionY, "SUCCE", font, MLV_COLOR_AQUAMARINE1);
     MLV_actualise_window();
-    MLV_wait_milliseconds(500);
+    MLV_wait_milliseconds(300);
     MLV_draw_text_with_font(positionX, positionY, "SUCCES", font, MLV_COLOR_AQUAMARINE1);
     MLV_actualise_window();
-    MLV_wait_milliseconds(500);
+    MLV_wait_milliseconds(300);
     MLV_draw_text_with_font(positionX, positionY, "SUCCESS", font, MLV_COLOR_AQUAMARINE1);
     MLV_actualise_window();
-    MLV_wait_milliseconds(1500);
+    MLV_wait_milliseconds(300);
+    MLV_draw_text_with_font(250, 850, "Press any key to continue", font2, MLV_COLOR_WHITE);
+    MLV_actualise_window();
+    MLV_wait_keyboard_or_mouse(NULL, NULL, NULL, NULL, NULL);
+
+
+}
+
+/**
+ * @brief Asks if the user wants to save his score
+ * 
+ * @return int 1 if yes 0 otherwise
+ */
+int askSaveScore(){
+	int x = 0, y = 0;
+    int positionX;
+    int width_text, height_text; 
+    int width, choice;
+    const char * msg = "Save to leaderboard ?";
+    MLV_Font * font;
+
+    width = GAME_WINX;
+    font = MLV_load_font("MGS2MENU.ttf", 20);
+    MLV_draw_filled_rectangle(0, 0, 1200, 1000, MLV_COLOR_BLACK);
+
+    MLV_get_size_of_text_with_font(msg, &width_text, &height_text, font);
+    positionX = (width-width_text)/2;
+    MLV_draw_text_with_font(positionX, 300, msg, font, MLV_COLOR_WHITE);
+
     MLV_free_font(font);
     font = MLV_load_font("MGS2MENU.ttf", 20);
-    MLV_draw_filled_rectangle(0, 0, GAME_WINX, GAME_WINY, MLV_COLOR_WHITE);
+
+    MLV_draw_filled_rectangle(450, 450, 100, 100, MLV_COLOR_WHITE);
+    MLV_draw_filled_rectangle(650, 450, 100, 100, MLV_COLOR_WHITE);
+    MLV_draw_text_with_font(470, 470, "Y", font, MLV_COLOR_BLACK);
+    MLV_draw_text_with_font(670, 470, "N", font, MLV_COLOR_BLACK);
+
     MLV_actualise_window();
+
+	while(1){
+        MLV_wait_mouse(&x, &y);
+        if (450 <= y && y <= 550){
+            if (450 <= x && x <= 550){
+                choice = 1;
+                break;
+            }
+                choice = 1;
+            if (650 <= x && x <= 750){
+                choice = 0;
+                break;
+            }
+        }
+    }
+
     MLV_free_font(font);
+
+    return choice;
 }
+
+/**
+ * @brief Asks the user to input his name (3 letters max are counted)
+ * 
+ * @param name the name that will be stored
+ */
+void askName(char name[11]){
+    MLV_Font * font;
+    int i;
+    char *text;
+
+    MLV_draw_filled_rectangle(0, 0, 1200, 1000, MLV_COLOR_BLACK);
+    font = MLV_load_font("MGS2MENU.ttf", 17);
+
+    MLV_wait_input_box_with_font(
+		450, 450,
+		400, 100, 
+		MLV_COLOR_GREY60, MLV_COLOR_BLACK,
+		MLV_COLOR_WHITE, "Name : ",
+        &text,
+        font
+    );
+    
+    for (i = 0; text[i] != '\0' && i < 9; i++){
+        if (i == 10){
+            name[i] = '\0';
+            break;
+        }
+        name[i] = text[i];
+    }
+}
+
+void drawLeaderboard(Leaderboard time, Leaderboard mana){
+    char timeString[12];
+    char strMana[9];
+    int i;
+    MLV_Font * font;
+
+    MLV_draw_filled_rectangle(0, 0, 1200, 1000, MLV_COLOR_BLACK);
+    font = MLV_load_font("DS-DIGI.ttf", 20);
+    
+    /* Time leader board */
+    MLV_draw_text_with_font(10, 10, "Time Leaderboard :", font, MLV_COLOR_WHITE);
+    printf("hamilton %d", time.size);
+    for (i = 0; i < time.size; i++){
+        printf("hamilton");
+        sprintf(timeString, "%02d:%02d:%02d:%02d",  microsecondsToHours(time.scores[i].timeElapsed),
+                                                    microsecondsToMinutes(time.scores[i].timeElapsed),
+                                                    microsecondsToSeconds(time.scores[i].timeElapsed),
+                                                    microsecondsToCentiseconds(time.scores[i].timeElapsed)
+               );
+        /* sprintf(strMana, "%d", time.scores[i].manaUsed); */
+        MLV_draw_text_with_font(10, 50, "Name : ", font, MLV_COLOR_WHITE);
+        MLV_draw_text_with_font(50, 50, time.scores[i].name, font, MLV_COLOR_WHITE);
+        MLV_draw_text_with_font(100, 50, timeString, font, MLV_COLOR_WHITE);
+    }
+    MLV_actualise_window();
+    MLV_wait_keyboard_or_mouse(NULL, NULL, NULL, NULL, NULL);
+}
+    

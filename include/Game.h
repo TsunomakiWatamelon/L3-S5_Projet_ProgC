@@ -22,6 +22,8 @@
 #include "Golem.h"
 #include "Relic.h"
 #include "MathTools.h"
+#include "Score.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

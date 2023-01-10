@@ -24,7 +24,7 @@
  * @param golemArray Array of Golems to be initialized individually
  * @param relicArray Array of Relics to be initialized individually
  */
-void initGame(Grid * grid, Player * player, Golem * golemArray, Relic * relicArray){
+static void initGame(Grid * grid, Player * player, Golem * golemArray, Relic * relicArray){
     int i;
     Point location[NB_GOLEM + NB_RELIC];
     initializeTerrain(grid);
@@ -80,7 +80,7 @@ static int mgksCheck(MLV_Keyboard_button key){
  * @param pressed pointer to the direction chosen by the user for the current frame
  * @return int 1 if the user chose to move, otherwise 0
  */
-int getUserMove(int formerActive, Direction former, Direction *pressed){
+static int getUserMove(int formerActive, Direction former, Direction *pressed){
     int formerStillActive, moving;
 
     formerStillActive = 0;
@@ -123,7 +123,7 @@ int getUserMove(int formerActive, Direction former, Direction *pressed){
  * 
  * @return int 1 if that is the case, otherwise 0
  */
-int userIsThrusting(){
+static int userIsThrusting(){
     return mgksCheck(MLV_KEYBOARD_LSHIFT) || mgksCheck(MLV_KEYBOARD_RSHIFT);
 }
 
@@ -135,7 +135,7 @@ int userIsThrusting(){
  * @param player Pointer to the player (to edit if necessary)
  * @return int [number of mana used] OR [1 if the player has used invisbility otherwise 0] (depends on the interpretation, the latter is used by us)
  */
-int userInvisible(Player * player){
+static int userInvisible(Player * player){
     player->invisible = 0;
     if (mgksCheck(MLV_KEYBOARD_SPACE) && player->mana > 0) {
         player->mana--;
@@ -156,7 +156,7 @@ int userInvisible(Player * player){
  * @param relics Array of relics 
  * @return int 1 if the player has been spotted, otherwise 0
  */
-int patrolGolems(Grid * grid, Golem * golems, Player * player, Relic * relics){
+static int patrolGolems(Grid * grid, Golem * golems, Player * player, Relic * relics){
     int i, res;
 
     res = 0;
@@ -179,7 +179,7 @@ int patrolGolems(Grid * grid, Golem * golems, Player * player, Relic * relics){
  * @param x x coordinate of the square whose mana will be stripped
  * @param y y coordinate of the square whose mana will be stripped
  */
-void takeManaFromSquare(Grid * grid, DepletedSquares * dSquare, int x, int y){
+static void takeManaFromSquare(Grid * grid, DepletedSquares * dSquare, int x, int y){
     assert(grid);
     assert(dSquare);
     assert(y < MAX_HEIGHT && x < MAX_WIDTH);
@@ -198,7 +198,7 @@ void takeManaFromSquare(Grid * grid, DepletedSquares * dSquare, int x, int y){
  * @param player player
  * @return int 1 if mana has been successfully been restored on one of the squares, otherwise 0.
  */
-int restoreMana(Grid * grid, DepletedSquares * dSquare, Player player){
+static int restoreMana(Grid * grid, DepletedSquares * dSquare, Player player){
     int randint;
     assert(grid);
     assert(dSquare);
@@ -234,7 +234,7 @@ int restoreMana(Grid * grid, DepletedSquares * dSquare, Player player){
  * @param relics array of existing relics
  * @return int 1 one relic has been stolen, otherwise 0.
  */
-int stealRelic(Player player, Relic *relics){
+static int stealRelic(Player player, Relic *relics){
     int i, res;
 
     res = 0;
@@ -257,7 +257,7 @@ int stealRelic(Player player, Relic *relics){
  * @param golems Array of golems
  * @return int 0 if no golems are in panic mode, otherwise 1 
  */
-int golemPanicCooldown(Golem * golems){
+static int golemPanicCooldown(Golem * golems){
     int i, stillPanic;
     stillPanic = 0;
     for (i = 0; i < NB_GOLEM; i++){
@@ -277,7 +277,7 @@ int golemPanicCooldown(Golem * golems){
  * 
  * @return The elapsed time in ms
  */
-int elapsed_time_ms(const struct timespec *start, const struct timespec *end) {
+static int elapsed_time_ms(const struct timespec *start, const struct timespec *end) {
     return (end->tv_sec - start->tv_sec) * 1000 + (end->tv_nsec - start->tv_nsec) / 1000000;
 }
 
@@ -286,18 +286,22 @@ int elapsed_time_ms(const struct timespec *start, const struct timespec *end) {
  * 
  */
 void game(void){
-    /* Varaiable declarations */
+    /*** Varaiable declarations ***/
+
     Grid grid; /* The grid */
     Player player; /* The player*/
     Golem golems[NB_GOLEM]; /* The array of golems */
     Relic relics[NB_RELIC]; /* The array of relics */
     Direction direction; /* The direction chosen by the player for a given frame (could be inactive) */
     DepletedSquares dSquare; /* Stores info about non-wall squares whose mana has been taken */
-    int directionActive, frameNumber, remainingRelics, alert;
+    int directionActive, frameNumber, remainingRelics, alert, boost;
     int manaUsed, totalUsed; /* manaUsed is for a given frame whereas totalUsed is for score calculation */
     int timeElapsed; /* used to get time elapsed in ms for the chronometer */
     struct timespec end_time, new_time, start_time;
     time_t frametime, extratime;
+    int result;
+    char name[11];
+    Leaderboard lead_time, lead_mana;
 
     directionActive = 0; direction = right; frameNumber = 0;
     remainingRelics = NB_RELIC; alert = 0;
@@ -307,11 +311,10 @@ void game(void){
     srand48(time(NULL)); /* For drand48 */
 
     initGame(&grid, &player, golems, relics);
-    printf("pekora");
     createWindow();
     drawTerrain(grid);
     clock_gettime(CLOCK_REALTIME, &start_time);
-    
+
     while(1){
         frameNumber++;
         clock_gettime(CLOCK_REALTIME, &end_time);
@@ -335,8 +338,11 @@ void game(void){
         /* Applying the move */
         if (directionActive){
             /* Accelerating at every frame is too fast so we do it at every 3 frame */
-            if (!(frameNumber % 3))
-                manaUsed += accel(&player, userIsThrusting());
+            if (!(frameNumber % 3)) {
+                /* boost is used down below for drawInfo */
+                boost = accel(&player, userIsThrusting());
+                manaUsed += boost;
+            }
             move(&player, direction, &grid);
         }
         else
@@ -348,14 +354,16 @@ void game(void){
         if (stealRelic(player, relics))
             remainingRelics--;
         /* If all relics are stolen then proceed to the win page */
-        if (remainingRelics == 0){
-            drawWin();
+        if (1){
+            drawWin(timeElapsed, totalUsed);
+            result = 1;
             break;
         }
         /* If the player is spotted, show the gameover animation then quit the loop to quit the game */
         if (patrolGolems(&grid, golems, &player, relics)){
             drawGameOver();
-            return;
+            result = 0;
+            break;
         }
 
         /* Every 4 seconds restore the mana from one square, if the player has used some of the mana he took */
@@ -375,7 +383,7 @@ void game(void){
             alert = golemPanicCooldown(golems);
         }
         drawEntities(grid, player, golems, relics, NB_GOLEM, NB_RELIC);
-        drawInfo(timeElapsed, player.mana, remainingRelics, player.invisible, userIsThrusting(), alert);
+        drawInfo(timeElapsed, player.mana, remainingRelics, player.invisible, boost, alert);
         clock_gettime(CLOCK_REALTIME, &new_time);
         frametime = new_time . tv_sec - end_time .tv_sec;
         frametime += (new_time. tv_sec - end_time.tv_sec) / 1.0E9;
@@ -385,4 +393,19 @@ void game(void){
         }
         MLV_actualise_window();
     }
+
+    lead_time.size = 0, lead_mana.size = 0;
+
+    if (result)
+        if (askSaveScore()){
+            askName(name);
+            readLeaderboardFromBinaryFile("./leaderboardTime", &lead_time);
+            readLeaderboardFromBinaryFile("./leaderboardMana", &lead_mana);
+            drawLeaderboard(lead_time, lead_mana);
+            addScoreMana(&lead_mana, name, totalUsed, timeElapsed);
+            addScoreTime(&lead_mana, name, totalUsed, timeElapsed);
+            return;
+        }
+    writeLeaderboardToBinaryFile("./leaderboardTime", &lead_time);
+    writeLeaderboardToBinaryFile("./leaderboardMana", &lead_mana);
 }

@@ -16,6 +16,7 @@
 #include "Entity.h"
 #include "assert.h"
 #include "Terrain.h"
+#include "Score.h"
 
 #define GAME_WINX 1200
 #define GAME_WINY 1000
@@ -117,9 +118,26 @@ void drawGameOver();
 /**
  * @brief Draw a winning message animation
  * 
+ * @param timeElapse time elapsed from the start of the game (in ms)
+ * @param manaTotal total mana used by the player
+ * 
  */
-void drawWin();
+void drawWin(int timeElapsed, int manaTotal);
 
+/**
+ * @brief Asks if the user wants to save his score
+ * 
+ * @return int 1 if yes 0 otherwise
+ */
+int askSaveScore();
 
+/**
+ * @brief Asks the user to input his name (8 characters max are counted)
+ * 
+ * @param name the name that will be stored
+ */
+void askName(char name[11]);
+
+void drawLeaderboard(Leaderboard time, Leaderboard mana);
 
 #endif
