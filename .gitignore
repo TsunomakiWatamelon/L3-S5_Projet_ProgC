@@ -1,3 +1,4 @@
 .vscode/
 src/sandbox
 .DS_Store
+obj/*
