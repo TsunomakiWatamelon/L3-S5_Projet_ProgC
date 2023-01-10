@@ -325,7 +325,7 @@ void redrawSubspacePlayer(Player player, Grid grid) {
 void redrawSubspaceGolem(Golem golem, Grid grid) {
     int width, height, x, y;
 
-    width = golem.panic ? 16 : 14;
+    width = golem.panic ? 14 : 13;
     height = width;
     
     x = roundToInt(golem.location.x);
@@ -633,8 +633,8 @@ void drawLeaderboard(Leaderboard time, Leaderboard mana){
                );
         /* sprintf(strMana, "%d", time.scores[i].manaUsed); */
         MLV_draw_text_with_font(10, 50, "Name : ", font, MLV_COLOR_WHITE);
-        MLV_draw_text_with_font(50, 50, time.scores[i].name, font, MLV_COLOR_WHITE);
-        MLV_draw_text_with_font(100, 50, timeString, font, MLV_COLOR_WHITE);
+        MLV_draw_text_with_font(60, 50, time.scores[i].name, font, MLV_COLOR_WHITE);
+        MLV_draw_text_with_font(200, 50, timeString, font, MLV_COLOR_WHITE);
     }
     MLV_actualise_window();
     MLV_wait_keyboard_or_mouse(NULL, NULL, NULL, NULL, NULL);

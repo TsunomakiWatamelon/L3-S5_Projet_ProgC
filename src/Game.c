@@ -354,7 +354,7 @@ void game(void){
         if (stealRelic(player, relics))
             remainingRelics--;
         /* If all relics are stolen then proceed to the win page */
-        if (1){
+        if (remainingRelics == 0){
             drawWin(timeElapsed, totalUsed);
             result = 1;
             break;
@@ -401,9 +401,10 @@ void game(void){
             askName(name);
             readLeaderboardFromBinaryFile("./leaderboardTime", &lead_time);
             readLeaderboardFromBinaryFile("./leaderboardMana", &lead_mana);
-            drawLeaderboard(lead_time, lead_mana);
             addScoreMana(&lead_mana, name, totalUsed, timeElapsed);
-            addScoreTime(&lead_mana, name, totalUsed, timeElapsed);
+            addScoreTime(&lead_time, name, totalUsed, timeElapsed);
+            printf("size %d %d\n", lead_mana.size, lead_time.size);
+            drawLeaderboard(lead_time, lead_mana);
             return;
         }
     writeLeaderboardToBinaryFile("./leaderboardTime", &lead_time);
