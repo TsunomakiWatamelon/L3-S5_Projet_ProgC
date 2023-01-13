@@ -1,3 +1,5 @@
+.PHONY: clean mrproper
+
 CC = gcc
 CFLAGS = -Wall -ansi -pedantic -Ofast
 LFLAGS = -lMLV -lm
