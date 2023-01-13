@@ -11,6 +11,8 @@
 #ifndef __Player__
 #define __Player__
 
+#define NDEBUG
+
 #include "Entity.h"
 #include "Collision.h"
 

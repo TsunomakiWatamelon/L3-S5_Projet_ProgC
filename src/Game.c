@@ -323,6 +323,7 @@ void game(int skip){
     drawTerrain(grid);
     clock_gettime(CLOCK_REALTIME, &start_time);
 
+
     while(!skip){
         frameNumber++;
         clock_gettime(CLOCK_REALTIME, &end_time);
@@ -405,7 +406,7 @@ void game(int skip){
     lead_time.size = 0, lead_mana.size = 0;
 
     readLeaderboardFromBinaryFile("./ressource/leaderboardTime", &lead_time);
-    readLeaderboardFromBinaryFile("./ressource/eaderboardMana", &lead_mana);
+    readLeaderboardFromBinaryFile("./ressource/leaderboardMana", &lead_mana);
 
     if (result)
         if (askSaveScore()){
@@ -419,6 +420,8 @@ void game(int skip){
             writeLeaderboardToBinaryFile("./ressource/leaderboardMana", &lead_mana);
         }
 
+    sortLeaderboardMana(&lead_mana);
+    sortLeaderboardTime(&lead_time);
     drawLeaderboard(lead_time, lead_mana);
 
 }

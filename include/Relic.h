@@ -12,6 +12,8 @@
 #ifndef __relic__
 #define __relic__
 
+#define NDEBUG
+
 #include "Entity.h"
 #include <assert.h>
 

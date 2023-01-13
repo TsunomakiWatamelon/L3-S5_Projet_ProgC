@@ -12,6 +12,8 @@
 #ifndef __main__
 #define __main__
 
+#define NDEBUG
+
 #include <stdio.h>
 #include <MLV/MLV_all.h>
 #include <stdlib.h>

@@ -11,6 +11,8 @@
 #ifndef __collision__
 #define __collision__
 
+#define NDEBUG
+
 #include "Entity.h"
 #include "Terrain.h"
 #include "MathTools.h"

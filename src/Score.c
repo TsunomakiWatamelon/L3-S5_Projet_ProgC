@@ -22,6 +22,9 @@ void writeLeaderboardToBinaryFile(char* filepath, Leaderboard * leaderboard) {
     int i;
     FILE* file;
 
+    assert(leaderboard);
+    assert(filepath);
+
     file = fopen(filepath, "wb");
 
     if (file == NULL) {
@@ -45,6 +48,10 @@ void writeLeaderboardToBinaryFile(char* filepath, Leaderboard * leaderboard) {
 int readLeaderboardFromBinaryFile(char * filepath, Leaderboard * leaderboard) {
     FILE* file;
     Score score;
+
+    assert(leaderboard);
+    assert(filepath);
+
     file = fopen(filepath, "rb");
 
     if (file == NULL) {
@@ -98,6 +105,9 @@ static int compareTime(const void* a, const void* b) {
  */
 static void addScore(Leaderboard* leaderboard, char name[11], int manaUsed, int timeElapsed, int (*comparison)(const void *, const void *)) {
     Score newScore;
+
+    assert(leaderboard);
+    assert(name);
     
     memcpy(newScore.name, name, sizeof(char) * 11);
     newScore.manaUsed = manaUsed;
@@ -124,6 +134,8 @@ static void addScore(Leaderboard* leaderboard, char name[11], int manaUsed, int 
  * @param timeElapsed timeElapsed
  */
 void addScoreTime(Leaderboard* leaderboard, char name[11], int manaUsed, int timeElapsed){
+    assert(leaderboard);
+    assert(name);
     addScore(leaderboard, name, manaUsed, timeElapsed, compareTime);
 }
 
@@ -136,5 +148,27 @@ void addScoreTime(Leaderboard* leaderboard, char name[11], int manaUsed, int tim
  * @param timeElapsed timeElapsed
  */
 void addScoreMana(Leaderboard* leaderboard, char name[11], int manaUsed, int timeElapsed){
+    assert(leaderboard);
+    assert(name);
     addScore(leaderboard, name, manaUsed, timeElapsed, compareManaUsed);
+}
+
+/**
+ * @brief Sorts the given leaderboard based on the mana used
+ * 
+ * @param leaderboard the leaderboard
+ */
+void sortLeaderboardMana(Leaderboard* leaderboard){
+    assert(leaderboard);
+    qsort(leaderboard->scores, leaderboard->size, sizeof(Score), compareManaUsed);
+}
+
+/**
+ * @brief Sorts the given leaderboard based on the time of completion
+ * 
+ * @param leaderboard the leaderboard
+ */
+void sortLeaderboardTime(Leaderboard* leaderboard){
+    assert(leaderboard);
+    qsort(leaderboard->scores, leaderboard->size, sizeof(Score), compareTime);
 }

@@ -13,4 +13,4 @@ clean:
 	rm -rf obj/*.o
 
 mrproper: clean
-	rm -rf ./EXEC
+	rm -rf ./bin/EXEC

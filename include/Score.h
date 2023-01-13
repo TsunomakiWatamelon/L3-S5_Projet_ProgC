@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
 
 #define ARRAY_MAX 10
 
@@ -76,5 +77,18 @@ void addScoreTime(Leaderboard* leaderboard, char name[11], int manaUsed, int tim
  */
 void addScoreMana(Leaderboard* leaderboard, char name[11], int manaUsed, int timeElapsed);
 
+/**
+ * @brief Sorts the given leaderboard based on the mana used
+ * 
+ * @param leaderboard the leaderboard
+ */
+void sortLeaderboardMana(Leaderboard* leaderboard);
+
+/**
+ * @brief Sorts the given leaderboard based on the time of completion
+ * 
+ * @param leaderboard the leaderboard
+ */
+void sortLeaderboardTime(Leaderboard* leaderboard);
 
 #endif

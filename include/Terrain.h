@@ -11,6 +11,8 @@
 #ifndef __terrain__
 #define __terrain__
 
+#define NDEBUG
+
 #include <assert.h>
 #include <stdlib.h>
 

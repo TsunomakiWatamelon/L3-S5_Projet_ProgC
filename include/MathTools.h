@@ -12,6 +12,8 @@
 #ifndef __MathTools__
 #define __MathTools__
 
+#define NDEBUG
+
 #define _DEFAULT_SOURCE
 #include <stdio.h>
 #include <stdlib.h>

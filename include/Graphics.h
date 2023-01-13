@@ -11,10 +11,12 @@
 #ifndef __graphics__
 #define __graphics__
 
+#define NDEBUG
+
 #include <MLV/MLV_all.h>
 #include <stdio.h>
 #include "Entity.h"
-#include "assert.h"
+#include <assert.h>
 #include "Terrain.h"
 #include "Score.h"
 

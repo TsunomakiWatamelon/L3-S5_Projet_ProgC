@@ -12,6 +12,8 @@
 #ifndef __game__
 #define __game__
 
+#define NDEBUG
+
 #define _POSIX_C_SOURCE 199309L
 
 #include "Entity.h"

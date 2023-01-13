@@ -10,6 +10,8 @@
 #ifndef __Golem__
 #define __Golem__
 
+#define NDEBUG
+
 #include "Entity.h"
 #include "Collision.h"
 #include "MathTools.h"

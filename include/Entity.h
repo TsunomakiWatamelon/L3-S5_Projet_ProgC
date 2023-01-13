@@ -11,6 +11,8 @@
 #ifndef __Entity__
 #define __Entity__
 
+#define NDEBUG
+
 #include "MathTools.h"
 #include "Terrain.h"
 
