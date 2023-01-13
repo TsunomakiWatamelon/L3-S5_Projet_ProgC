@@ -10,6 +10,8 @@
 
 #include "../include/Graphics.h"
 
+#define actuwait MLV_actualise_window();MLV_wait_milliseconds(300);
+
 /**
  * @brief Creates the window
  * 
@@ -454,26 +456,19 @@ void drawGameOver(){
     MLV_get_size_of_text_with_font(gameOver, &width_text, &height_text, font);
 	positionX = (width-width_text)/2, positionY = GAME_WINY / 2;
     MLV_draw_text_with_font(positionX, positionY, "G", font, MLV_COLOR_AQUAMARINE1);
-    MLV_actualise_window();
-    MLV_wait_milliseconds(300);
+    actuwait
     MLV_draw_text_with_font(positionX, positionY, "GA", font, MLV_COLOR_AQUAMARINE1);
-    MLV_actualise_window();
-    MLV_wait_milliseconds(300);
+    actuwait
     MLV_draw_text_with_font(positionX, positionY, "GAM", font, MLV_COLOR_AQUAMARINE1);
-    MLV_actualise_window();
-    MLV_wait_milliseconds(300);
+    actuwait
     MLV_draw_text_with_font(positionX, positionY, "GAME", font, MLV_COLOR_AQUAMARINE1);
-    MLV_actualise_window();
-    MLV_wait_milliseconds(300);
+    actuwait
     MLV_draw_text_with_font(positionX, positionY, "GAME O", font, MLV_COLOR_AQUAMARINE1);
-    MLV_actualise_window();
-    MLV_wait_milliseconds(300);
+    actuwait
     MLV_draw_text_with_font(positionX, positionY, "GAME OV", font, MLV_COLOR_AQUAMARINE1);
-    MLV_actualise_window();
-    MLV_wait_milliseconds(300);
+    actuwait
     MLV_draw_text_with_font(positionX, positionY, "GAME OVE", font, MLV_COLOR_AQUAMARINE1);
-    MLV_actualise_window();
-    MLV_wait_milliseconds(300);
+    actuwait
     MLV_draw_text_with_font(positionX, positionY, "GAME OVER", font, MLV_COLOR_AQUAMARINE1);
     MLV_actualise_window();
     MLV_wait_milliseconds(1500);
@@ -510,26 +505,19 @@ void drawWin(int timeElapsed, int manaTotal){
     MLV_get_size_of_text_with_font(success, &width_text, &height_text, font);
     positionX = (width-width_text)/2, positionY = GAME_WINY / 2;
     MLV_draw_text_with_font(positionX, positionY, "S", font, MLV_COLOR_AQUAMARINE1);
-    MLV_actualise_window();
-    MLV_wait_milliseconds(300);
+    actuwait
     MLV_draw_text_with_font(positionX, positionY, "SU", font, MLV_COLOR_AQUAMARINE1);
-    MLV_actualise_window();
-    MLV_wait_milliseconds(300);
+    actuwait
     MLV_draw_text_with_font(positionX, positionY, "SUC", font, MLV_COLOR_AQUAMARINE1);
-    MLV_actualise_window();
-    MLV_wait_milliseconds(300);
+    actuwait
     MLV_draw_text_with_font(positionX, positionY, "SUCC", font, MLV_COLOR_AQUAMARINE1);
-    MLV_actualise_window();
-    MLV_wait_milliseconds(300);
+    actuwait
     MLV_draw_text_with_font(positionX, positionY, "SUCCE", font, MLV_COLOR_AQUAMARINE1);
-    MLV_actualise_window();
-    MLV_wait_milliseconds(300);
+    actuwait
     MLV_draw_text_with_font(positionX, positionY, "SUCCES", font, MLV_COLOR_AQUAMARINE1);
-    MLV_actualise_window();
-    MLV_wait_milliseconds(300);
+    actuwait
     MLV_draw_text_with_font(positionX, positionY, "SUCCESS", font, MLV_COLOR_AQUAMARINE1);
-    MLV_actualise_window();
-    MLV_wait_milliseconds(300);
+    actuwait
     MLV_draw_text_with_font(250, 850, "Press any key to continue", font2, MLV_COLOR_WHITE);
     MLV_actualise_window();
     MLV_wait_keyboard_or_mouse(NULL, NULL, NULL, NULL, NULL);
