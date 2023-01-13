@@ -1,5 +1,5 @@
-\hypertarget{_score_8c}{}\doxysection{src/\+Score.c File Reference}
-\label{_score_8c}\index{src/Score.c@{src/Score.c}}
+\hypertarget{_score_8c}{}\doxysection{Projet/src/\+Score.c File Reference}
+\label{_score_8c}\index{Projet/src/Score.c@{Projet/src/Score.c}}
 
 
 \mbox{\hyperlink{struct_score}{Score}} module, deals with saving/loading leaderboard files and manipulating leaderboards.  
@@ -16,7 +16,11 @@ int \mbox{\hyperlink{_score_8c_a222b3f6eaa28249d3226d0950da11baf}{read\+Leaderbo
 void \mbox{\hyperlink{_score_8c_a5d021c64cc3918d81fce63247d29fa2e}{add\+Score\+Time}} (\mbox{\hyperlink{struct_leaderboard}{Leaderboard}} $\ast$leaderboard, char name\mbox{[}11\mbox{]}, int mana\+Used, int time\+Elapsed)
 \begin{DoxyCompactList}\small\item\em Add the value of a score into the leaderboard if they are good enough (time\+Elapsed centered) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_score_8c_a15cbf7a332805405d868b152151976df}{add\+Score\+Mana}} (\mbox{\hyperlink{struct_leaderboard}{Leaderboard}} $\ast$leaderboard, char name\mbox{[}11\mbox{]}, int mana\+Used, int time\+Elapsed)
-\begin{DoxyCompactList}\small\item\em Add the value of a score into the leaderboard if they are good enough (mana\+Used centered) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Add the value of a score into the leaderboard if they are good enough (mana\+Used centered) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_score_8c_a84c388b69adee7b25c4ee132897fa0b1}{sort\+Leaderboard\+Mana}} (\mbox{\hyperlink{struct_leaderboard}{Leaderboard}} $\ast$leaderboard)
+\begin{DoxyCompactList}\small\item\em Sorts the given leaderboard based on the mana used. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_score_8c_a491db76bb06b2c1efff223eb7c05c8cc}{sort\+Leaderboard\+Time}} (\mbox{\hyperlink{struct_leaderboard}{Leaderboard}} $\ast$leaderboard)
+\begin{DoxyCompactList}\small\item\em Sorts the given leaderboard based on the time of completion. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -101,6 +105,36 @@ Saves the data at the address given in the arguments for the leaderboard
 \begin{DoxyReturn}{Returns}
 int 0 if it couldn\textquotesingle{}t read the file, 1 if it read successfully 
 \end{DoxyReturn}
+\mbox{\Hypertarget{_score_8c_a84c388b69adee7b25c4ee132897fa0b1}\label{_score_8c_a84c388b69adee7b25c4ee132897fa0b1}} 
+\index{Score.c@{Score.c}!sortLeaderboardMana@{sortLeaderboardMana}}
+\index{sortLeaderboardMana@{sortLeaderboardMana}!Score.c@{Score.c}}
+\doxysubsubsection{\texorpdfstring{sortLeaderboardMana()}{sortLeaderboardMana()}}
+{\footnotesize\ttfamily void sort\+Leaderboard\+Mana (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_leaderboard}{Leaderboard}} $\ast$}]{leaderboard }\end{DoxyParamCaption})}
+
+
+
+Sorts the given leaderboard based on the mana used. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em leaderboard} & the leaderboard \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_score_8c_a491db76bb06b2c1efff223eb7c05c8cc}\label{_score_8c_a491db76bb06b2c1efff223eb7c05c8cc}} 
+\index{Score.c@{Score.c}!sortLeaderboardTime@{sortLeaderboardTime}}
+\index{sortLeaderboardTime@{sortLeaderboardTime}!Score.c@{Score.c}}
+\doxysubsubsection{\texorpdfstring{sortLeaderboardTime()}{sortLeaderboardTime()}}
+{\footnotesize\ttfamily void sort\+Leaderboard\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_leaderboard}{Leaderboard}} $\ast$}]{leaderboard }\end{DoxyParamCaption})}
+
+
+
+Sorts the given leaderboard based on the time of completion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em leaderboard} & the leaderboard \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{_score_8c_adc79ea14c2445050f05dbe77829516a4}\label{_score_8c_adc79ea14c2445050f05dbe77829516a4}} 
 \index{Score.c@{Score.c}!writeLeaderboardToBinaryFile@{writeLeaderboardToBinaryFile}}
 \index{writeLeaderboardToBinaryFile@{writeLeaderboardToBinaryFile}!Score.c@{Score.c}}

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>C Project (Stealth Game): include/Golem.h Source File</title>
+<title>C Project (Stealth Game): Projet/include/Golem.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,7 +71,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_f22a8e5c88a22dc4c6677222c08d3163.html">Projet</a></li><li class="navelem"><a class="el" href="dir_65f5f46095903fb58d58434e9e1505b0.html">include</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -82,28 +82,30 @@ $(function() {
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#ifndef __Golem__</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#define __Golem__</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="_entity_8h.html">Entity.h</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="_collision_8h.html">Collision.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_math_tools_8h.html">MathTools.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;assert.h&gt;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define NDEBUG</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_entity_8h.html">Entity.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="_collision_8h.html">Collision.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="_math_tools_8h.html">MathTools.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;assert.h&gt;</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keywordtype">void</span> <a class="code hl_function" href="_golem_8h.html#af09af820b3ede6ca97122bc5d94aa0a4">initGolem</a>(<a class="code hl_struct" href="struct_golem.html">Golem</a> * golem, <a class="code hl_struct" href="struct_point.html">Point</a> location);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keywordtype">int</span> <a class="code hl_function" href="_golem_8h.html#a9e39f0c7af3454119b38c9025e26f91a">moveGolem</a>(<a class="code hl_struct" href="struct_golem.html">Golem</a> * golem, <a class="code hl_struct" href="structgrid.html">Grid</a> * <a class="code hl_struct" href="structgrid.html">grid</a>);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keywordtype">int</span> <a class="code hl_function" href="_golem_8h.html#ac225294c5eec0ce65eb3bf6586a2d830">inLineOfSight</a>(<a class="code hl_struct" href="struct_point.html">Point</a> entity1, <a class="code hl_struct" href="struct_point.html">Point</a> entity2, <a class="code hl_struct" href="structgrid.html">Grid</a> *<a class="code hl_struct" href="structgrid.html">grid</a>);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keywordtype">int</span> <a class="code hl_function" href="_golem_8h.html#a43c00f19c3980000dc377161dc8e759c">patrolGolem</a>(<a class="code hl_struct" href="struct_golem.html">Golem</a> * golem, <a class="code hl_struct" href="struct_player.html">Player</a> * player, <a class="code hl_struct" href="structgrid.html">Grid</a> * <a class="code hl_struct" href="structgrid.html">grid</a>);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keywordtype">int</span> <a class="code hl_function" href="_golem_8h.html#a661a316f7c99f3d9bbdf72b67f219db4">relicChecking</a>(<a class="code hl_struct" href="struct_golem.html">Golem</a> * golem, <a class="code hl_struct" href="struct_relic.html">Relic</a> * relic, <a class="code hl_struct" href="structgrid.html">Grid</a> * <a class="code hl_struct" href="structgrid.html">grid</a>, <span class="keywordtype">int</span> arraySize);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keywordtype">void</span> <a class="code hl_function" href="_golem_8h.html#af09af820b3ede6ca97122bc5d94aa0a4">initGolem</a>(<a class="code hl_struct" href="struct_golem.html">Golem</a> * golem, <a class="code hl_struct" href="struct_point.html">Point</a> location);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keywordtype">int</span> <a class="code hl_function" href="_golem_8h.html#a9e39f0c7af3454119b38c9025e26f91a">moveGolem</a>(<a class="code hl_struct" href="struct_golem.html">Golem</a> * golem, <a class="code hl_struct" href="structgrid.html">Grid</a> * <a class="code hl_struct" href="structgrid.html">grid</a>);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keywordtype">int</span> <a class="code hl_function" href="_golem_8h.html#ac225294c5eec0ce65eb3bf6586a2d830">inLineOfSight</a>(<a class="code hl_struct" href="struct_point.html">Point</a> entity1, <a class="code hl_struct" href="struct_point.html">Point</a> entity2, <a class="code hl_struct" href="structgrid.html">Grid</a> *<a class="code hl_struct" href="structgrid.html">grid</a>);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keywordtype">int</span> <a class="code hl_function" href="_golem_8h.html#a43c00f19c3980000dc377161dc8e759c">patrolGolem</a>(<a class="code hl_struct" href="struct_golem.html">Golem</a> * golem, <a class="code hl_struct" href="struct_player.html">Player</a> * player, <a class="code hl_struct" href="structgrid.html">Grid</a> * <a class="code hl_struct" href="structgrid.html">grid</a>);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keywordtype">int</span> <a class="code hl_function" href="_golem_8h.html#a661a316f7c99f3d9bbdf72b67f219db4">relicChecking</a>(<a class="code hl_struct" href="struct_golem.html">Golem</a> * golem, <a class="code hl_struct" href="struct_relic.html">Relic</a> * relic, <a class="code hl_struct" href="structgrid.html">Grid</a> * <a class="code hl_struct" href="structgrid.html">grid</a>, <span class="keywordtype">int</span> arraySize);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="a_collision_8h_html"><div class="ttname"><a href="_collision_8h.html">Collision.h</a></div><div class="ttdoc">Header file for the Collision module.</div></div>
 <div class="ttc" id="a_entity_8h_html"><div class="ttname"><a href="_entity_8h.html">Entity.h</a></div><div class="ttdoc">Header file for common data structure between the player, golems and relics.</div></div>
 <div class="ttc" id="a_golem_8h_html_a43c00f19c3980000dc377161dc8e759c"><div class="ttname"><a href="_golem_8h.html#a43c00f19c3980000dc377161dc8e759c">patrolGolem</a></div><div class="ttdeci">int patrolGolem(Golem *golem, Player *player, Grid *grid)</div><div class="ttdoc">Makes a golem patrol and detect the player if he is in it's detection range.</div><div class="ttdef"><b>Definition:</b> Golem.c:221</div></div>
@@ -112,11 +114,11 @@ $(function() {
 <div class="ttc" id="a_golem_8h_html_ac225294c5eec0ce65eb3bf6586a2d830"><div class="ttname"><a href="_golem_8h.html#ac225294c5eec0ce65eb3bf6586a2d830">inLineOfSight</a></div><div class="ttdeci">int inLineOfSight(Point entity1, Point entity2, Grid *grid)</div><div class="ttdoc">Checks if the entities are in the line of sight of each other.</div><div class="ttdef"><b>Definition:</b> Golem.c:163</div></div>
 <div class="ttc" id="a_golem_8h_html_af09af820b3ede6ca97122bc5d94aa0a4"><div class="ttname"><a href="_golem_8h.html#af09af820b3ede6ca97122bc5d94aa0a4">initGolem</a></div><div class="ttdeci">void initGolem(Golem *golem, Point location)</div><div class="ttdoc">Initializes the golem at the given position.</div><div class="ttdef"><b>Definition:</b> Golem.c:20</div></div>
 <div class="ttc" id="a_math_tools_8h_html"><div class="ttname"><a href="_math_tools_8h.html">MathTools.h</a></div><div class="ttdoc">Header file for the MathTools module.</div></div>
-<div class="ttc" id="astruct_golem_html"><div class="ttname"><a href="struct_golem.html">Golem</a></div><div class="ttdoc">Represents the golem and contains informations decribiting it.</div><div class="ttdef"><b>Definition:</b> Entity.h:46</div></div>
-<div class="ttc" id="astruct_player_html"><div class="ttname"><a href="struct_player.html">Player</a></div><div class="ttdoc">Represents the player and contains informations decribiting it.</div><div class="ttdef"><b>Definition:</b> Entity.h:59</div></div>
-<div class="ttc" id="astruct_point_html"><div class="ttname"><a href="struct_point.html">Point</a></div><div class="ttdoc">Represents a point with doubles.</div><div class="ttdef"><b>Definition:</b> MathTools.h:35</div></div>
-<div class="ttc" id="astruct_relic_html"><div class="ttname"><a href="struct_relic.html">Relic</a></div><div class="ttdoc">Represents a relic.</div><div class="ttdef"><b>Definition:</b> Entity.h:77</div></div>
-<div class="ttc" id="astructgrid_html"><div class="ttname"><a href="structgrid.html">grid</a></div><div class="ttdoc">Represents the &quot;grid&quot;, which is the playing field for the player. It contains an 2D array of squares ...</div><div class="ttdef"><b>Definition:</b> Terrain.h:37</div></div>
+<div class="ttc" id="astruct_golem_html"><div class="ttname"><a href="struct_golem.html">Golem</a></div><div class="ttdoc">Represents the golem and contains informations decribiting it.</div><div class="ttdef"><b>Definition:</b> Entity.h:48</div></div>
+<div class="ttc" id="astruct_player_html"><div class="ttname"><a href="struct_player.html">Player</a></div><div class="ttdoc">Represents the player and contains informations decribiting it.</div><div class="ttdef"><b>Definition:</b> Entity.h:61</div></div>
+<div class="ttc" id="astruct_point_html"><div class="ttname"><a href="struct_point.html">Point</a></div><div class="ttdoc">Represents a point with doubles.</div><div class="ttdef"><b>Definition:</b> MathTools.h:39</div></div>
+<div class="ttc" id="astruct_relic_html"><div class="ttname"><a href="struct_relic.html">Relic</a></div><div class="ttdoc">Represents a relic.</div><div class="ttdef"><b>Definition:</b> Entity.h:79</div></div>
+<div class="ttc" id="astructgrid_html"><div class="ttname"><a href="structgrid.html">grid</a></div><div class="ttdoc">Represents the &quot;grid&quot;, which is the playing field for the player. It contains an 2D array of squares ...</div><div class="ttdef"><b>Definition:</b> Terrain.h:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

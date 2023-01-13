@@ -1,5 +1,5 @@
-\hypertarget{_math_tools_8h}{}\doxysection{include/\+Math\+Tools.h File Reference}
-\label{_math_tools_8h}\index{include/MathTools.h@{include/MathTools.h}}
+\hypertarget{_math_tools_8h}{}\doxysection{Projet/include/\+Math\+Tools.h File Reference}
+\label{_math_tools_8h}\index{Projet/include/MathTools.h@{Projet/include/MathTools.h}}
 
 
 Header file for the Math\+Tools module.  
@@ -17,6 +17,18 @@ struct \mbox{\hyperlink{struct_coordinate}{Coordinate}}
 \begin{DoxyCompactList}\small\item\em Represents a point but only with integer. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_point}{Point}}
 \begin{DoxyCompactList}\small\item\em Represents a point with doubles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_math_tools_8h_a8de3ed741dadc9c979a4ff17c0a9116e}\label{_math_tools_8h_a8de3ed741dadc9c979a4ff17c0a9116e}} 
+\#define {\bfseries NDEBUG}
+\item 
+\mbox{\Hypertarget{_math_tools_8h_a8fb447618db946a9e2a596d9ea18763f}\label{_math_tools_8h_a8fb447618db946a9e2a596d9ea18763f}} 
+\#define {\bfseries \+\_\+\+DEFAULT\+\_\+\+SOURCE}
+\item 
+\mbox{\Hypertarget{_math_tools_8h_abd312e3c0913db887a3e6fb01840a7fa}\label{_math_tools_8h_abd312e3c0913db887a3e6fb01840a7fa}} 
+\#define {\bfseries drand48}()~((double)rand()/RAND\+\_\+\+MAX)
+\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -406,6 +418,18 @@ Calculates the euclidian distance between two points.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
+double the distance
+\end{DoxyReturn}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & the irst point \\
+\hline
+{\em b} & the second point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
 double the distance 
 \end{DoxyReturn}
 \mbox{\Hypertarget{_math_tools_8h_a8f8d84ae7265ecc2744ccff4d6ee0b71}\label{_math_tools_8h_a8f8d84ae7265ecc2744ccff4d6ee0b71}} 
@@ -449,20 +473,6 @@ int 1 if their values are equal, 0 otherwise
 
 
 Checks if a point\textquotesingle{}s value is in the given array. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em array} & the array of points \\
-\hline
-{\em check} & the point to be searched in the array \\
-\hline
-{\em len} & the length of the array \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-int 1 if it\textquotesingle{}s value is present, 0 otherwise
-\end{DoxyReturn}
-
 
 
 \begin{DoxyParams}{Parameters}

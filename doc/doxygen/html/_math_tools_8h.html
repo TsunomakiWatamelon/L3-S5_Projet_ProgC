@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>C Project (Stealth Game): include/MathTools.h File Reference</title>
+<title>C Project (Stealth Game): Projet/include/MathTools.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,7 +71,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_f22a8e5c88a22dc4c6677222c08d3163.html">Projet</a></li><li class="navelem"><a class="el" href="dir_65f5f46095903fb58d58434e9e1505b0.html">include</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -101,6 +101,18 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_point.html">Point</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a point with doubles.  <a href="struct_point.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a8de3ed741dadc9c979a4ff17c0a9116e"><td class="memItemLeft" align="right" valign="top"><a id="a8de3ed741dadc9c979a4ff17c0a9116e" name="a8de3ed741dadc9c979a4ff17c0a9116e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>NDEBUG</b></td></tr>
+<tr class="separator:a8de3ed741dadc9c979a4ff17c0a9116e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fb447618db946a9e2a596d9ea18763f"><td class="memItemLeft" align="right" valign="top"><a id="a8fb447618db946a9e2a596d9ea18763f" name="a8fb447618db946a9e2a596d9ea18763f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>_DEFAULT_SOURCE</b></td></tr>
+<tr class="separator:a8fb447618db946a9e2a596d9ea18763f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd312e3c0913db887a3e6fb01840a7fa"><td class="memItemLeft" align="right" valign="top"><a id="abd312e3c0913db887a3e6fb01840a7fa" name="abd312e3c0913db887a3e6fb01840a7fa"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>drand48</b>()&#160;&#160;&#160;((double)rand()/RAND_MAX)</td></tr>
+<tr class="separator:abd312e3c0913db887a3e6fb01840a7fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -629,6 +641,14 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>double the distance</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>the irst point </td></tr>
+    <tr><td class="paramname">b</td><td>the second point </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>double the distance </dd></dl>
 
 </div>
@@ -712,15 +732,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks if a point's value is in the given array. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">array</td><td>the array of points </td></tr>
-    <tr><td class="paramname">check</td><td>the point to be searched in the array </td></tr>
-    <tr><td class="paramname">len</td><td>the length of the array </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>int 1 if it's value is present, 0 otherwise</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">array</td><td>the array of points </td></tr>

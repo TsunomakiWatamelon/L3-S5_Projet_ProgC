@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>C Project (Stealth Game): include/MathTools.h Source File</title>
+<title>C Project (Stealth Game): Projet/include/MathTools.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,7 +71,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_f22a8e5c88a22dc4c6677222c08d3163.html">Projet</a></li><li class="navelem"><a class="el" href="dir_65f5f46095903fb58d58434e9e1505b0.html">include</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -82,56 +82,60 @@ $(function() {
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#ifndef __MathTools__</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define __MathTools__</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define _DEFAULT_SOURCE</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;assert.h&gt;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;math.h&gt;</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;time.h&gt;</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="struct_coordinate.html">   26</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">int</span> x;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">int</span> y;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>} <a class="code hl_struct" href="struct_coordinate.html">Coordinate</a>;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="struct_point.html">   35</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>   <span class="keywordtype">double</span> x;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>   <span class="keywordtype">double</span> y;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>} <a class="code hl_struct" href="struct_point.html">Point</a>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keywordtype">double</span> <a class="code hl_function" href="_math_tools_8h.html#a69275e8136f4c180bfa1bfbaf0764ff2">randRange</a>(<span class="keywordtype">double</span> min, <span class="keywordtype">double</span> max);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#a5c244d8525867e9e318dcbaaa28a3666">getProbability</a>(<span class="keywordtype">double</span> probability);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#aab19049c681a3359645705bc0c646109">getRandomDirection</a>(<span class="keywordtype">int</span> direction);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#a21ec44720e2351c93d6fb9b759fcbcde">roundToInt</a>(<span class="keywordtype">double</span> value);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#a8cf840ede9d2e18740eb99e0c06ba7f3">clamp</a>(<span class="keywordtype">int</span> value, <span class="keywordtype">int</span> min, <span class="keywordtype">int</span> max);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keywordtype">double</span> <a class="code hl_function" href="_math_tools_8h.html#a7d653a23bc3022afd9b32e419abbbc2d">distance</a>(<span class="keywordtype">double</span> x1, <span class="keywordtype">double</span> y1, <span class="keywordtype">double</span> x2, <span class="keywordtype">double</span> y2);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keywordtype">double</span> <a class="code hl_function" href="_math_tools_8h.html#adcff26bf855316d434d097dd784a2108">pointDistance</a>(<a class="code hl_struct" href="struct_point.html">Point</a> a, <a class="code hl_struct" href="struct_point.html">Point</a> b);</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#a8f8d84ae7265ecc2744ccff4d6ee0b71">pointEquals</a>(<a class="code hl_struct" href="struct_point.html">Point</a> a, <a class="code hl_struct" href="struct_point.html">Point</a> b);</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#a1648c916d219dfae88649be3f34012ee">pointInArray</a>(<a class="code hl_struct" href="struct_point.html">Point</a> * array, <a class="code hl_struct" href="struct_point.html">Point</a> check, <span class="keywordtype">int</span> len);</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="keywordtype">void</span> <a class="code hl_function" href="_math_tools_8h.html#a555f00603a31cb3221f76fc78f5df0d1">getRandomPoint</a>(<a class="code hl_struct" href="struct_point.html">Point</a> * point, <span class="keywordtype">double</span> x_max, <span class="keywordtype">double</span> x_min, <span class="keywordtype">double</span> y_max, <span class="keywordtype">double</span> y_min);</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#a7f6dad26ccc8be16b09b515eb51fe412">positionArrayNotTouching</a>(<a class="code hl_struct" href="struct_point.html">Point</a> * array, <span class="keywordtype">int</span> len);</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#a755d26f1fc5248cc128863ccd5f5916e">goodModulo</a>(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b);</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#aa3cdf5cc7c0b7bee2cef2169d20a54cd">microsecondsToHours</a>(<span class="keywordtype">int</span> nb_ms);</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#a398e1805d3edf0094f8bbf3cfdeb4eb4">microsecondsToMinutes</a>(<span class="keywordtype">int</span> nb_ms);</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#a59eac85eb038df6feeff0902d3fe64f1">microsecondsToCentiseconds</a>(<span class="keywordtype">int</span> nb_ms);</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#abcf8c2f48f7725f83bdb0ace13adefd7">microsecondsToSeconds</a>(<span class="keywordtype">int</span> nb_ms);</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define NDEBUG</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define _DEFAULT_SOURCE</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;math.h&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;time.h&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define drand48() ((double)rand()/RAND_MAX)</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="struct_coordinate.html">   30</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">int</span> x;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">int</span> y;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>} <a class="code hl_struct" href="struct_coordinate.html">Coordinate</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="struct_point.html">   39</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>   <span class="keywordtype">double</span> x;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>   <span class="keywordtype">double</span> y;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>} <a class="code hl_struct" href="struct_point.html">Point</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keywordtype">double</span> <a class="code hl_function" href="_math_tools_8h.html#a69275e8136f4c180bfa1bfbaf0764ff2">randRange</a>(<span class="keywordtype">double</span> min, <span class="keywordtype">double</span> max);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#a5c244d8525867e9e318dcbaaa28a3666">getProbability</a>(<span class="keywordtype">double</span> probability);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#aab19049c681a3359645705bc0c646109">getRandomDirection</a>(<span class="keywordtype">int</span> direction);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#a21ec44720e2351c93d6fb9b759fcbcde">roundToInt</a>(<span class="keywordtype">double</span> value);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#a8cf840ede9d2e18740eb99e0c06ba7f3">clamp</a>(<span class="keywordtype">int</span> value, <span class="keywordtype">int</span> min, <span class="keywordtype">int</span> max);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keywordtype">double</span> <a class="code hl_function" href="_math_tools_8h.html#a7d653a23bc3022afd9b32e419abbbc2d">distance</a>(<span class="keywordtype">double</span> x1, <span class="keywordtype">double</span> y1, <span class="keywordtype">double</span> x2, <span class="keywordtype">double</span> y2);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keywordtype">double</span> <a class="code hl_function" href="_math_tools_8h.html#adcff26bf855316d434d097dd784a2108">pointDistance</a>(<a class="code hl_struct" href="struct_point.html">Point</a> a, <a class="code hl_struct" href="struct_point.html">Point</a> b);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#a8f8d84ae7265ecc2744ccff4d6ee0b71">pointEquals</a>(<a class="code hl_struct" href="struct_point.html">Point</a> a, <a class="code hl_struct" href="struct_point.html">Point</a> b);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#a1648c916d219dfae88649be3f34012ee">pointInArray</a>(<a class="code hl_struct" href="struct_point.html">Point</a> * array, <a class="code hl_struct" href="struct_point.html">Point</a> check, <span class="keywordtype">int</span> len);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="keywordtype">void</span> <a class="code hl_function" href="_math_tools_8h.html#a555f00603a31cb3221f76fc78f5df0d1">getRandomPoint</a>(<a class="code hl_struct" href="struct_point.html">Point</a> * point, <span class="keywordtype">double</span> x_max, <span class="keywordtype">double</span> x_min, <span class="keywordtype">double</span> y_max, <span class="keywordtype">double</span> y_min);</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#a7f6dad26ccc8be16b09b515eb51fe412">positionArrayNotTouching</a>(<a class="code hl_struct" href="struct_point.html">Point</a> * array, <span class="keywordtype">int</span> len);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#a755d26f1fc5248cc128863ccd5f5916e">goodModulo</a>(<span class="keywordtype">int</span> a, <span class="keywordtype">int</span> b);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#aa3cdf5cc7c0b7bee2cef2169d20a54cd">microsecondsToHours</a>(<span class="keywordtype">int</span> nb_ms);</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#a398e1805d3edf0094f8bbf3cfdeb4eb4">microsecondsToMinutes</a>(<span class="keywordtype">int</span> nb_ms);</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#a59eac85eb038df6feeff0902d3fe64f1">microsecondsToCentiseconds</a>(<span class="keywordtype">int</span> nb_ms);</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="keywordtype">int</span> <a class="code hl_function" href="_math_tools_8h.html#abcf8c2f48f7725f83bdb0ace13adefd7">microsecondsToSeconds</a>(<span class="keywordtype">int</span> nb_ms);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="a_math_tools_8h_html_a1648c916d219dfae88649be3f34012ee"><div class="ttname"><a href="_math_tools_8h.html#a1648c916d219dfae88649be3f34012ee">pointInArray</a></div><div class="ttdeci">int pointInArray(Point *array, Point check, int len)</div><div class="ttdoc">Checks if a point's value is in the given array.</div><div class="ttdef"><b>Definition:</b> MathTools.c:126</div></div>
 <div class="ttc" id="a_math_tools_8h_html_a21ec44720e2351c93d6fb9b759fcbcde"><div class="ttname"><a href="_math_tools_8h.html#a21ec44720e2351c93d6fb9b759fcbcde">roundToInt</a></div><div class="ttdeci">int roundToInt(double value)</div><div class="ttdoc">Rounds a double value to the nearest integer.</div><div class="ttdef"><b>Definition:</b> MathTools.c:57</div></div>
 <div class="ttc" id="a_math_tools_8h_html_a398e1805d3edf0094f8bbf3cfdeb4eb4"><div class="ttname"><a href="_math_tools_8h.html#a398e1805d3edf0094f8bbf3cfdeb4eb4">microsecondsToMinutes</a></div><div class="ttdeci">int microsecondsToMinutes(int nb_ms)</div><div class="ttdoc">Convert a number of microseconds to the corresponding number of minutes.</div><div class="ttdef"><b>Definition:</b> MathTools.c:211</div></div>
@@ -148,8 +152,8 @@ $(function() {
 <div class="ttc" id="a_math_tools_8h_html_aab19049c681a3359645705bc0c646109"><div class="ttname"><a href="_math_tools_8h.html#aab19049c681a3359645705bc0c646109">getRandomDirection</a></div><div class="ttdeci">int getRandomDirection(int direction)</div><div class="ttdoc">Returns a random direction different from a given direction.</div><div class="ttdef"><b>Definition:</b> MathTools.c:42</div></div>
 <div class="ttc" id="a_math_tools_8h_html_abcf8c2f48f7725f83bdb0ace13adefd7"><div class="ttname"><a href="_math_tools_8h.html#abcf8c2f48f7725f83bdb0ace13adefd7">microsecondsToSeconds</a></div><div class="ttdeci">int microsecondsToSeconds(int nb_ms)</div><div class="ttdoc">Convert a number of microseconds to the corresponding number of seconds.</div><div class="ttdef"><b>Definition:</b> MathTools.c:233</div></div>
 <div class="ttc" id="a_math_tools_8h_html_adcff26bf855316d434d097dd784a2108"><div class="ttname"><a href="_math_tools_8h.html#adcff26bf855316d434d097dd784a2108">pointDistance</a></div><div class="ttdeci">double pointDistance(Point a, Point b)</div><div class="ttdoc">Calculates the euclidian distance between two points.</div><div class="ttdef"><b>Definition:</b> MathTools.c:103</div></div>
-<div class="ttc" id="astruct_coordinate_html"><div class="ttname"><a href="struct_coordinate.html">Coordinate</a></div><div class="ttdoc">Represents a point but only with integer.</div><div class="ttdef"><b>Definition:</b> MathTools.h:26</div></div>
-<div class="ttc" id="astruct_point_html"><div class="ttname"><a href="struct_point.html">Point</a></div><div class="ttdoc">Represents a point with doubles.</div><div class="ttdef"><b>Definition:</b> MathTools.h:35</div></div>
+<div class="ttc" id="astruct_coordinate_html"><div class="ttname"><a href="struct_coordinate.html">Coordinate</a></div><div class="ttdoc">Represents a point but only with integer.</div><div class="ttdef"><b>Definition:</b> MathTools.h:30</div></div>
+<div class="ttc" id="astruct_point_html"><div class="ttname"><a href="struct_point.html">Point</a></div><div class="ttdoc">Represents a point with doubles.</div><div class="ttdef"><b>Definition:</b> MathTools.h:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

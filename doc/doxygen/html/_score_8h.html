@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>C Project (Stealth Game): include/Score.h File Reference</title>
+<title>C Project (Stealth Game): Projet/include/Score.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,7 +71,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_f22a8e5c88a22dc4c6677222c08d3163.html">Projet</a></li><li class="navelem"><a class="el" href="dir_65f5f46095903fb58d58434e9e1505b0.html">include</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -88,6 +88,7 @@ $(function() {
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;assert.h&gt;</code><br />
 </div>
 <p><a href="_score_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -120,6 +121,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a15cbf7a332805405d868b152151976df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_score_8h.html#a15cbf7a332805405d868b152151976df">addScoreMana</a> (<a class="el" href="struct_leaderboard.html">Leaderboard</a> *leaderboard, char name[11], int manaUsed, int timeElapsed)</td></tr>
 <tr class="memdesc:a15cbf7a332805405d868b152151976df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the value of a score into the leaderboard if they are good enough (manaUsed centered)  <br /></td></tr>
 <tr class="separator:a15cbf7a332805405d868b152151976df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84c388b69adee7b25c4ee132897fa0b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_score_8h.html#a84c388b69adee7b25c4ee132897fa0b1">sortLeaderboardMana</a> (<a class="el" href="struct_leaderboard.html">Leaderboard</a> *leaderboard)</td></tr>
+<tr class="memdesc:a84c388b69adee7b25c4ee132897fa0b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts the given leaderboard based on the mana used.  <br /></td></tr>
+<tr class="separator:a84c388b69adee7b25c4ee132897fa0b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a491db76bb06b2c1efff223eb7c05c8cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_score_8h.html#a491db76bb06b2c1efff223eb7c05c8cc">sortLeaderboardTime</a> (<a class="el" href="struct_leaderboard.html">Leaderboard</a> *leaderboard)</td></tr>
+<tr class="memdesc:a491db76bb06b2c1efff223eb7c05c8cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts the given leaderboard based on the time of completion.  <br /></td></tr>
+<tr class="separator:a491db76bb06b2c1efff223eb7c05c8cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header file for the Terrain module. </p>
@@ -293,6 +300,70 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int 0 if it couldn't read the file, 1 if it read successfully </dd></dl>
+
+</div>
+</div>
+<a id="a84c388b69adee7b25c4ee132897fa0b1" name="a84c388b69adee7b25c4ee132897fa0b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84c388b69adee7b25c4ee132897fa0b1">&#9670;&#160;</a></span>sortLeaderboardMana()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sortLeaderboardMana </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_leaderboard.html">Leaderboard</a> *&#160;</td>
+          <td class="paramname"><em>leaderboard</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sorts the given leaderboard based on the mana used. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">leaderboard</td><td>the leaderboard</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">leaderboard</td><td>the leaderboard </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a491db76bb06b2c1efff223eb7c05c8cc" name="a491db76bb06b2c1efff223eb7c05c8cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a491db76bb06b2c1efff223eb7c05c8cc">&#9670;&#160;</a></span>sortLeaderboardTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sortLeaderboardTime </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_leaderboard.html">Leaderboard</a> *&#160;</td>
+          <td class="paramname"><em>leaderboard</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sorts the given leaderboard based on the time of completion. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">leaderboard</td><td>the leaderboard</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">leaderboard</td><td>the leaderboard </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

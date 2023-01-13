@@ -1,21 +1,23 @@
 \hypertarget{_collision_8h_source}{}\doxysection{Collision.\+h}
-\label{_collision_8h_source}\index{include/Collision.h@{include/Collision.h}}
+\label{_collision_8h_source}\index{Projet/include/Collision.h@{Projet/include/Collision.h}}
 \mbox{\hyperlink{_collision_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
 \DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ \_\_collision\_\_}}
 \DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ \_\_collision\_\_}}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8h}{Entity.h}}"{}}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_terrain_8h}{Terrain.h}}"{}}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_math_tools_8h}{MathTools.h}}"{}}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <math.h>}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <assert.h>}}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00029\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_collision_8h_ae38532c9eaa8d590d992e00875697cfb}{isCollision}}(\mbox{\hyperlink{struct_point}{Point}}\ *center,\ \mbox{\hyperlink{structgrid}{Grid}}\ \mbox{\hyperlink{structgrid}{grid}});}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00042\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_collision_8h_aeb392679024ffe8b8c08d337e812b031}{willCollide}}(\mbox{\hyperlink{struct_point}{Point}}\ center,\ \mbox{\hyperlink{structgrid}{Grid}}\ \mbox{\hyperlink{structgrid}{grid}},\ \mbox{\hyperlink{_entity_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}\ d,\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{_math_tools_8h_a7d653a23bc3022afd9b32e419abbbc2d}{distance}});}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ NDEBUG}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8h}{Entity.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_terrain_8h}{Terrain.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_math_tools_8h}{MathTools.h}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <assert.h>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_collision_8h_ae38532c9eaa8d590d992e00875697cfb}{isCollision}}(\mbox{\hyperlink{struct_point}{Point}}\ *center,\ \mbox{\hyperlink{structgrid}{Grid}}\ \mbox{\hyperlink{structgrid}{grid}});}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_collision_8h_aeb392679024ffe8b8c08d337e812b031}{willCollide}}(\mbox{\hyperlink{struct_point}{Point}}\ center,\ \mbox{\hyperlink{structgrid}{Grid}}\ \mbox{\hyperlink{structgrid}{grid}},\ \mbox{\hyperlink{_entity_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}\ d,\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{_math_tools_8h_a7d653a23bc3022afd9b32e419abbbc2d}{distance}});}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

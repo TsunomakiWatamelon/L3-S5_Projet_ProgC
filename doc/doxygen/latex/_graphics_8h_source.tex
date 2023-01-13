@@ -1,51 +1,53 @@
 \hypertarget{_graphics_8h_source}{}\doxysection{Graphics.\+h}
-\label{_graphics_8h_source}\index{include/Graphics.h@{include/Graphics.h}}
+\label{_graphics_8h_source}\index{Projet/include/Graphics.h@{Projet/include/Graphics.h}}
 \mbox{\hyperlink{_graphics_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
 \DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ \_\_graphics\_\_}}
 \DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ \_\_graphics\_\_}}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <MLV/MLV\_all.h>}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8h}{Entity.h}}"{}}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}assert.h"{}}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_terrain_8h}{Terrain.h}}"{}}}
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_score_8h}{Score.h}}"{}}}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ GAME\_WINX\ 1200}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ GAME\_WINY\ 1000}}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_a0140181914f115aca034ddd2b227e3c4}{createWindow}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_aa075b3dfc5c809ee6c6a772745ab4de4}{drawTerrain}}(\mbox{\hyperlink{structgrid}{Grid}}\ \mbox{\hyperlink{structgrid}{grid}});}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_affeb5f943df4059904d4697168b2c77c}{redrawSubspace}}(\mbox{\hyperlink{structgrid}{Grid}}\ \mbox{\hyperlink{structgrid}{grid}},\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height);}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00053\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_a914debadcd07addea03e9f699832dfdb}{drawPlayer}}(\mbox{\hyperlink{struct_player}{Player}}\ player);}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_a7fd08f08210c89b3985eb683b5f6153e}{drawGolems}}(\mbox{\hyperlink{struct_golem}{Golem}}\ *golems,\ \textcolor{keywordtype}{int}\ arraySize);}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_a92e51deb90aea96b43519684771e11dd}{redrawSubspacePlayer}}(\mbox{\hyperlink{struct_player}{Player}}\ player,\ \mbox{\hyperlink{structgrid}{Grid}}\ \mbox{\hyperlink{structgrid}{grid}});}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00077\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_ab64d8eff8699ad573385f8e645f2ddda}{redrawSubspaceGolem}}(\mbox{\hyperlink{struct_golem}{Golem}}\ golem,\ \mbox{\hyperlink{structgrid}{Grid}}\ \mbox{\hyperlink{structgrid}{grid}});}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00086\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_a87305e2b6e16d28976aff902ceb59f75}{redrawSubspaceEntity}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \mbox{\hyperlink{structgrid}{Grid}}\ \mbox{\hyperlink{structgrid}{grid}});}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00098\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_ade253e23a817f1ebbb9fb929453a67ad}{drawEntities}}(\mbox{\hyperlink{structgrid}{Grid}}\ \mbox{\hyperlink{structgrid}{grid}},\ \mbox{\hyperlink{struct_player}{Player}}\ player,\ \mbox{\hyperlink{struct_golem}{Golem}}\ *\ golems,\ \mbox{\hyperlink{struct_relic}{Relic}}\ *\ relics,\ \textcolor{keywordtype}{int}\ lenGolem,\ \textcolor{keywordtype}{int}\ lenRelics);}
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00110\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_a8229ebc5100a6d00c958f850ff5725c6}{drawInfo}}(\textcolor{keywordtype}{int}\ timeElapsed,\ \textcolor{keywordtype}{int}\ mana,\ \textcolor{keywordtype}{int}\ remaining,\ \textcolor{keywordtype}{int}\ invisible,\ \textcolor{keywordtype}{int}\ boost,\ \textcolor{keywordtype}{int}\ alert);}
-\DoxyCodeLine{00111\ }
-\DoxyCodeLine{00116\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_aeb2c7e9c7d14c9eccb7e624bd9611ef8}{drawGameOver}}();}
-\DoxyCodeLine{00117\ }
-\DoxyCodeLine{00125\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_aaf9f305b34511eb92bbe4293354ac763}{drawWin}}(\textcolor{keywordtype}{int}\ timeElapsed,\ \textcolor{keywordtype}{int}\ manaTotal);}
-\DoxyCodeLine{00126\ }
-\DoxyCodeLine{00132\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_graphics_8h_a626e3f2582c58a716fe65a09e50a9e57}{askSaveScore}}();}
-\DoxyCodeLine{00133\ }
-\DoxyCodeLine{00139\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_a06f03e447c7a94ea28d06d2fb8077f15}{askName}}(\textcolor{keywordtype}{char}\ name[11]);}
-\DoxyCodeLine{00140\ }
-\DoxyCodeLine{00149\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_a7283ad1a9cc983df766598fb22d6b394}{drawLeaderboard}}(\mbox{\hyperlink{struct_leaderboard}{Leaderboard}}\ time,\ \mbox{\hyperlink{struct_leaderboard}{Leaderboard}}\ mana);}
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ NDEBUG}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <MLV/MLV\_all.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8h}{Entity.h}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <assert.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_terrain_8h}{Terrain.h}}"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_score_8h}{Score.h}}"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ GAME\_WINX\ 1200}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ GAME\_WINY\ 1000}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_a0140181914f115aca034ddd2b227e3c4}{createWindow}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_aa075b3dfc5c809ee6c6a772745ab4de4}{drawTerrain}}(\mbox{\hyperlink{structgrid}{Grid}}\ \mbox{\hyperlink{structgrid}{grid}});}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_affeb5f943df4059904d4697168b2c77c}{redrawSubspace}}(\mbox{\hyperlink{structgrid}{Grid}}\ \mbox{\hyperlink{structgrid}{grid}},\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_a914debadcd07addea03e9f699832dfdb}{drawPlayer}}(\mbox{\hyperlink{struct_player}{Player}}\ player);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_a7fd08f08210c89b3985eb683b5f6153e}{drawGolems}}(\mbox{\hyperlink{struct_golem}{Golem}}\ *golems,\ \textcolor{keywordtype}{int}\ arraySize);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_a92e51deb90aea96b43519684771e11dd}{redrawSubspacePlayer}}(\mbox{\hyperlink{struct_player}{Player}}\ player,\ \mbox{\hyperlink{structgrid}{Grid}}\ \mbox{\hyperlink{structgrid}{grid}});}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_ab64d8eff8699ad573385f8e645f2ddda}{redrawSubspaceGolem}}(\mbox{\hyperlink{struct_golem}{Golem}}\ golem,\ \mbox{\hyperlink{structgrid}{Grid}}\ \mbox{\hyperlink{structgrid}{grid}});}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00088\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_a87305e2b6e16d28976aff902ceb59f75}{redrawSubspaceEntity}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \mbox{\hyperlink{structgrid}{Grid}}\ \mbox{\hyperlink{structgrid}{grid}});}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00100\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_ade253e23a817f1ebbb9fb929453a67ad}{drawEntities}}(\mbox{\hyperlink{structgrid}{Grid}}\ \mbox{\hyperlink{structgrid}{grid}},\ \mbox{\hyperlink{struct_player}{Player}}\ player,\ \mbox{\hyperlink{struct_golem}{Golem}}\ *\ golems,\ \mbox{\hyperlink{struct_relic}{Relic}}\ *\ relics,\ \textcolor{keywordtype}{int}\ lenGolem,\ \textcolor{keywordtype}{int}\ lenRelics);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00112\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_a8229ebc5100a6d00c958f850ff5725c6}{drawInfo}}(\textcolor{keywordtype}{int}\ timeElapsed,\ \textcolor{keywordtype}{int}\ mana,\ \textcolor{keywordtype}{int}\ remaining,\ \textcolor{keywordtype}{int}\ invisible,\ \textcolor{keywordtype}{int}\ boost,\ \textcolor{keywordtype}{int}\ alert);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00118\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_aeb2c7e9c7d14c9eccb7e624bd9611ef8}{drawGameOver}}();}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00127\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_aaf9f305b34511eb92bbe4293354ac763}{drawWin}}(\textcolor{keywordtype}{int}\ timeElapsed,\ \textcolor{keywordtype}{int}\ manaTotal);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00134\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_graphics_8h_a626e3f2582c58a716fe65a09e50a9e57}{askSaveScore}}();}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00141\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_a06f03e447c7a94ea28d06d2fb8077f15}{askName}}(\textcolor{keywordtype}{char}\ name[11]);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00151\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_graphics_8h_a7283ad1a9cc983df766598fb22d6b394}{drawLeaderboard}}(\mbox{\hyperlink{struct_leaderboard}{Leaderboard}}\ time,\ \mbox{\hyperlink{struct_leaderboard}{Leaderboard}}\ mana);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

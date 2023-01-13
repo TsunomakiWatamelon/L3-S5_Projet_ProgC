@@ -1,60 +1,64 @@
 \hypertarget{_math_tools_8h_source}{}\doxysection{Math\+Tools.\+h}
-\label{_math_tools_8h_source}\index{include/MathTools.h@{include/MathTools.h}}
+\label{_math_tools_8h_source}\index{Projet/include/MathTools.h@{Projet/include/MathTools.h}}
 \mbox{\hyperlink{_math_tools_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
 \DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ \_\_MathTools\_\_}}
 \DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ \_\_MathTools\_\_}}
 \DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ \_DEFAULT\_SOURCE}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <assert.h>}}
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <math.h>}}
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <time.h>}}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00026\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ x;}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ y;}
-\DoxyCodeLine{00029\ \}\ \mbox{\hyperlink{struct_coordinate}{Coordinate}};}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00035\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00036\ \ \ \ \textcolor{keywordtype}{double}\ x;}
-\DoxyCodeLine{00037\ \ \ \ \textcolor{keywordtype}{double}\ y;}
-\DoxyCodeLine{00038\ \}\ \mbox{\hyperlink{struct_point}{Point}};}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00047\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{_math_tools_8h_a69275e8136f4c180bfa1bfbaf0764ff2}{randRange}}(\textcolor{keywordtype}{double}\ min,\ \textcolor{keywordtype}{double}\ max);}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00055\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_a5c244d8525867e9e318dcbaaa28a3666}{getProbability}}(\textcolor{keywordtype}{double}\ probability);}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00065\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_aab19049c681a3359645705bc0c646109}{getRandomDirection}}(\textcolor{keywordtype}{int}\ direction);}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00073\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_a21ec44720e2351c93d6fb9b759fcbcde}{roundToInt}}(\textcolor{keywordtype}{double}\ value);}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00083\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_a8cf840ede9d2e18740eb99e0c06ba7f3}{clamp}}(\textcolor{keywordtype}{int}\ value,\ \textcolor{keywordtype}{int}\ min,\ \textcolor{keywordtype}{int}\ max);}
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00094\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{_math_tools_8h_a7d653a23bc3022afd9b32e419abbbc2d}{distance}}(\textcolor{keywordtype}{double}\ x1,\ \textcolor{keywordtype}{double}\ y1,\ \textcolor{keywordtype}{double}\ x2,\ \textcolor{keywordtype}{double}\ y2);}
-\DoxyCodeLine{00095\ }
-\DoxyCodeLine{00103\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{_math_tools_8h_adcff26bf855316d434d097dd784a2108}{pointDistance}}(\mbox{\hyperlink{struct_point}{Point}}\ a,\ \mbox{\hyperlink{struct_point}{Point}}\ b);}
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00112\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_a8f8d84ae7265ecc2744ccff4d6ee0b71}{pointEquals}}(\mbox{\hyperlink{struct_point}{Point}}\ a,\ \mbox{\hyperlink{struct_point}{Point}}\ b);}
-\DoxyCodeLine{00113\ }
-\DoxyCodeLine{00122\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_a1648c916d219dfae88649be3f34012ee}{pointInArray}}(\mbox{\hyperlink{struct_point}{Point}}\ *\ array,\ \mbox{\hyperlink{struct_point}{Point}}\ check,\ \textcolor{keywordtype}{int}\ len);}
-\DoxyCodeLine{00123\ }
-\DoxyCodeLine{00133\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_math_tools_8h_a555f00603a31cb3221f76fc78f5df0d1}{getRandomPoint}}(\mbox{\hyperlink{struct_point}{Point}}\ *\ point,\ \textcolor{keywordtype}{double}\ x\_max,\ \textcolor{keywordtype}{double}\ x\_min,\ \textcolor{keywordtype}{double}\ y\_max,\ \textcolor{keywordtype}{double}\ y\_min);}
-\DoxyCodeLine{00134\ }
-\DoxyCodeLine{00142\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_a7f6dad26ccc8be16b09b515eb51fe412}{positionArrayNotTouching}}(\mbox{\hyperlink{struct_point}{Point}}\ *\ array,\ \textcolor{keywordtype}{int}\ len);}
-\DoxyCodeLine{00143\ }
-\DoxyCodeLine{00152\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_a755d26f1fc5248cc128863ccd5f5916e}{goodModulo}}(\textcolor{keywordtype}{int}\ a,\ \textcolor{keywordtype}{int}\ b);}
-\DoxyCodeLine{00153\ }
-\DoxyCodeLine{00161\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_aa3cdf5cc7c0b7bee2cef2169d20a54cd}{microsecondsToHours}}(\textcolor{keywordtype}{int}\ nb\_ms);}
-\DoxyCodeLine{00162\ }
-\DoxyCodeLine{00170\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_a398e1805d3edf0094f8bbf3cfdeb4eb4}{microsecondsToMinutes}}(\textcolor{keywordtype}{int}\ nb\_ms);}
-\DoxyCodeLine{00171\ }
-\DoxyCodeLine{00179\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_a59eac85eb038df6feeff0902d3fe64f1}{microsecondsToCentiseconds}}(\textcolor{keywordtype}{int}\ nb\_ms);}
-\DoxyCodeLine{00180\ }
-\DoxyCodeLine{00188\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_abcf8c2f48f7725f83bdb0ace13adefd7}{microsecondsToSeconds}}(\textcolor{keywordtype}{int}\ nb\_ms);}
-\DoxyCodeLine{00189\ }
-\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ NDEBUG}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ \_DEFAULT\_SOURCE}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <assert.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ drand48()\ ((double)rand()/RAND\_MAX)}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{int}\ x;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ y;}
+\DoxyCodeLine{00033\ \}\ \mbox{\hyperlink{struct_coordinate}{Coordinate}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00040\ \ \ \ \textcolor{keywordtype}{double}\ x;}
+\DoxyCodeLine{00041\ \ \ \ \textcolor{keywordtype}{double}\ y;}
+\DoxyCodeLine{00042\ \}\ \mbox{\hyperlink{struct_point}{Point}};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{_math_tools_8h_a69275e8136f4c180bfa1bfbaf0764ff2}{randRange}}(\textcolor{keywordtype}{double}\ min,\ \textcolor{keywordtype}{double}\ max);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_a5c244d8525867e9e318dcbaaa28a3666}{getProbability}}(\textcolor{keywordtype}{double}\ probability);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_aab19049c681a3359645705bc0c646109}{getRandomDirection}}(\textcolor{keywordtype}{int}\ direction);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_a21ec44720e2351c93d6fb9b759fcbcde}{roundToInt}}(\textcolor{keywordtype}{double}\ value);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_a8cf840ede9d2e18740eb99e0c06ba7f3}{clamp}}(\textcolor{keywordtype}{int}\ value,\ \textcolor{keywordtype}{int}\ min,\ \textcolor{keywordtype}{int}\ max);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00098\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{_math_tools_8h_a7d653a23bc3022afd9b32e419abbbc2d}{distance}}(\textcolor{keywordtype}{double}\ x1,\ \textcolor{keywordtype}{double}\ y1,\ \textcolor{keywordtype}{double}\ x2,\ \textcolor{keywordtype}{double}\ y2);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00107\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{_math_tools_8h_adcff26bf855316d434d097dd784a2108}{pointDistance}}(\mbox{\hyperlink{struct_point}{Point}}\ a,\ \mbox{\hyperlink{struct_point}{Point}}\ b);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00116\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_a8f8d84ae7265ecc2744ccff4d6ee0b71}{pointEquals}}(\mbox{\hyperlink{struct_point}{Point}}\ a,\ \mbox{\hyperlink{struct_point}{Point}}\ b);}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00126\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_a1648c916d219dfae88649be3f34012ee}{pointInArray}}(\mbox{\hyperlink{struct_point}{Point}}\ *\ array,\ \mbox{\hyperlink{struct_point}{Point}}\ check,\ \textcolor{keywordtype}{int}\ len);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00137\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_math_tools_8h_a555f00603a31cb3221f76fc78f5df0d1}{getRandomPoint}}(\mbox{\hyperlink{struct_point}{Point}}\ *\ point,\ \textcolor{keywordtype}{double}\ x\_max,\ \textcolor{keywordtype}{double}\ x\_min,\ \textcolor{keywordtype}{double}\ y\_max,\ \textcolor{keywordtype}{double}\ y\_min);}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00146\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_a7f6dad26ccc8be16b09b515eb51fe412}{positionArrayNotTouching}}(\mbox{\hyperlink{struct_point}{Point}}\ *\ array,\ \textcolor{keywordtype}{int}\ len);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00156\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_a755d26f1fc5248cc128863ccd5f5916e}{goodModulo}}(\textcolor{keywordtype}{int}\ a,\ \textcolor{keywordtype}{int}\ b);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00165\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_aa3cdf5cc7c0b7bee2cef2169d20a54cd}{microsecondsToHours}}(\textcolor{keywordtype}{int}\ nb\_ms);}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00174\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_a398e1805d3edf0094f8bbf3cfdeb4eb4}{microsecondsToMinutes}}(\textcolor{keywordtype}{int}\ nb\_ms);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00183\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_a59eac85eb038df6feeff0902d3fe64f1}{microsecondsToCentiseconds}}(\textcolor{keywordtype}{int}\ nb\_ms);}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00192\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_math_tools_8h_abcf8c2f48f7725f83bdb0ace13adefd7}{microsecondsToSeconds}}(\textcolor{keywordtype}{int}\ nb\_ms);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

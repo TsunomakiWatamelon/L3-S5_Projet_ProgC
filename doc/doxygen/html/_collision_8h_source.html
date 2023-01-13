@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>C Project (Stealth Game): include/Collision.h Source File</title>
+<title>C Project (Stealth Game): Projet/include/Collision.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,7 +71,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_f22a8e5c88a22dc4c6677222c08d3163.html">Projet</a></li><li class="navelem"><a class="el" href="dir_65f5f46095903fb58d58434e9e1505b0.html">include</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -82,26 +82,28 @@ $(function() {
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef __collision__</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define __collision__</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="_entity_8h.html">Entity.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="_terrain_8h.html">Terrain.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="_math_tools_8h.html">MathTools.h</a>&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;math.h&gt;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;assert.h&gt;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keywordtype">int</span> <a class="code hl_function" href="_collision_8h.html#ae38532c9eaa8d590d992e00875697cfb">isCollision</a>(<a class="code hl_struct" href="struct_point.html">Point</a> *center, <a class="code hl_struct" href="structgrid.html">Grid</a> <a class="code hl_struct" href="structgrid.html">grid</a>);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">int</span> <a class="code hl_function" href="_collision_8h.html#aeb392679024ffe8b8c08d337e812b031">willCollide</a>(<a class="code hl_struct" href="struct_point.html">Point</a> center, <a class="code hl_struct" href="structgrid.html">Grid</a> <a class="code hl_struct" href="structgrid.html">grid</a>, <a class="code hl_enumeration" href="_entity_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> d, <span class="keywordtype">double</span> <a class="code hl_function" href="_math_tools_8h.html#a7d653a23bc3022afd9b32e419abbbc2d">distance</a>);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#define NDEBUG</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="_entity_8h.html">Entity.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="_terrain_8h.html">Terrain.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="_math_tools_8h.html">MathTools.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;math.h&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keywordtype">int</span> <a class="code hl_function" href="_collision_8h.html#ae38532c9eaa8d590d992e00875697cfb">isCollision</a>(<a class="code hl_struct" href="struct_point.html">Point</a> *center, <a class="code hl_struct" href="structgrid.html">Grid</a> <a class="code hl_struct" href="structgrid.html">grid</a>);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">int</span> <a class="code hl_function" href="_collision_8h.html#aeb392679024ffe8b8c08d337e812b031">willCollide</a>(<a class="code hl_struct" href="struct_point.html">Point</a> center, <a class="code hl_struct" href="structgrid.html">Grid</a> <a class="code hl_struct" href="structgrid.html">grid</a>, <a class="code hl_enumeration" href="_entity_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a> d, <span class="keywordtype">double</span> <a class="code hl_function" href="_math_tools_8h.html#a7d653a23bc3022afd9b32e419abbbc2d">distance</a>);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="a_collision_8h_html_ae38532c9eaa8d590d992e00875697cfb"><div class="ttname"><a href="_collision_8h.html#ae38532c9eaa8d590d992e00875697cfb">isCollision</a></div><div class="ttdeci">int isCollision(Point *center, Grid grid)</div><div class="ttdoc">Checks if the supposed entity of radius 1 described by the point is colliding any walls.</div><div class="ttdef"><b>Definition:</b> Collision.c:344</div></div>
 <div class="ttc" id="a_collision_8h_html_aeb392679024ffe8b8c08d337e812b031"><div class="ttname"><a href="_collision_8h.html#aeb392679024ffe8b8c08d337e812b031">willCollide</a></div><div class="ttdeci">int willCollide(Point center, Grid grid, Direction d, double distance)</div><div class="ttdoc">Checks if the given entity will collide into a wall if going toward a certain direction for a certain...</div><div class="ttdef"><b>Definition:</b> Collision.c:370</div></div>
 <div class="ttc" id="a_entity_8h_html"><div class="ttname"><a href="_entity_8h.html">Entity.h</a></div><div class="ttdoc">Header file for common data structure between the player, golems and relics.</div></div>
-<div class="ttc" id="a_entity_8h_html_a224b9163917ac32fc95a60d8c1eec3aa"><div class="ttname"><a href="_entity_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a></div><div class="ttdeci">Direction</div><div class="ttdoc">Enum that represents one of the 4 directions.</div><div class="ttdef"><b>Definition:</b> Entity.h:38</div></div>
+<div class="ttc" id="a_entity_8h_html_a224b9163917ac32fc95a60d8c1eec3aa"><div class="ttname"><a href="_entity_8h.html#a224b9163917ac32fc95a60d8c1eec3aa">Direction</a></div><div class="ttdeci">Direction</div><div class="ttdoc">Enum that represents one of the 4 directions.</div><div class="ttdef"><b>Definition:</b> Entity.h:40</div></div>
 <div class="ttc" id="a_math_tools_8h_html"><div class="ttname"><a href="_math_tools_8h.html">MathTools.h</a></div><div class="ttdoc">Header file for the MathTools module.</div></div>
 <div class="ttc" id="a_math_tools_8h_html_a7d653a23bc3022afd9b32e419abbbc2d"><div class="ttname"><a href="_math_tools_8h.html#a7d653a23bc3022afd9b32e419abbbc2d">distance</a></div><div class="ttdeci">double distance(double x1, double y1, double x2, double y2)</div><div class="ttdoc">Calculates the euclidian distance between two points represented by the couple (x1,...</div><div class="ttdef"><b>Definition:</b> MathTools.c:92</div></div>
 <div class="ttc" id="a_terrain_8h_html"><div class="ttname"><a href="_terrain_8h.html">Terrain.h</a></div><div class="ttdoc">Header file for the Terrain module.</div></div>
-<div class="ttc" id="astruct_point_html"><div class="ttname"><a href="struct_point.html">Point</a></div><div class="ttdoc">Represents a point with doubles.</div><div class="ttdef"><b>Definition:</b> MathTools.h:35</div></div>
-<div class="ttc" id="astructgrid_html"><div class="ttname"><a href="structgrid.html">grid</a></div><div class="ttdoc">Represents the &quot;grid&quot;, which is the playing field for the player. It contains an 2D array of squares ...</div><div class="ttdef"><b>Definition:</b> Terrain.h:37</div></div>
+<div class="ttc" id="astruct_point_html"><div class="ttname"><a href="struct_point.html">Point</a></div><div class="ttdoc">Represents a point with doubles.</div><div class="ttdef"><b>Definition:</b> MathTools.h:39</div></div>
+<div class="ttc" id="astructgrid_html"><div class="ttname"><a href="structgrid.html">grid</a></div><div class="ttdoc">Represents the &quot;grid&quot;, which is the playing field for the player. It contains an 2D array of squares ...</div><div class="ttdef"><b>Definition:</b> Terrain.h:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

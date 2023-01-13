@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>C Project (Stealth Game): include/Score.h Source File</title>
+<title>C Project (Stealth Game): Projet/include/Score.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,7 +71,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_f22a8e5c88a22dc4c6677222c08d3163.html">Projet</a></li><li class="navelem"><a class="el" href="dir_65f5f46095903fb58d58434e9e1505b0.html">include</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -85,36 +85,42 @@ $(function() {
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#define ARRAY_MAX 10</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="struct_score.html">   25</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">char</span> name[11];</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">int</span> manaUsed;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">int</span> timeElapsed;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>} <a class="code hl_struct" href="struct_score.html">Score</a>;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="struct_leaderboard.html">   35</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <a class="code hl_struct" href="struct_score.html">Score</a> scores[ARRAY_MAX];</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">int</span> size;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>} <a class="code hl_struct" href="struct_leaderboard.html">Leaderboard</a>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keywordtype">void</span> <a class="code hl_function" href="_score_8h.html#adc79ea14c2445050f05dbe77829516a4">writeLeaderboardToBinaryFile</a>(<span class="keywordtype">char</span>* filepath, <a class="code hl_struct" href="struct_leaderboard.html">Leaderboard</a> * leaderboard);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keywordtype">int</span> <a class="code hl_function" href="_score_8h.html#a222b3f6eaa28249d3226d0950da11baf">readLeaderboardFromBinaryFile</a>(<span class="keywordtype">char</span> * filepath, <a class="code hl_struct" href="struct_leaderboard.html">Leaderboard</a> * leaderboard);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keywordtype">void</span> <a class="code hl_function" href="_score_8h.html#a5d021c64cc3918d81fce63247d29fa2e">addScoreTime</a>(<a class="code hl_struct" href="struct_leaderboard.html">Leaderboard</a>* leaderboard, <span class="keywordtype">char</span> name[11], <span class="keywordtype">int</span> manaUsed, <span class="keywordtype">int</span> timeElapsed);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keywordtype">void</span> <a class="code hl_function" href="_score_8h.html#a15cbf7a332805405d868b152151976df">addScoreMana</a>(<a class="code hl_struct" href="struct_leaderboard.html">Leaderboard</a>* leaderboard, <span class="keywordtype">char</span> name[11], <span class="keywordtype">int</span> manaUsed, <span class="keywordtype">int</span> timeElapsed);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;assert.h&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#define ARRAY_MAX 10</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="struct_score.html">   26</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">char</span> name[11];</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">int</span> manaUsed;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">int</span> timeElapsed;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>} <a class="code hl_struct" href="struct_score.html">Score</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="struct_leaderboard.html">   36</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <a class="code hl_struct" href="struct_score.html">Score</a> scores[ARRAY_MAX];</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">int</span> size;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>} <a class="code hl_struct" href="struct_leaderboard.html">Leaderboard</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keywordtype">void</span> <a class="code hl_function" href="_score_8h.html#adc79ea14c2445050f05dbe77829516a4">writeLeaderboardToBinaryFile</a>(<span class="keywordtype">char</span>* filepath, <a class="code hl_struct" href="struct_leaderboard.html">Leaderboard</a> * leaderboard);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keywordtype">int</span> <a class="code hl_function" href="_score_8h.html#a222b3f6eaa28249d3226d0950da11baf">readLeaderboardFromBinaryFile</a>(<span class="keywordtype">char</span> * filepath, <a class="code hl_struct" href="struct_leaderboard.html">Leaderboard</a> * leaderboard);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keywordtype">void</span> <a class="code hl_function" href="_score_8h.html#a5d021c64cc3918d81fce63247d29fa2e">addScoreTime</a>(<a class="code hl_struct" href="struct_leaderboard.html">Leaderboard</a>* leaderboard, <span class="keywordtype">char</span> name[11], <span class="keywordtype">int</span> manaUsed, <span class="keywordtype">int</span> timeElapsed);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keywordtype">void</span> <a class="code hl_function" href="_score_8h.html#a15cbf7a332805405d868b152151976df">addScoreMana</a>(<a class="code hl_struct" href="struct_leaderboard.html">Leaderboard</a>* leaderboard, <span class="keywordtype">char</span> name[11], <span class="keywordtype">int</span> manaUsed, <span class="keywordtype">int</span> timeElapsed);</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="a_score_8h_html_a15cbf7a332805405d868b152151976df"><div class="ttname"><a href="_score_8h.html#a15cbf7a332805405d868b152151976df">addScoreMana</a></div><div class="ttdeci">void addScoreMana(Leaderboard *leaderboard, char name[11], int manaUsed, int timeElapsed)</div><div class="ttdoc">Add the value of a score into the leaderboard if they are good enough (manaUsed centered)</div><div class="ttdef"><b>Definition:</b> Score.c:138</div></div>
-<div class="ttc" id="a_score_8h_html_a222b3f6eaa28249d3226d0950da11baf"><div class="ttname"><a href="_score_8h.html#a222b3f6eaa28249d3226d0950da11baf">readLeaderboardFromBinaryFile</a></div><div class="ttdeci">int readLeaderboardFromBinaryFile(char *filepath, Leaderboard *leaderboard)</div><div class="ttdoc">Reads the content of a leaderboard from a binary file at the specifed file path.</div><div class="ttdef"><b>Definition:</b> Score.c:45</div></div>
-<div class="ttc" id="a_score_8h_html_a5d021c64cc3918d81fce63247d29fa2e"><div class="ttname"><a href="_score_8h.html#a5d021c64cc3918d81fce63247d29fa2e">addScoreTime</a></div><div class="ttdeci">void addScoreTime(Leaderboard *leaderboard, char name[11], int manaUsed, int timeElapsed)</div><div class="ttdoc">Add the value of a score into the leaderboard if they are good enough (timeElapsed centered)</div><div class="ttdef"><b>Definition:</b> Score.c:126</div></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keywordtype">void</span> <a class="code hl_function" href="_score_8h.html#a84c388b69adee7b25c4ee132897fa0b1">sortLeaderboardMana</a>(<a class="code hl_struct" href="struct_leaderboard.html">Leaderboard</a>* leaderboard);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keywordtype">void</span> <a class="code hl_function" href="_score_8h.html#a491db76bb06b2c1efff223eb7c05c8cc">sortLeaderboardTime</a>(<a class="code hl_struct" href="struct_leaderboard.html">Leaderboard</a>* leaderboard);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_score_8h_html_a15cbf7a332805405d868b152151976df"><div class="ttname"><a href="_score_8h.html#a15cbf7a332805405d868b152151976df">addScoreMana</a></div><div class="ttdeci">void addScoreMana(Leaderboard *leaderboard, char name[11], int manaUsed, int timeElapsed)</div><div class="ttdoc">Add the value of a score into the leaderboard if they are good enough (manaUsed centered)</div><div class="ttdef"><b>Definition:</b> Score.c:150</div></div>
+<div class="ttc" id="a_score_8h_html_a222b3f6eaa28249d3226d0950da11baf"><div class="ttname"><a href="_score_8h.html#a222b3f6eaa28249d3226d0950da11baf">readLeaderboardFromBinaryFile</a></div><div class="ttdeci">int readLeaderboardFromBinaryFile(char *filepath, Leaderboard *leaderboard)</div><div class="ttdoc">Reads the content of a leaderboard from a binary file at the specifed file path.</div><div class="ttdef"><b>Definition:</b> Score.c:48</div></div>
+<div class="ttc" id="a_score_8h_html_a491db76bb06b2c1efff223eb7c05c8cc"><div class="ttname"><a href="_score_8h.html#a491db76bb06b2c1efff223eb7c05c8cc">sortLeaderboardTime</a></div><div class="ttdeci">void sortLeaderboardTime(Leaderboard *leaderboard)</div><div class="ttdoc">Sorts the given leaderboard based on the time of completion.</div><div class="ttdef"><b>Definition:</b> Score.c:171</div></div>
+<div class="ttc" id="a_score_8h_html_a5d021c64cc3918d81fce63247d29fa2e"><div class="ttname"><a href="_score_8h.html#a5d021c64cc3918d81fce63247d29fa2e">addScoreTime</a></div><div class="ttdeci">void addScoreTime(Leaderboard *leaderboard, char name[11], int manaUsed, int timeElapsed)</div><div class="ttdoc">Add the value of a score into the leaderboard if they are good enough (timeElapsed centered)</div><div class="ttdef"><b>Definition:</b> Score.c:136</div></div>
+<div class="ttc" id="a_score_8h_html_a84c388b69adee7b25c4ee132897fa0b1"><div class="ttname"><a href="_score_8h.html#a84c388b69adee7b25c4ee132897fa0b1">sortLeaderboardMana</a></div><div class="ttdeci">void sortLeaderboardMana(Leaderboard *leaderboard)</div><div class="ttdoc">Sorts the given leaderboard based on the mana used.</div><div class="ttdef"><b>Definition:</b> Score.c:161</div></div>
 <div class="ttc" id="a_score_8h_html_adc79ea14c2445050f05dbe77829516a4"><div class="ttname"><a href="_score_8h.html#adc79ea14c2445050f05dbe77829516a4">writeLeaderboardToBinaryFile</a></div><div class="ttdeci">void writeLeaderboardToBinaryFile(char *filepath, Leaderboard *leaderboard)</div><div class="ttdoc">Write the content of a leaderboard into a binary file at the specified file path.</div><div class="ttdef"><b>Definition:</b> Score.c:21</div></div>
-<div class="ttc" id="astruct_leaderboard_html"><div class="ttname"><a href="struct_leaderboard.html">Leaderboard</a></div><div class="ttdoc">Represents a leaderboard, holds up to 10 scores.</div><div class="ttdef"><b>Definition:</b> Score.h:35</div></div>
-<div class="ttc" id="astruct_score_html"><div class="ttname"><a href="struct_score.html">Score</a></div><div class="ttdoc">Data structure used to store information about a score and pass them to other functions.</div><div class="ttdef"><b>Definition:</b> Score.h:25</div></div>
+<div class="ttc" id="astruct_leaderboard_html"><div class="ttname"><a href="struct_leaderboard.html">Leaderboard</a></div><div class="ttdoc">Represents a leaderboard, holds up to 10 scores.</div><div class="ttdef"><b>Definition:</b> Score.h:36</div></div>
+<div class="ttc" id="astruct_score_html"><div class="ttname"><a href="struct_score.html">Score</a></div><div class="ttdoc">Data structure used to store information about a score and pass them to other functions.</div><div class="ttdef"><b>Definition:</b> Score.h:26</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,47 +1,49 @@
 \hypertarget{_entity_8h_source}{}\doxysection{Entity.\+h}
-\label{_entity_8h_source}\index{include/Entity.h@{include/Entity.h}}
+\label{_entity_8h_source}\index{Projet/include/Entity.h@{Projet/include/Entity.h}}
 \mbox{\hyperlink{_entity_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ }
 \DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ \_\_Entity\_\_}}
 \DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ \_\_Entity\_\_}}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_math_tools_8h}{MathTools.h}}"{}}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_terrain_8h}{Terrain.h}}"{}}}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ V\ 0.016}}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ DETECT\_RADIUS\ 4}}
-\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ PANIC\_RADIUS\ 6}}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
-\DoxyCodeLine{00039\ \ \ \ \ up,\ down,\ left,\ right}
-\DoxyCodeLine{00040\ \ \}\ \mbox{\hyperlink{_entity_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}};}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00046\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00047\ \ \ \ \mbox{\hyperlink{_entity_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}\ direction;}
-\DoxyCodeLine{00048\ \ \ \ \textcolor{keywordtype}{double}\ speed;}
-\DoxyCodeLine{00049\ \ \ \ \textcolor{keywordtype}{int}\ panic;}
-\DoxyCodeLine{00050\ \ \ \ \mbox{\hyperlink{struct_point}{Point}}\ location;}
-\DoxyCodeLine{00051\ \ \ \ \mbox{\hyperlink{struct_point}{Point}}\ lostRelic[3];}
-\DoxyCodeLine{00052\ \ \ \ \textcolor{keywordtype}{int}\ lostNb;}
-\DoxyCodeLine{00053\ \}\ \mbox{\hyperlink{struct_golem}{Golem}};}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00059\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ detected;}
-\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{int}\ mana;}
-\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{int}\ invisible;}
-\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{double}\ speed;}
-\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{double}\ speed\_max;}
-\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_player_a2be588bb70c79ffebc79b0398f5c5660}{speed\_verstappen}};}
-\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{struct_point}{Point}}\ location;}
-\DoxyCodeLine{00071\ \ \}\ \mbox{\hyperlink{struct_player}{Player}};}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00077\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00078\ \ \ \ \mbox{\hyperlink{struct_point}{Point}}\ location;}
-\DoxyCodeLine{00079\ \ \ \ \textcolor{keywordtype}{int}\ taken;}
-\DoxyCodeLine{00080\ \}\ \mbox{\hyperlink{struct_relic}{Relic}};}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ NDEBUG}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_math_tools_8h}{MathTools.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_terrain_8h}{Terrain.h}}"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ V\ 0.016}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ DETECT\_RADIUS\ 4}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ PANIC\_RADIUS\ 6}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ up,\ down,\ left,\ right}
+\DoxyCodeLine{00042\ \ \}\ \mbox{\hyperlink{_entity_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00049\ \ \ \ \mbox{\hyperlink{_entity_8h_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}\ direction;}
+\DoxyCodeLine{00050\ \ \ \ \textcolor{keywordtype}{double}\ speed;}
+\DoxyCodeLine{00051\ \ \ \ \textcolor{keywordtype}{int}\ panic;}
+\DoxyCodeLine{00052\ \ \ \ \mbox{\hyperlink{struct_point}{Point}}\ location;}
+\DoxyCodeLine{00053\ \ \ \ \mbox{\hyperlink{struct_point}{Point}}\ lostRelic[3];}
+\DoxyCodeLine{00054\ \ \ \ \textcolor{keywordtype}{int}\ lostNb;}
+\DoxyCodeLine{00055\ \}\ \mbox{\hyperlink{struct_golem}{Golem}};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{int}\ detected;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ mana;}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{int}\ invisible;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{double}\ speed;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{double}\ speed\_max;}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_player_a2be588bb70c79ffebc79b0398f5c5660}{speed\_verstappen}};}
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{struct_point}{Point}}\ location;}
+\DoxyCodeLine{00073\ \ \}\ \mbox{\hyperlink{struct_player}{Player}};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00080\ \ \ \ \mbox{\hyperlink{struct_point}{Point}}\ location;}
+\DoxyCodeLine{00081\ \ \ \ \textcolor{keywordtype}{int}\ taken;}
+\DoxyCodeLine{00082\ \}\ \mbox{\hyperlink{struct_relic}{Relic}};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}
